@@ -1,0 +1,44 @@
+select-brand .row .col{
+    border: 1px solid black;
+    text-align: center;
+}
+
+select-brand .row .col.selected{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: dodgerblue;
+}
+
+select-brand .row .col.audi.selected{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: red;
+}
+
+select-brand .row .col.skoda.selected{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: limegreen;
+}
+
+select-brand .row .col.seat.selected{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: darkred;
+}
+
+select-brand .row .col.vwnf.selected{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 6px;
+    border-color: dodgerblue;
+}
