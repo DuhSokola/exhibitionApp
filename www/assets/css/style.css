@@ -1,25 +1,27 @@
 /* Empty. Add your own CSS if you like */
 
 h1{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 h2{
+    font-size: 1.5rem;
     float:left;
 }
 
 .wrapper{
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 5vw;
     margin-right: 5vw;
 }
 
 .selectBrandContainer{
-    width:90vw;
+    width:80vw;
 }
 
 .selectBrandContainer .selectBrand{
     margin-top: 30px;
+    margin-left: 10vw;
 }
 
 .selectHostLanguageContainer{
@@ -29,7 +31,7 @@ h2{
 
 .selectHostLanguageContainer .hostLanguage{
     width: 30vw;
-    margin-top: -20px;
+    margin-top: -25px;
     float:right;
 }
 
