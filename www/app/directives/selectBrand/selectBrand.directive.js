@@ -12,7 +12,7 @@
             scope: {
                 ngModel: '='
             },
-            templateUrl:'/app/directives/selectBrand/selectBrand.tmpl.html',
+            templateUrl:'app/directives/selectBrand/selectBrand.tmpl.html',
             link: function (scope, element, attrs, SelectBrandCtrl) {
                 SelectBrandCtrl.init(element, scope);
             }
