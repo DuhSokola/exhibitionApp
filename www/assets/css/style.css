@@ -1,5 +1,35 @@
 /* Empty. Add your own CSS if you like */
-.selectBrand{
-    width:90vw;
-    margin-left: 5vw;
+
+h1{
+    font-size: 2rem;
 }
+
+h2{
+    float:left;
+}
+
+.wrapper{
+    margin-top: 30px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.selectBrandContainer{
+    width:90vw;
+}
+
+.selectBrandContainer .selectBrand{
+    margin-top: 30px;
+}
+
+.selectHostLanguageContainer{
+    margin-top:50px;
+    width: 60vw;
+}
+
+.selectHostLanguageContainer .hostLanguage{
+    width: 30vw;
+    margin-top: -20px;
+    float:right;
+}
+

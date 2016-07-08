@@ -1,8 +1,22 @@
 <ion-view view-title="Login">
     <ion-content class="padding">
 
-        <div class="selectBrand">
-            <select-brand ng-model="user.brand"></select-brand>
+        <div class="selectBrandContainer">
+            <h1>Marke wählen:</h1>
+
+            <div class="selectBrand">
+                <select-brand ng-model="user.brand"></select-brand>
+            </div>
+        </div>
+
+        <div class="selectHostLanguageContainer">
+            <h2>Sprache der Hostesse:</h2>
+
+            <div class="hostLanguage">
+
+                <select-language ng-model="user.language"></select-language>
+
+            </div>
         </div>
 
     </ion-content>
