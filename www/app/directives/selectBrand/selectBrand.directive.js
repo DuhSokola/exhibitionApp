@@ -34,10 +34,9 @@
                 column = $(column);
 
                 column.bind("click", function(){
-                    console.log(column.find('img').attr('data-value'));
+                    columns.removeClass('selected');
+                    column.addClass('selected');
                 });
-
-
             });
         };
 
