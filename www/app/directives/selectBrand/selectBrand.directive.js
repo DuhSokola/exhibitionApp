@@ -36,6 +36,8 @@
                 column.bind("click", function(){
                     columns.removeClass('selected');
                     column.addClass('selected');
+                    $scope.parent.ngModel = column.find('img').attr('data-value');
+                    $scope.$apply();
                 });
             });
         };

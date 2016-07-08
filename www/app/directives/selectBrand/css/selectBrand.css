@@ -1,44 +1,39 @@
 select-brand .row .col{
-    border: 1px solid black;
+    border: 6px solid #ffffff;
     text-align: center;
 }
 
-select-brand .row .col.selected{
+select-brand .row .col.vw.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border-width: 6px;
-    border-color: dodgerblue;
+    border: 6px solid #1e90ff;
 }
 
 select-brand .row .col.audi.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border-width: 6px;
-    border-color: red;
+    border: 6px solid #ff0000;
 }
 
 select-brand .row .col.skoda.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border-width: 6px;
-    border-color: limegreen;
+    border: 6px solid #32cd32;
 }
 
 select-brand .row .col.seat.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border-width: 6px;
-    border-color: darkred;
+    border: 6px solid #8b0000;
 }
 
 select-brand .row .col.vwnf.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border-width: 6px;
-    border-color: dodgerblue;
+    border: 6px solid #1e90ff;
 }
