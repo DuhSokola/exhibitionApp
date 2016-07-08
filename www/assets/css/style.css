@@ -30,7 +30,7 @@ h2{
 }
 
 .selectHostLanguageContainer .hostLanguage{
-    width: 30vw;
+    /*width: 32vw;*/
     margin-top: -25px;
     float:right;
 }

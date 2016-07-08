@@ -1,1 +1,4 @@
 /*Nothing here*/
+select-language .row .col{
+    width: 115px;
+}
