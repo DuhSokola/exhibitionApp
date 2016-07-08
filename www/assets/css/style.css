@@ -1,22 +1,23 @@
 /* Empty. Add your own CSS if you like */
 
 h1{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
-h2{
-    font-size: 1.5rem;
-    float:left;
-}
-
+/*Container for all contents */
 .wrapper{
-    margin-top: 20px;
     margin-left: 5vw;
     margin-right: 5vw;
 }
 
+
+/*Brand Selection*/
 .selectBrandContainer{
     width:80vw;
+}
+
+.selectBrandContainer h1{
+    float:left;
 }
 
 .selectBrandContainer .selectBrand{
@@ -24,14 +25,19 @@ h2{
     margin-left: 10vw;
 }
 
+/*Hostesse Selection*/
 .selectHostLanguageContainer{
-    margin-top:50px;
-    width: 63vw;
+    margin-top:30px;
+    margin-right: calc(50% - 160px);
 }
 
-.selectHostLanguageContainer .hostLanguage{
-    /*width: 32vw;*/
-    margin-top: -25px;
+.selectHostLanguageContainer .selectHostLanguage{
+    margin-top: -50px;
     float:right;
+}
+
+/*Campaign Selection*/
+.selectCampaignContainer{
+    margin-top:30px;
 }
 

@@ -3,6 +3,10 @@ select-brand .row .col{
     text-align: center;
 }
 
+select-brand .row .col img{
+    height: 90px;
+}
+
 select-brand .row .col.vw.selected{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;

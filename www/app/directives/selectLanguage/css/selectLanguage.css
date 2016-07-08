@@ -1,8 +1,34 @@
 /*Nothing here*/
-select-language .row .col{
-    width: 90px;
+select-language .row{
+    width: 400px;
 }
 
-select-language .row .col .item-content{
-    width: 110px;
+select-language .row .col{
+    width: 80px;
 }
+
+
+select-language .row .col .item{
+    width: 80px;
+    height: 40px;
+}
+
+select-language .row .col .item-radio{
+    border-radius: 10px;
+}
+
+select-language .row .col .item-radio .radio-content{
+    margin-top: -8px;
+}
+
+select-language .row .col .item-radio .radio-content .radio-icon{
+    margin-top: -13px;
+    margin-right: -2px;
+    color: #00a300;
+    font-size: 26px;
+}
+
+/*
+select-language .row .col .item-radio input:checked + .radio-content .item-content{
+    background-color: #00c200;
+}*/
