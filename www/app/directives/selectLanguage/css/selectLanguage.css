@@ -1,4 +1,8 @@
 /*Nothing here*/
 select-language .row .col{
-    width: 115px;
+    width: 90px;
+}
+
+select-language .row .col .item-content{
+    width: 110px;
 }
