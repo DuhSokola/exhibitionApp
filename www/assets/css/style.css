@@ -6,6 +6,7 @@ h1{
 
 /*Container for all contents */
 .wrapper{
+    margin-top:5vh;
     margin-left: 5vw;
     margin-right: 5vw;
 }
@@ -38,7 +39,7 @@ h1{
 /*Campaign Selection*/
 .selectCampaignContainer{
     margin-top:30px;
-    margin-right: calc(50% - 140px);
+    margin-right: calc(50% - 160px);
 }
 
 .selectCampaignContainer h1{
@@ -47,12 +48,13 @@ h1{
 
 .selectCampaignContainer .selectCampaign{
     float:right;
+    width: 375px;
 }
 
 /*User Selection*/
 .selectUserContainer{
     margin-top: 80px;
-    margin-right: calc(50% - 140px);
+    margin-right: calc(50% - 155px);
 }
 
 .selectUserContainer h1{
@@ -61,6 +63,7 @@ h1{
 
 .selectUserContainer .selectUser{
     float:right;
+    width: 370px;
 }
 
 .optionList{
@@ -73,10 +76,3 @@ h1{
 .ui-select-match{
     height: 0px;
 }
-
-.stuff{
-    width: 300px;
-}
-
-
-

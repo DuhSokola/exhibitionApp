@@ -1,7 +1,9 @@
 ;(function () {
     'use strict';
 
-    var dependencies = [];
+    var dependencies = [
+        'campaignResource'
+    ];
 
     var app = angular.module('app.selectCampaign.directive', dependencies);
 
@@ -10,7 +12,8 @@
             restrict: 'E',
             controller: 'SelectCampaignCtrl',
             scope: {
-                ngModel: '='
+                ngModel: '=',
+                selectList: '='
             },
             templateUrl: 'app/directives/selectCampaign/selectCampaign.tmpl.html',
             link: function (scope, element, attrs, SelectCampaignCtrl) {
@@ -19,19 +22,24 @@
         }
     });
 
-    app.controller('SelectCampaignCtrl', ['$scope', 'SelectCampaignService', function ($scope, SelectCampaignService) {
+    app.controller('SelectCampaignCtrl', ['$scope', function ($scope) {
         var self = this;
 
         this.init = function (element, scope) {
             self.$element = element;
             $scope.parent = scope;
-            SelectCampaignService.getCampaignList($scope, 'campaignList');
+            $scope.campaignList = undefined;
+
+            //bind selectList to $scope.campaignList
+            scope.$watch('selectList', function (val) {
+                $scope.campaignList = val;
+            });
         };
 
         $scope.$watch('campaignList', function (newVal) {
             if (newVal !== undefined && newVal !== '') {
                 if (newVal.constructor === Array) {
-                    if(newVal.length == 0){
+                    if (newVal.length == 0) {
                         $scope.campaignList = [{
                             code: 'noCampaign',
                             label: 'noCampaignInDb'
@@ -42,36 +50,15 @@
         });
 
         $scope.$watch('selectedCampaign', function (newVal) {
-            $scope.parent.ngModel = newVal;
+            if (newVal.constructor !== {}.constructor) {
+                try {
+                    $scope.parent.ngModel = JSON.parse(newVal);
+                }catch(ex){
+                    $scope.parent.ngModel = newVal;
+                }
+            }
         });
 
-    }]);
-
-    app.factory('SelectCampaignService', ['$http', 'promiseUtils', function ($http, promiseUtils) {
-
-        var getCampaignList = function (scope, attrName) {
-            promiseUtils.getPromiseHttpResult($http.get('https://www.leadcollector.amag.ch/exhibitionapp/backend/campaignlist?lang=de')).then(function (result) {
-                scope[attrName] = result;
-            });
-        };
-
-        return {
-            getCampaignList: getCampaignList
-        }
-    }]);
-
-    app.service('promiseUtils', ['$q', function ($q) {
-        return {
-            getPromiseHttpResult: function (httpPromise) {
-                var deferred = $q.defer();
-                httpPromise.success(function (data) {
-                    deferred.resolve(data);
-                }).error(function () {
-                    deferred.reject(arguments);
-                });
-                return deferred.promise;
-            }
-        }
     }]);
 
 }());

@@ -1,5 +1,6 @@
-<select ng-model="selectedUser">
-    <option value="">Person auswählen...</option>
-    <option ng-repeat="user in userList | orderBy:'name'" value="{{user}}">{{user.name}} {{user.surname}}</option>
-</select>
-
+<ui-select ng-model="selectedUser" ng-click="select(selectedUser)">
+    <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}} {{$select.selected.surname}}</ui-select-match>
+    <ui-select-choices repeat="item in userList | filter: $select.search">
+        <div ng-bind-html="(item.name + ' ' +item.surname)| highlight: $select.search"></div>
+    </ui-select-choices>
+</ui-select>
