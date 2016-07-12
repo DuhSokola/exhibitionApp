@@ -1,0 +1,5 @@
+<select ng-model="selectedUser">
+    <option value="">Person auswählen...</option>
+    <option ng-repeat="user in userList | orderBy:'name'" value="{{user}}">{{user.name}} {{user.surname}}</option>
+</select>
+

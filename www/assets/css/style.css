@@ -10,14 +10,13 @@ h1{
     margin-right: 5vw;
 }
 
-
 /*Brand Selection*/
 .selectBrandContainer{
     width:80vw;
 }
 
 .selectBrandContainer h1{
-    float:left;
+    margin-bottom: -25px;
 }
 
 .selectBrandContainer .selectBrand{
@@ -39,5 +38,45 @@ h1{
 /*Campaign Selection*/
 .selectCampaignContainer{
     margin-top:30px;
+    margin-right: calc(50% - 140px);
 }
+
+.selectCampaignContainer h1{
+    float:left;
+}
+
+.selectCampaignContainer .selectCampaign{
+    float:right;
+}
+
+/*User Selection*/
+.selectUserContainer{
+    margin-top: 80px;
+    margin-right: calc(50% - 140px);
+}
+
+.selectUserContainer h1{
+    float:left;
+}
+
+.selectUserContainer .selectUser{
+    float:right;
+}
+
+.optionList{
+    position:absolute;
+    width:100%;
+    z-index:100;
+    /* height:200px;*/
+}
+
+.ui-select-match{
+    height: 0px;
+}
+
+.stuff{
+    width: 300px;
+}
+
+
 

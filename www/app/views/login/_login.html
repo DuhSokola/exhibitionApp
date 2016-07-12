@@ -21,12 +21,31 @@
             <h1>Kampanie:</h1>
 
             <div class="selectCampaign">
-                <select class="ui dropdown">
-                    <option value="">Gender</option>
-                    <option value="1">Male</option>
-                    <option value="0">Female</option>
-                </select>
+                <select-campaign ng-model="user.campaign"></select-campaign>
             </div>
+        </div>
+
+        <div class="selectUserContainer">
+            <h1>Person:</h1>
+
+            <div class="selectUser">
+                <!--<select-user ng-model="user.userName"></select-user>-->
+                <!-- <ion-select label="Placa do Veículo" label-field="nmPlaca" provider="veiculos"  ng-model="veiculo"/>-->
+
+
+            </div>
+
+
+        </div>
+
+        <div class="stuff">
+            <ui-select ng-model="person.selected">
+                <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="item in people | filter: $select.search">
+                    <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    <small ng-bind-html="item.email | highlight: $select.search"></small>
+                </ui-select-choices>
+            </ui-select>
         </div>
 
     </ion-content>

@@ -1,0 +1,4 @@
+<select ng-model="selectedCampaign">
+    <option value="">Kampanie auswählen...</option>
+    <option ng-repeat="campaign in campaignList" value="{{campaign}}">{{campaign.label}}</option>
+</select>

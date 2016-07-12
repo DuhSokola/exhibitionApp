@@ -1,4 +1,3 @@
-/*Nothing here*/
 select-language .row{
     width: 400px;
 }
@@ -27,8 +26,3 @@ select-language .row .col .item-radio .radio-content .radio-icon{
     color: #00a300;
     font-size: 26px;
 }
-
-/*
-select-language .row .col .item-radio input:checked + .radio-content .item-content{
-    background-color: #00c200;
-}*/
