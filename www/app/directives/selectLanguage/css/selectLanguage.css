@@ -3,12 +3,12 @@ select-language .row{
 }
 
 select-language .row .col{
-    width: 80px;
+    width: 85px;
 }
 
 
 select-language .row .col .item{
-    width: 80px;
+    width: 85px;
     height: 40px;
 }
 
