@@ -65,7 +65,12 @@
 }
 
 .refreshButton{
-    padding-top: 40px;
+    padding-top: 65px;
+}
+
+.versionInfo{
+    padding-top: 65px;
+    margin-right:110px;
 }
 
 .ui-select-match{
