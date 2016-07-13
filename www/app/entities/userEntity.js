@@ -1,8 +1,7 @@
 ;(function () {
     'use strict';
 
-    var dependencies = [
-    ];
+    var dependencies = [];
 
     var app = angular.module('app.userEntity', dependencies);
 
@@ -16,39 +15,39 @@
         self.user.person = undefined;
 
         return {
-            getBrand : function(){
+            getBrand: function () {
                 return self.user.brand;
             },
-            setBrand : function(_brand){
+            setBrand: function (_brand) {
                 self.user.brand = _brand;
             },
 
-            getLanguage : function(){
+            getLanguage: function () {
                 return self.user.language;
             },
-            setLanguage : function(_language){
+            setLanguage: function (_language) {
                 self.user.language = _language;
             },
 
-            getCampaign : function(){
+            getCampaign: function () {
                 return self.user.campaign;
             },
-            setCampaign : function(_campaign){
+            setCampaign: function (_campaign) {
                 self.user.campaign = _campaign;
             },
 
-            getPerson: function(){
+            getPerson: function () {
                 return self.user.person;
             },
-            setPerson : function(_person){
+            setPerson: function (_person) {
                 self.user.person = _person;
             },
 
-            getUser : function(){
+            getUser: function () {
                 return self.user;
             },
-            setUser: function(_user){
-                self.user =_user
+            setUser: function (_user) {
+                self.user = _user
             }
         }
     });

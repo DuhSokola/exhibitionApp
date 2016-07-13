@@ -50,11 +50,13 @@
         });
 
         $scope.$watch('selectedCampaign', function (newVal) {
-            if (newVal.constructor !== {}.constructor) {
-                try {
-                    $scope.parent.ngModel = JSON.parse(newVal);
-                }catch(ex){
-                    $scope.parent.ngModel = newVal;
+            if (newVal) {
+                if (newVal.constructor !== {}.constructor) {
+                    try {
+                        $scope.parent.ngModel = JSON.parse(newVal);
+                    } catch (ex) {
+                        $scope.parent.ngModel = newVal;
+                    }
                 }
             }
         });

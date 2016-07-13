@@ -1,0 +1,51 @@
+<ion-view view-title="Login">
+    <ion-content class="padding">
+
+        <div class="selectBrandContainer">
+            <h1>Marke wählen:</h1>
+
+            <div class="selectBrand">
+                <select-brand ng-model="data.user.brand"></select-brand>
+            </div>
+        </div>
+
+        <div class="selectHostLanguageContainer">
+            <h1>Sprache der Hostesse:</h1>
+
+            <div class="selectHostLanguage">
+                <select-language ng-model="data.user.language"></select-language>
+            </div>
+        </div>
+
+        <div class="selectCampaignContainer">
+            <h1>Kampanie:</h1>
+
+            <div class="selectCampaign">
+                <select-campaign ng-model="data.user.campaign" select-list="ui.campaignList"></select-campaign>
+            </div>
+        </div>
+
+        <div class="selectUserContainer">
+            <h1>Person:</h1>
+
+            <div class="selectUser">
+                <select-user ng-model="data.user.person" select-list="ui.personList"></select-user>
+                <!-- <ion-select label="Placa do Veículo" label-field="nmPlaca" provider="veiculos"  ng-model="veiculo"/>-->
+            </div>
+        </div>
+
+        <div class="loginButton">
+            <button class="button button-positive" ng-click="login();">
+                Erfassung starten
+            </button>
+        </div>
+
+        <div class="refreshButton">
+            <button class="button button-stable">
+                Daten aktualisieren
+                <icon style="font-size: 20px" class="ion-ios-loop-strong"></icon>
+            </button>
+        </div>
+
+    </ion-content>
+</ion-view>

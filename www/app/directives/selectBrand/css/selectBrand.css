@@ -4,7 +4,7 @@ select-brand .row .col{
 }
 
 select-brand .row .col img{
-    height: 90px;
+    height: 120px;
 }
 
 select-brand .row .col.vw.selected{

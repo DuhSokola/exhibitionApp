@@ -2,7 +2,8 @@
     'use strict';
 
     var deps = [
-        'app.login'
+        'app.login',
+        'app.selectModel'
     ];
 
     var app = angular.module('app.route', deps);
@@ -15,12 +16,13 @@
             controller: 'LoginCtrl'
         });
 
-        /*$stateProvider.state('selectModel', {
+        $stateProvider.state('selectModel', {
             url: '/selectModel',
-            templateUrl: 'templates/main/selectModel.html',
+            templateUrl: 'app/views/selectModel/_selectModel.html',
             controller: 'SelectModelCtrl'
         });
 
+        /*
         $stateProvider.state('selectCountry', {
             url: '/selectCountry',
             templateUrl: 'templates/main/selectCountry.html',

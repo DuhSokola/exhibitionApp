@@ -1,0 +1,73 @@
+/*Brand Selection*/
+.selectBrandContainer{
+    width:85vw;
+}
+
+.selectBrandContainer h1{
+    margin-bottom: -10px;
+}
+
+.selectBrandContainer .selectBrand{
+    margin-top: 30px;
+    margin-left: 6vw;
+}
+
+/*Hostesse Selection*/
+.selectHostLanguageContainer{
+    margin-top:45px;
+    margin-right: calc(50% - 140px);
+}
+
+.selectHostLanguageContainer .selectHostLanguage{
+    margin-top: -50px;
+    float:right;
+}
+
+/*Campaign Selection*/
+.selectCampaignContainer{
+    margin-top:45px;
+    margin-right: calc(50% - 140px);
+}
+
+.selectCampaignContainer h1{
+    float:left;
+}
+
+.selectCampaignContainer .selectCampaign{
+    float:right;
+    width: 375px;
+}
+
+/*User Selection*/
+.selectUserContainer{
+    margin-top: 105px;
+    padding-bottom: 50px;
+    margin-right: calc(50% - 135px);
+}
+
+.selectUserContainer h1{
+    float:left;
+}
+
+.selectUserContainer .selectUser{
+    float:right;
+    width: 370px;
+}
+
+.loginButton{
+    padding-top: 40px;
+    margin-left: calc(50% - 160px);
+}
+
+.loginButton button{
+    width: 230px;
+    height: 50px;
+}
+
+.refreshButton{
+    padding-top: 40px;
+}
+
+.ui-select-match{
+    height: 0px;
+}
