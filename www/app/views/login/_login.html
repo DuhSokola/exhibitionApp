@@ -35,15 +35,16 @@
         </div>
 
         <div class="loginButton">
-            <button class="button button-positive" ng-click="login();">
+            <button class="button button-balanced" ng-click="login();">
                 Erfassung starten
+                <icon class="ion-ios-arrow-forward"></icon>
             </button>
         </div>
 
         <div class="refreshButton" style="float:left;">
-            <button class="button button-stable">
-                Daten aktualisieren
+            <button class="button button-stable" ng-click="reloadData()">
                 <icon style="font-size: 20px" class="ion-ios-loop-strong"></icon>
+                Daten aktualisieren
             </button>
         </div>
 

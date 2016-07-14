@@ -8,7 +8,8 @@
 
 var deps = [
     'ionic',
-    'app.route'
+    'app.route',
+    'pascalprecht.translate'
 ];
 
 angular.module('starter', deps)
@@ -28,5 +29,17 @@ angular.module('starter', deps)
             }
         });
     })
+    
+.config(function($translateProvider){
+    /**
+     * Translations
+     */
+    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useStaticFilesLoader({
+        prefix: '../assets/i18n/lang-',
+        suffix: '.json'
+    });
+    $translateProvider.preferredLanguage('de'); 
+});
 
     

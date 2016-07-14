@@ -1,9 +1,11 @@
 <ion-view view-title="SelectModel">
     <ion-content class="padding">
+
         <div class="selectModelView">
             <div class="row">
                 <div class="col">
-                    <button class="button button-positive buttonClearSelects">
+                    <button class="button button-assertive buttonClearSelects">
+                        <icon class="ion-ios-close"></icon>
                         Auswahl zurücksetzen
                     </button>
                 </div>
@@ -13,8 +15,9 @@
                     </h1>
                 </div>
                 <div class="col">
-                    <button class="button button-positive buttonNext" style="float:right;">
+                    <button class="button button-balanced buttonNext" style="float:right;">
                         Weiter
+                        <icon class="ion-ios-arrow-forward"></icon>
                     </button>
                 </div>
             </div>
@@ -23,22 +26,45 @@
                 <div class="col"></div>
                 <div class="col selectLeadType">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default">Left</button>
-                        <button type="button" class="btn btn-default">Middle</button>
-                        <button type="button" class="btn btn-default">Right</button>
+                        <button type="button" class="btn btn-default">Probefahrt</button>
+                        <button type="button" class="btn btn-default">Katalog</button>
+                        <button type="button" class="btn btn-default">Offerte</button>
                     </div>
                 </div>
                 <div class="col"></div>
             </div>
 
+            <br>
+
             <div class="row">
-                <ion-scroll zooming="false" direction="y" style="width: 49%; height: 600px; float:left;">
-                    <div style="width: 100%; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div>
+                <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:left;">
+                    <div class="tableRow" ng-repeat="item in ui.carList" ng-click="toggleSelectCar(item)">
+                        <label>{{item.label_de}}</label>
+                    </div>
                 </ion-scroll>
                 <div style="width: 2%"></div>
-                <ion-scroll zooming="false" direction="y" style="width: 49%; height: 600px; float:right;">
-                    <div style="width: 100%; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div>
+                <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:right;">
+                    <div class="tableRow" ng-repeat="item in ui.accessoryList" ng-click="toggleSelectAccessory(item)">
+                        <label>{{item.label_de}}</label>
+                    </div>
                 </ion-scroll>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <button class="button button-default buttonClearSelects">
+                        <icon class="ion-ios-home"></icon>
+                        Startseite
+                    </button>
+                </div>
+                <div class="col title">
+                    AutoZürich - VW- Hostesse
+                </div>
+                <div class="col">
+                    App Version:
+                </div>
             </div>
 
         </div>
