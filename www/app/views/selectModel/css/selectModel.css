@@ -1,7 +1,15 @@
 .selectModelView{
-    margin-right: 175px;
+    margin-right: 80px;
 }
 
-.selectModelView .col{
-    background: red;
+.selectModelView h1{
+    font-size: 30px;
+}
+
+.selectModelView .col.title h1{
+    padding-left: 30%;
+}
+
+.selectModelView .row .col.selectLeadType{
+    padding-left: 12.3%;
 }
