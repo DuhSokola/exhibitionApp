@@ -2,7 +2,7 @@
     <ion-content class="padding">
 
         <div class="selectBrandContainer">
-            <h1>Marke wählen:</h1>
+            <h1>{{'LOGIN_LABEL_SELECT_BRAND' | translate}}:</h1>
 
             <div class="selectBrand">
                 <select-brand ng-model="data.user.brand"></select-brand>
@@ -10,7 +10,7 @@
         </div>
 
         <div class="selectHostLanguageContainer">
-            <h1>Sprache der Hostesse:</h1>
+            <h1>{{'LOGIN_LABEL_SELECT_LANGUAGE' | translate}}:</h1>
 
             <div class="selectHostLanguage">
                 <select-language ng-model="data.user.language"></select-language>
@@ -18,15 +18,15 @@
         </div>
 
         <div class="selectCampaignContainer">
-            <h1>Kampanie:</h1>
+            <h1>{{'LOGIN_LABEL_SELECT_CAMPAIGN' | translate}}:</h1>
 
             <div class="selectCampaign">
-                <select-campaign ng-model="data.user.campaign" select-list="ui.campaignList"></select-campaign>
+                <select-campaign sl-label="{{'LOGIN_PLACEHOLDER_SELECT_CAMPAIGN'|translate}}" ng-model="data.user.campaign" select-list="ui.campaignList"></select-campaign>
             </div>
         </div>
 
         <div class="selectUserContainer">
-            <h1>Person:</h1>
+            <h1>{{'LOGIN_LABEL_SELECT_PERSON' | translate}}:</h1>
 
             <div class="selectUser">
                 <select-user ng-model="data.user.person" select-list="ui.personList"></select-user>
@@ -36,7 +36,7 @@
 
         <div class="loginButton">
             <button class="button button-balanced" ng-click="login();">
-                Erfassung starten
+                {{'LOGIN_BUTTON_LOGIN' | translate}}
                 <icon class="ion-ios-arrow-forward"></icon>
             </button>
         </div>
@@ -44,14 +44,22 @@
         <div class="refreshButton" style="float:left;">
             <button class="button button-stable" ng-click="reloadData()">
                 <icon style="font-size: 20px" class="ion-ios-loop-strong"></icon>
-                Daten aktualisieren
+                {{'LOGIN_BUTTON_REFRESH_DATA' | translate}}
+            </button>
+        </div>
+
+        <div class="resendLeadsButton" style="float:left;">
+            <button class="button button-assertive" ng-click="resendLead()">
+                <icon style="font-size: 20px" class="ion-paper-airplane"></icon>
+                <!--TODO Number of failed Leads-->
+                10 {{'LOGIN_BUTTON_RESEND_LEADS' | translate}}
             </button>
         </div>
 
         <!--TODO-->
         <div class="versionInfo" style="float:right;">
-            <p>App-Version: 1.0</p>
-            <p>Modelldaten: 13.07.2016 11:53</p>
+            <p>{{'GLOBAL_APP_VERSION' | translate}}: 1.0</p>
+            <p>{{'LOGIN_LABEL_MODEL_DATA_FROM' | translate}}: 13.07.2016 11:53</p>
         </div>
 
         <!--TODO Modelldaten, Popups, Lokale Kundendaten übertragen Button -->

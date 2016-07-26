@@ -1,7 +1,23 @@
 {
+  "GLOBAL_BUTTON_NEXT" : "Weiter",
+  "GLOBAL_BUTTON_HOME" : "Startseite",
+  "GLOBAL_APP_VERSION" : "App-Version",
+
+
   "LOGIN_LABEL_SELECT_BRAND" : "Marke wählen",
   "LOGIN_LABEL_SELECT_LANGUAGE" : "Sprache der Hostesse",
   "LOGIN_LABEL_SELECT_CAMPAIGN" : "Kampanie",
-  "LOGIN_LABEL_SELECT_PERSON" : "Person"
+  "LOGIN_PLACEHOLDER_SELECT_CAMPAIGN": "Kampanie auswählen...",
+  "LOGIN_LABEL_SELECT_PERSON" : "Person",
+  "LOGIN_PLACEHOLDER_SELECT_PERSON" : "Person suchen:",
+  "LOGIN_BUTTON_LOGIN" : "Erfassung starten",
+  "LOGIN_BUTTON_REFRESH_DATA" : "Daten aktualisieren",
+  "LOGIN_BUTTON_RESEND_LEADS" : "fehlgeschlagene Leads absenden",
+  "LOGIN_LABEL_MODEL_DATA_FROM" : "Modelldaten:",
 
+  "SELECTMODEL_TITLE" : "Fahrzeuge",
+  "SELECTMODEL_BUTTON_RESET" : "Auswahl zurücksetzen",
+  "SELECTMODEL_CHECKFIELD_TESTDRIVE" : "Probefahrt",
+  "SELECTMODEL_CHECKFIELD_CATALOG" : "Katalog",
+  "SELECTMODEL_CHECKFIELD_OFFER" : "Offerte"
 }

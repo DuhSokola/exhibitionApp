@@ -6,17 +6,17 @@
                 <div class="col">
                     <button class="button button-assertive buttonClearSelects">
                         <icon class="ion-ios-close"></icon>
-                        Auswahl zurücksetzen
+                        {{'SELECTMODEL_BUTTON_RESET' | translate}}
                     </button>
                 </div>
                 <div class="col title">
                     <h1>
-                        Fahrzeuge
+                        {{'SELECTMODEL_TITLE' | translate}}
                     </h1>
                 </div>
                 <div class="col">
                     <button class="button button-balanced buttonNext" style="float:right;">
-                        Weiter
+                        {{'GLOBAL_BUTTON_NEXT' | translate}}
                         <icon class="ion-ios-arrow-forward"></icon>
                     </button>
                 </div>
@@ -26,9 +26,9 @@
                 <div class="col"></div>
                 <div class="col selectLeadType">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default">Probefahrt</button>
-                        <button type="button" class="btn btn-default">Katalog</button>
-                        <button type="button" class="btn btn-default">Offerte</button>
+                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_TESTDRIVE' | translate}}</button>
+                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}}</button>
+                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_OFFER' | translate}}</button>
                     </div>
                 </div>
                 <div class="col"></div>
@@ -54,16 +54,16 @@
 
             <div class="row">
                 <div class="col">
-                    <button class="button button-default buttonClearSelects">
+                    <button class="button button-default buttonClearSelects" ng-click="goToHomePage()">
                         <icon class="ion-ios-home"></icon>
-                        Startseite
+                        {{'GLOBAL_BUTTON_HOME' | translate}}
                     </button>
                 </div>
                 <div class="col title">
-                    AutoZürich - VW- Hostesse
+                    AutoZürich - VW - Hostesse
                 </div>
                 <div class="col">
-                    App Version:
+                    {{'GLOBAL_APP_VERSION' | translate}}:
                 </div>
             </div>
 

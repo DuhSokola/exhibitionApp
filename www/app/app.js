@@ -34,7 +34,7 @@ angular.module('starter', deps)
     /**
      * Translations
      */
-    $translateProvider.useSanitizeValueStrategy('sanitize');
+    //$translateProvider.useSanitizeValueStrategy('sanitize');
     $translateProvider.useStaticFilesLoader({
         prefix: '../assets/i18n/lang-',
         suffix: '.json'

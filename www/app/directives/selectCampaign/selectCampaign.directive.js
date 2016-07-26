@@ -13,11 +13,11 @@
             controller: 'SelectCampaignCtrl',
             scope: {
                 ngModel: '=',
-                selectList: '='
+                selectList: '=',
             },
             templateUrl: 'app/directives/selectCampaign/selectCampaign.tmpl.html',
             link: function (scope, element, attrs, SelectCampaignCtrl) {
-                SelectCampaignCtrl.init(element, scope);
+                SelectCampaignCtrl.init(element, scope, attrs);
             }
         }
     });
@@ -25,10 +25,11 @@
     app.controller('SelectCampaignCtrl', ['$scope', function ($scope) {
         var self = this;
 
-        this.init = function (element, scope) {
+        this.init = function (element, scope, attrs) {
             self.$element = element;
             $scope.parent = scope;
             $scope.campaignList = undefined;
+            $scope.label = attrs.slLabel;
 
             //bind selectList to $scope.campaignList
             scope.$watch('selectList', function (val) {
