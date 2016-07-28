@@ -9,7 +9,8 @@
 var deps = [
     'ionic',
     'app.route',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'carData'
 ];
 
 angular.module('starter', deps)
@@ -29,17 +30,23 @@ angular.module('starter', deps)
             }
         });
     })
-    
-.config(function($translateProvider){
-    /**
-     * Translations
-     */
-    //$translateProvider.useSanitizeValueStrategy('sanitize');
-    $translateProvider.useStaticFilesLoader({
-        prefix: '../assets/i18n/lang-',
-        suffix: '.json'
+
+    .config(function ($translateProvider) {
+        /**
+         * Translations
+         */
+        //$translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useStaticFilesLoader({
+            prefix: '../assets/i18n/lang-',
+            suffix: '.json'
+        });
+        $translateProvider.preferredLanguage('de');
+
+    })
+
+    .run(function ($rootScope, CarDataService) {
+        $rootScope.appVersion = '1.0';
+        CarDataService.initCarData();
     });
-    $translateProvider.preferredLanguage('de'); 
-});
 
     

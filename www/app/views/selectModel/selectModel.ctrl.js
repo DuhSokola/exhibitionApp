@@ -3,12 +3,13 @@
 
     var dependencies = [
         'carResource',
-        'accessoryResource'
+        'accessoryResource',
+        'carData'
     ];
 
     var app = angular.module('app.selectModel.ctrl', dependencies);
 
-    app.controller('SelectModelCtrl', ['$scope', '$state', 'UserEntity', 'CarResourceService', 'AccessoryResourceService', '$timeout', function ($scope, $state, UserEntity, CarResourceService, AccessoryResourceService, $timeout) {
+    app.controller('SelectModelCtrl', ['$scope', '$rootScope', '$state', 'UserEntity', 'CarDataService', 'AccessoryResourceService', '$timeout', function ($scope, $rootScope, $state, UserEntity, CarDataService, AccessoryResourceService, $timeout) {
         $scope.ui = {};
         $scope.data = {};
 
@@ -25,9 +26,11 @@
             $scope.ui.brand = UserEntity.getBrand();
             $scope.ui.person = UserEntity.getPerson();
 
+            //TODO
             $scope.ui.brand = 'seat';
 
-            CarResourceService.getAllByBrand($scope.ui.brand, $scope.ui, 'carList');
+            $scope.ui.carList = CarDataService.getCarData();
+
             AccessoryResourceService.getAllByBrand($scope.ui.brand, $scope.ui, 'accessoryList');
         };
 

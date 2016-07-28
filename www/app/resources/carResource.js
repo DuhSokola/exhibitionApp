@@ -2,6 +2,7 @@
     'use strict';
 
     var deps = [
+        'promiseUtils'
     ];
 
     var app = angular.module('carResource', deps);
@@ -19,8 +20,8 @@
             var onError = function(errorData){
                 console.log(errorData);
             };
-
-            $http.get(self.endpoint + '?brand=' + brand + '&type=model').then(onSuccess,onError);
+            
+            return $http.get(self.endpoint + '?brand=' + brand + '&type=model').then(onSuccess, onError);
         };
 
         return{

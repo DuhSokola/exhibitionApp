@@ -11,7 +11,12 @@
 }
 
 .selectModelView .row .col.selectLeadType{
-    padding-left: 12.3%;
+    padding-top: 20px;
+    padding-left: calc(50% - 175px);
+}
+
+.selectModelView .row .col.selectLeadType button{
+    width: 120px;
 }
 
 .selectModelView .row ion-scroll .tableRow{
@@ -21,4 +26,14 @@
 
 .selectModelView .row ion-scroll .tableRow.selected{
     background-color: #00ff91;
+}
+
+.selectModelView .row .col.info{
+    padding-top:18px;
+    padding-left: 165px;
+}
+
+.selectModelView .row .col.version{
+    padding-top:18px;
+    padding-left: 145px;
 }

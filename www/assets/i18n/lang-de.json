@@ -13,7 +13,7 @@
   "LOGIN_BUTTON_LOGIN" : "Erfassung starten",
   "LOGIN_BUTTON_REFRESH_DATA" : "Daten aktualisieren",
   "LOGIN_BUTTON_RESEND_LEADS" : "fehlgeschlagene Leads absenden",
-  "LOGIN_LABEL_MODEL_DATA_FROM" : "Modelldaten:",
+  "LOGIN_LABEL_MODEL_DATA_FROM" : "Modelldaten",
 
   "SELECTMODEL_TITLE" : "Fahrzeuge",
   "SELECTMODEL_BUTTON_RESET" : "Auswahl zurücksetzen",
