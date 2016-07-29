@@ -19,5 +19,12 @@
   "SELECTMODEL_BUTTON_RESET" : "Auswahl zurücksetzen",
   "SELECTMODEL_CHECKFIELD_TESTDRIVE" : "Probefahrt",
   "SELECTMODEL_CHECKFIELD_CATALOG" : "Katalog",
-  "SELECTMODEL_CHECKFIELD_OFFER" : "Offerte"
+  "SELECTMODEL_CHECKFIELD_OFFER" : "Offerte",
+
+  "SELECTCOUNTRY_TITLE" : "Interessentensuche",
+  "SELECTCOUNTRY_BUTTON_BACK" : "Zurück zur Auswahl",
+  "SELECTCOUNTRY_BUTTON_SWISS" : "Schweizer Interessenten",
+  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Ausländische Interessenten",
+
+  "SELECTCOUNTRY_LABEL_LANGUAGE" : "Korrespondenzsprache"
 }

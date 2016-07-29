@@ -10,12 +10,14 @@
         'ngSanitize',
         'personResource',
         'campaignResource',
-        'app.userEntity'
+        'app.userEntity',
+        'carData',
+        'accessoryData'
     ];
 
     var app = angular.module('app.login.ctrl', dependencies);
 
-    app.controller('LoginCtrl', ['$scope', '$state', 'PersonResourceService', 'CampaignResourceService', 'UserEntity', function ($scope, $state, PersonResourceService, CampaignResourceService, UserEntity) {
+    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity) {
         //define $scope objects for UI
         $scope.ui = {};
         $scope.ui.campaignList = undefined;
@@ -45,9 +47,16 @@
                 console.log("Campaign: " + UserEntity.getCampaign().label);
                 console.log("Person: " + UserEntity.getPerson().name + ' ' + UserEntity.getPerson().surname);
                 
+                $rootScope.refresh = true;
                 $state.go('selectModel');
             }
-        }
+        };
+
+        $scope.reloadData = function(){
+            CarDataService.reloadCarData();
+            AccessoryDataService.reloadAccessoryData();
+            console.log('reload Data');
+        };
 
         var fieldsAreValid = function () {
             if (!$scope.data.user.brand || !$scope.data.user.language || !$scope.data.user.campaign || !$scope.data.user.person) {

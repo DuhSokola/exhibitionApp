@@ -10,7 +10,8 @@ var deps = [
     'ionic',
     'app.route',
     'pascalprecht.translate',
-    'carData'
+    'carData',
+    'accessoryData'
 ];
 
 angular.module('starter', deps)
@@ -44,9 +45,10 @@ angular.module('starter', deps)
 
     })
 
-    .run(function ($rootScope, CarDataService) {
+    .run(function ($rootScope, CarDataService, AccessoryDataService) {
         $rootScope.appVersion = '1.0';
         CarDataService.initCarData();
+        AccessoryDataService.initAccessoryData();
     });
 
     

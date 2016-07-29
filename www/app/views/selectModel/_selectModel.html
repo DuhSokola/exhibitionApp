@@ -4,7 +4,7 @@
         <div class="selectModelView">
             <div class="row">
                 <div class="col">
-                    <button class="button button-assertive buttonClearSelects">
+                    <button class="button button-assertive buttonClearSelects" ng-click="resetLead()">
                         <icon class="ion-ios-close"></icon>
                         {{'SELECTMODEL_BUTTON_RESET' | translate}}
                     </button>
@@ -15,7 +15,7 @@
                     </h1>
                 </div>
                 <div class="col">
-                    <button class="button button-balanced buttonNext" style="float:right;">
+                    <button class="button button-balanced buttonNext" ng-click="goToCountrySelect()">
                         {{'GLOBAL_BUTTON_NEXT' | translate}}
                         <icon class="ion-ios-arrow-forward"></icon>
                     </button>
@@ -25,9 +25,18 @@
             <div class="row">
                 <div class="col selectLeadType">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_TESTDRIVE' | translate}}</button>
-                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}}</button>
-                        <button type="button" class="btn btn-default">{{'SELECTMODEL_CHECKFIELD_OFFER' | translate}}</button>
+                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'testdrive')">
+                            <icon class="icon ion-checkmark-round hidden"></icon>
+                            {{'SELECTMODEL_CHECKFIELD_TESTDRIVE' | translate}}
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'catalog')">
+                            <icon class="icon ion-checkmark-round hidden"></icon>
+                            {{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}}
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'offer')">
+                            <icon class="icon ion-checkmark-round hidden"></icon>
+                            {{'SELECTMODEL_CHECKFIELD_OFFER' | translate}}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -36,13 +45,17 @@
 
             <div class="row">
                 <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:left;">
-                    <div class="tableRow" ng-repeat="item in ui.carList[ui.brand]" ng-click="toggleSelectCar(item)">
+                    <div class="tableRow" ng-repeat="item in ui.carList[ui.brand]" ng-click="toggleSelectCar($event, item)">
+                        <icon class="icon ion-checkmark-round hidden"></icon>
                         <label>{{item.label_de}}</label>
                     </div>
                 </ion-scroll>
+
                 <div style="width: 2%"></div>
+
                 <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:right;">
-                    <div class="tableRow" ng-repeat="item in ui.accessoryList" ng-click="toggleSelectAccessory(item)">
+                    <div class="tableRow" ng-repeat="item in ui.accessoryList[ui.brand]" ng-click="toggleSelectAccessory($event, item)">
+                        <icon class="icon ion-checkmark-round hidden"></icon>
                         <label>{{item.label_de}}</label>
                     </div>
                 </ion-scroll>
@@ -51,17 +64,17 @@
             <br>
 
             <div class="row">
-                <div class="col">
-                    <button class="button button-default buttonClearSelects" ng-click="goToHomePage()">
+                <div class="col home">
+                    <button class="button button-default" ng-click="goToHomePage()">
                         <icon class="ion-ios-home"></icon>
                         {{'GLOBAL_BUTTON_HOME' | translate}}
                     </button>
                 </div>
                 <div class="col info">
-                    AutoZürich - VW - Hostesse
+                    {{ui.campaign.label}} - {{ui.brand.toUpperCase()}} - {{ui.person.name}} {{ui.person.surname}}
                 </div>
                 <div class="col version">
-                    {{'GLOBAL_APP_VERSION' | translate}}:
+                    {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
                 </div>
             </div>
 

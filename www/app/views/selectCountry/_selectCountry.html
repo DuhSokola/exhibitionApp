@@ -1,0 +1,52 @@
+<ion-view view-title="SelectModel">
+    <ion-content class="padding">
+
+        <div class="selectCountryView">
+            <div class="row">
+                <div class="col">
+                    <button class="button button-energized" ng-click="goBack()">
+                        <icon class="ion-chevron-left"></icon>
+                        {{'SELECTCOUNTRY_BUTTON_BACK' | translate}}
+                    </button>
+                </div>
+                <div class="col title">
+                    <h1>
+                        {{'SELECTCOUNTRY_TITLE' | translate}}
+                    </h1>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+
+            <div class="selectLanguage">
+                <label class="lbSelect">{{'SELECTCOUNTRY_LABEL_LANGUAGE' | translate}}</label>
+                <select-language ng-model="data.customer.language"></select-language>
+            </div>
+
+            <div class="row selectCountryButtons">
+                <button class="button button-stable" ng-click="selectCountry('ch')">
+                    {{'SELECTCOUNTRY_BUTTON_SWISS' | translate}}
+                </button>
+                <button class="button button-stable" ng-click="selectCountry('foreign')">
+                    {{'SELECTCOUNTRY_BUTTON_FOREIGN' | translate}}
+                </button>
+            </div>
+
+            <div class="row footerBar">
+                <div class="col home">
+                    <button class="button button-default" ng-click="goToHomePage()">
+                        <icon class="ion-ios-home"></icon>
+                        {{'GLOBAL_BUTTON_HOME' | translate}}
+                    </button>
+                </div>
+                <div class="col info">
+                    {{ui.campaign.label}} - {{ui.brand.toUpperCase()}} - {{ui.person.name}} {{ui.person.surname}}
+                </div>
+                <div class="col version">
+                    {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+.selectCountryView{
+    margin-right: 80px;
+}
+
+.selectCountryView h1{
+    font-size: 30px;
+}
+
+.selectCountryView .col.title h1{
+    text-align: center;
+}
+
+.selectCountryView .selectCountryButtons{
+    margin-top: 50px;
+    margin-left: calc(50% - 330px);
+}
+
+.selectCountryView .selectCountryButtons button{
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.selectCountryView .selectCountryButtons button:first-child{
+    margin-right: 20px;
+}
+
+.selectCountryView .selectLanguage{
+    margin-top: 70px;
+    margin-left: calc(50% - 180px);
+}
+
+.selectCountryView .selectLanguage label.lbSelect{
+    margin-left: 70px;
+    font-size: 18px;
+}
+
+.selectCountryView .footerBar{
+    margin-top: 130px;
+}
+
+.selectCountryView .row .col.info{
+    padding-top:18px;
+    text-align: center;
+    margin-left:-50px;
+    margin-right: -50px;
+}
+
+.selectCountryView .row .col.version{
+    padding-top:18px;
+    text-align: right;
+}
+

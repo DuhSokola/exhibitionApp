@@ -19,21 +19,42 @@
     width: 120px;
 }
 
+.selectModelView .row .col.selectLeadType button.selected{
+    background-color: #32cd32;
+}
+
 .selectModelView .row ion-scroll .tableRow{
     height: 30px;
     border-bottom: 1px solid black;
+    font-size: 19px;
 }
 
 .selectModelView .row ion-scroll .tableRow.selected{
-    background-color: #00ff91;
+    background-color: #91de2f;
+}
+
+.selectModelView .row ion-scroll .tableRow icon{
+    color:green;
+    padding-left: 5px;
+    font-size: 19px;
+}
+
+.selectModelView .row ion-scroll .tableRow label{
+    padding-left:5px;
 }
 
 .selectModelView .row .col.info{
     padding-top:18px;
-    padding-left: 165px;
+    text-align: center;
+    margin-left:-50px;
+    margin-right: -50px;
 }
 
 .selectModelView .row .col.version{
     padding-top:18px;
-    padding-left: 145px;
+    text-align: right;
+}
+
+.selectModelView .buttonNext{
+    float:right;
 }

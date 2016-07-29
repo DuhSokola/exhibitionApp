@@ -3,7 +3,8 @@
 
     var deps = [
         'app.login',
-        'app.selectModel'
+        'app.selectModel',
+        'app.selectCountry'
     ];
 
     var app = angular.module('app.route', deps);
@@ -25,13 +26,13 @@
             controller: 'SelectModelCtrl'
         });
 
-        /*
         $stateProvider.state('selectCountry', {
             url: '/selectCountry',
-            templateUrl: 'templates/main/selectCountry.html',
+            templateUrl: 'app/views/selectCountry/_selectCountry.html',
             controller: 'SelectCountryCtrl'
         });
 
+        /*
         $stateProvider.state('searchCustomer', {
             url: '/searchCustomer',
             templateUrl: 'templates/main/searchCustomer.html',
