@@ -4,7 +4,9 @@
     var deps = [
         'app.login',
         'app.selectModel',
-        'app.selectCountry'
+        'app.selectCountry',
+        'app.searchCustomer',
+        'app.customerForm'
     ];
 
     var app = angular.module('app.route', deps);
@@ -32,31 +34,17 @@
             controller: 'SelectCountryCtrl'
         });
 
-        /*
         $stateProvider.state('searchCustomer', {
             url: '/searchCustomer',
-            templateUrl: 'templates/main/searchCustomer.html',
+            templateUrl: 'app/views/searchCustomer/_searchCustomer.html',
             controller: 'SearchCustomerCtrl'
         });
 
-        $stateProvider.state('form', {
-            url: '/form',
-            templateUrl: 'templates/main/form.html',
-            controller: 'FormCtrl'
-        });*/
-
-        // Each tab has its own nav history stack:
-
-        /*.state('tab.dash', {
-         url: '/dash',
-         views: {
-         'tab-dash': {
-         templateUrl: 'templates/main/tab-dash.html',
-         controller: 'DashCtrl'
-         }
-         }
-         })*/
-
+        $stateProvider.state('customerForm', {
+            url: '/customerForm',
+            templateUrl: 'app/views/customerForm/_customerForm.html',
+            controller: 'CustomerFormCtrl'
+        });
 
     });
 

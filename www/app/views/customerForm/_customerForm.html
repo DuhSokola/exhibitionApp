@@ -1,0 +1,164 @@
+<ion-view view-title="CustomerForm">
+    <ion-content class="padding">
+
+        <div class="customerForm">
+            <div class="row">
+                <div class="col">
+                    <button class="button button-energized" ng-click="goBack()">
+                        <icon class="ion-chevron-left"></icon>
+                        {{'GLOBAL_BUTTON_BACK' | translate}}
+                    </button>
+                </div>
+                <div class="col title">
+                    <h1>
+                        {{'CUSTOMERFORM_TITLE' | translate}}
+                    </h1>
+                </div>
+                <div class="col">
+                    <button class="button button-assertive right" ng-click="goBack()">
+                        {{'CUSTOMERFORM_BUTTON_RESET_FORM' | translate}}
+                        <icon class="ion-ios-close"></icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form">
+                <div class="row">
+                    <div class="col">
+                        <div class="input-form">
+                            <ion-scroll class="input-form-scroll" zooming="false" direction="y">
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="button button-royal btn-refresh" ng-click="goBack()">
+                                            <icon class="ion-refresh"></icon>
+                                            {{'CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA' | translate}}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="catalogTyp">
+                                            <h4 class="checkbox-label">Katalog</h4>
+                                            <div class="radios">
+                                                <ion-radio id="radioElectronic" name="catalogTyp" ng-model="catalogTyp" ng-value="'electronic'" ng-click="selectCatalogTyp('electronic');">{{'CUSTOMERFORM_RADIO_CATALOG_ELECTRO' | translate}}</ion-radio>
+                                                <ion-radio id="radioPrinted" name="catalogTyp" ng-model="catalogTyp" ng-value="'printed'" ng-click="selectCatalogTyp('printed');">{{'CUSTOMERFORM_RADIO_CATALOG_PRINTED' | translate}}</ion-radio>
+                                            </div>
+                                        </div>
+
+                                        <div class="salutation">
+                                            <h4 class="checkbox-label">Ansprache</h4>
+                                            <div class="radios">
+                                                <ion-radio id="salutationM" name="salutation" ng-model="salutation" ng-value="'m'" ng-click="selectSalutation('m');">{{'CUSTOMERFORM_RADIO_SALUTATION_M' | translate}}</ion-radio>
+                                                <ion-radio id="salutationF" name="salutation" ng-model="salutation" ng-value="'f'" ng-click="selectSalutation('f');">{{'CUSTOMERFORM_RADIO_SALUTATION_F' | translate}}</ion-radio>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col">
+                                        <div class="leadInfo">
+                                            <ion-scroll zooming="false" direction="y">
+                                                Testdrive:<!--TODO Selected Typ-->
+                                                <br>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3AA3A3A3</span>
+                                                <span>A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3AA3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3AA3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+                                            </ion-scroll>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="custom-input firstname" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.firstname">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="custom-input lastname" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}" ng-model="data.lastname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="custom-input firm" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRM'|translate}}" ng-model="data.firstname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-75">
+                                        <input type="text" class="custom-input street" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}" ng-model="data.firstname">
+                                    </div>
+                                    <div class="col col-25">
+                                        <input type="text" class="custom-input streetNr" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}" ng-model="data.lastname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-25">
+                                        <input type="text" class="custom-input zip" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}" ng-model="data.firstname">
+                                    </div>
+                                    <div class="col col-75">
+                                        <input type="text" class="custom-input city" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}" ng-model="data.lastname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="custom-input phone" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}" ng-model="data.firstname">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="custom-input email" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}" ng-model="data.lastname">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-10">
+                                        Land:
+                                    </div>
+                                    <div class="col col-90">
+                                        <select ng-model="hoi" style="width: 100%">
+                                            <option value="" class="ng-binding">Schweiz</option>
+                                            <option value="" class="ng-binding">Deutschland</option>
+                                            <option value="" class="ng-binding">England</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </ion-scroll>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row footerBar">
+                <div class="col home">
+                    <button class="button button-default" ng-click="goToHomePage()">
+                        <icon class="ion-ios-home"></icon>
+                        {{'GLOBAL_BUTTON_HOME' | translate}}
+                    </button>
+                </div>
+                <div class="col info">
+                    {{ui.campaign.label}} - {{ui.brand.toUpperCase()}} - {{ui.person.name}} {{ui.person.surname}}
+                </div>
+                <div class="col version">
+                    {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

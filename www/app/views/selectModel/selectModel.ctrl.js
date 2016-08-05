@@ -17,8 +17,6 @@
         $scope.ui = {};
         $scope.data = {};
 
-
-
         var initializeUiData = function () {
             $scope.ui = {
                 carList: [],
@@ -54,7 +52,7 @@
 
         $rootScope.$watch('refresh', function(newVal){
             if(newVal === true){
-                console.log(123);
+                console.log('reset scope');
                 initializeUiData();
                 initializeLeadData();
                 $scope.resetLead();

@@ -29,7 +29,15 @@
         var initLeadCutomer = function () {
             self.lead.customer = {
                 language: undefined,
-                country: undefined
+                country: undefined,
+                salutation: undefined,
+                firstname: undefined,
+                lastname: undefined,
+                houseNumber: undefined,
+                street: undefined,
+                zip: undefined,
+                city: undefined,
+                phone: undefined
             };
         };
 
@@ -46,7 +54,6 @@
                 initLeadOrder();
                 initLeadCutomer();
             },
-
             getLeadType: function () {
                 return self.lead.type;
             },
@@ -62,7 +69,6 @@
             setTypeOffer: function (_offer) {
                 self.lead.type.offer = _offer;
             },
-
             getOrder: function () {
                 return self.lead.order;
             },
@@ -75,7 +81,6 @@
             setOrderAccessories: function (_accessories) {
                 self.lead.order.accessories = _accessories;
             },
-
             getCustomer: function () {
                 return self.lead.customer;
             },
@@ -87,6 +92,30 @@
             },
             setCustomerCountry: function (_country) {
                 self.lead.customer.country = _country;
+            },
+            setCustomerSalutation: function (_salutation) {
+                self.lead.customer.salutation = _salutation;
+            },
+            setCustomerFirstname: function (_firstname) {
+                self.lead.customer.firstname = _firstname;
+            },
+            setCustomerLastname: function (_lastname) {
+                self.lead.customer.lastname = _lastname;
+            },
+            setCustomerHouseNumber: function (_houseNumber) {
+                self.lead.customer.houseNumber = _houseNumber;
+            },
+            setCustomerStreet: function (_street) {
+                self.lead.customer.street = _street;
+            },
+            setCustomerZip: function (_zip) {
+                self.lead.customer.zip = _zip;
+            },
+            setCustomerCity: function (_city) {
+                self.lead.customer.city = _city;
+            },
+            setCustomerPhone: function (_phone) {
+                self.lead.customer.phone = _phone;
             }
 
         }

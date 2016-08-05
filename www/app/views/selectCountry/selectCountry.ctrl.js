@@ -26,12 +26,15 @@
         $scope.selectCountry = function(value){
             if(value === 'ch'){
                 $scope.data.customer.country = 'ch';
+                LeadEntity.setCustomerCountry($scope.data.customer.country);
+                LeadEntity.setCustomerLanguage($scope.data.customer.language);
+                $state.go('searchCustomer');
             }else if(value === 'foreign'){
                 $scope.data.customer.country = 'nonch';
+                LeadEntity.setCustomerCountry($scope.data.customer.country);
+                LeadEntity.setCustomerLanguage($scope.data.customer.language);
+                $state.go('customerForm');
             }
-
-            LeadEntity.setCustomerCountry($scope.data.customer.country);
-            LeadEntity.setCustomerLanguage($scope.data.customer.language);
         };
 
         $scope.goBack = function(){

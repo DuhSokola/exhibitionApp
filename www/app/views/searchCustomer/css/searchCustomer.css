@@ -1,0 +1,133 @@
+.searchCustomer{
+    margin-right: 80px;
+}
+
+.searchCustomer h1{
+    font-size: 30px;
+}
+
+.searchCustomer .col.title h1{
+    text-align: center;
+}
+
+.searchCustomer .search-form{
+    margin-left: 5px;
+}
+
+.searchCustomer .search-form .row{
+    margin-top: 10px;
+}
+
+.searchCustomer .row input.custom-input.firstname{
+    margin-right: 12px;
+    width: 27vw;
+}
+.searchCustomer .row input.custom-input.lastname{
+    margin-right: 12px;
+    width: 27vw;
+}
+.searchCustomer .row input.custom-input.phone{
+    margin-left: 12px;
+    width: 28vw;
+}
+
+.searchCustomer .row input.custom-input.zip{
+    margin-right: 12px;
+    width: 15vw;
+
+}
+.searchCustomer .row input.custom-input.city{
+    margin-right: 12px;
+    width: 39vw;
+}
+
+.searchCustomer span.sc-span{
+    padding-top: 5px;
+}
+
+.searchCustomer .search-results{
+    margin-top: 10px;
+    margin-left: -3px;
+    height: 295px;
+    width: 89vw;
+    border:2px solid black;
+}
+
+.searchCustomer .search-results .search-results-header {
+    display: inline-flex;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.searchCustomer .search-results .search-results-header .search-results-header-item {
+    width: 25%;
+    border-right: 1px solid black;
+    padding-top: 2px;
+    padding-left: 7px;
+    height: 23px;
+    background-color: #ededed;
+}
+
+.searchCustomer .search-results .search-results-header .search-results-header-item.ic {
+    width: 4%;
+}
+
+.searchCustomer .search-results ion-scroll{
+    width: 100%;
+    height: 265px;
+    padding-left: 2px;
+}
+
+.searchCustomer .search-results ion-scroll .search-results-item{
+    width: 100%;
+    display: inline-flex;
+    height: 40px;
+    padding-top: 10px;
+    border-bottom: 1px dashed black;
+}
+
+.searchCustomer .search-results ion-scroll .search-results-item .el{
+    width: 25%;
+    padding-left: 6px;
+}
+
+.searchCustomer .search-results ion-scroll .search-results-item .el.ic{
+    width: 4%;
+    padding-left: 6px;
+}
+
+.searchCustomer .search-controls{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.searchCustomer .search-controls button.changeLeadCountry{
+    float: left;
+    height: 30px;
+    min-height: 30px;
+    line-height: 25px;
+}
+
+.searchCustomer .search-controls button.goToManuallyInput{
+    float: right;
+    margin-right: 15px;
+    height: 30px;
+    min-height: 30px;
+    line-height: 25px;
+}
+
+.searchCustomer .footerBar{
+    margin-top: 55px;
+}
+
+.searchCustomer .row .col.info{
+    padding-top:18px;
+    text-align: center;
+    margin-left:-50px;
+    margin-right: -50px;
+}
+
+.searchCustomer .row .col.version{
+    padding-top:18px;
+    text-align: right;
+}

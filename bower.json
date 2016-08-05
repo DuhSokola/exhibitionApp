@@ -7,6 +7,7 @@
     "jquery": "^3.0.0",
     "angular-ui-select": "^0.18.1",
     "angular-translate": "~2.8.1",
-    "angular-translate-loader-static-files": "~2.8.1"
+    "angular-translate-loader-static-files": "~2.8.1",
+    "ngstorage": "^0.3.11"
   }
 }

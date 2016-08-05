@@ -1,0 +1,98 @@
+<ion-view view-title="SearchCustomer">
+    <ion-content class="padding">
+
+        <div class="searchCustomer">
+            <div class="row">
+                <div class="col">
+                    <button class="button button-energized" ng-click="goBack()">
+                        <icon class="ion-chevron-left"></icon>
+                        {{'GLOBAL_BUTTON_BACK' | translate}}
+                    </button>
+                </div>
+                <div class="col title">
+                    <h1>
+                        {{'SEARCHCUSTOMER_TITLE' | translate}}
+                    </h1>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="search-form">
+                <div class="row">
+                    <input type="text" class="custom-input firstname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.search.request.firstname">
+                    <input type="text" class="custom-input lastname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_LASTNAME'|translate}}" ng-model="data.search.request.lastname">
+                    <span class="sc-span">{{'SEARCHCUSTOMER_TEXT_OR' | translate}}</span>
+                    <input type="text" class="custom-input phone" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_PHONE'|translate}}" ng-model="data.search.request.phone">
+                </div>
+                <div class="row">
+                    <input type="text" class="custom-input zip" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_ZIP'|translate}}" ng-model="data.search.request.zip">
+                    <input type="text" class="custom-input city" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_CITY'|translate}}" ng-model="data.search.request.city">
+                    <span class="sc-span">{{'SEARCHCUSTOMER_TEXT_MIN' | translate}}</span>
+                </div>
+            </div>
+
+            <div class="search-results">
+                <div class="search-results-header">
+                    <div class="search-results-header-item ic"></div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME' | translate}}</div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_LASTNAME' | translate}}</div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_STREET' | translate}}</div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_ZIP' | translate}}</div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_CITY' | translate}}</div>
+                </div>
+                <ion-scroll zooming="false" direction="y">
+                    <div class="search-results-item" ng-repeat="person in data.search.result | orderBy:'-name':true" ng-click="selectCustomer($event, person);">
+                        <div class="el ic">
+                            <icon class="ion-android-person-add"></icon>
+                        </div>
+                        <div class="el">
+                            {{person.name}}
+                        </div>
+                        <div class="el">
+                            {{person.surname}}
+                        </div>
+                        <div class="el">
+                            {{person.address}}
+                        </div>
+                        <div class="el">
+                            {{person.zip}}
+                        </div>
+                        <div class="el">
+                            {{person.city}}
+                        </div>
+                    </div>
+
+                </ion-scroll>
+            </div>
+
+            <div class="search-controls">
+                <span>{{'SEARCHCUSTOMER_TEXT_CHANGE' | translate}}</span>
+                <br>
+                <br>
+                <button class="button button-calm changeLeadCountry" ng-click="goBack()">
+                    {{'SEARCHCUSTOMER_TEXT_TOFOREIGNLEAD' | translate}}
+                </button>
+                <!--TODO show if kein treffer-->
+                <button class="button button-positive goToManuallyInput" ng-click="goBack()">
+                    {{'SEARCHCUSTOMER_TEXT_TOMANUALLYFORM' | translate}}
+                </button>
+            </div>
+
+            <div class="row footerBar">
+                <div class="col home">
+                    <button class="button button-default" ng-click="goToHomePage()">
+                        <icon class="ion-ios-home"></icon>
+                        {{'GLOBAL_BUTTON_HOME' | translate}}
+                    </button>
+                </div>
+                <div class="col info">
+                    {{ui.campaign.label}} - {{ui.brand.toUpperCase()}} - {{ui.person.name}} {{ui.person.surname}}
+                </div>
+                <div class="col version">
+                    {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,105 @@
+.customerForm{
+    margin-right: 80px;
+}
+
+.customerForm h1{
+    font-size: 30px;
+}
+
+.customerForm .col.title h1{
+    text-align: center;
+}
+
+.customerForm .button.right {
+    float:right;
+}
+
+.customerForm .button.btn-refresh {
+    margin-top: -8px;
+    min-height: 40px;
+    height: 40px;
+    line-height: 25px;
+}
+
+.customerForm .form {
+    margin-top: -5px;
+    height: 465px;
+}
+
+.customerForm .form .leadInfo{
+    border:1px solid black;
+    border-radius: 10px;
+    margin-left: -150px;
+    margin-right: 5px;
+    height: 150px;
+}
+
+.customerForm .form .input-form .leadInfo ion-scroll{
+    padding-top: 5px;
+    height: 140px
+}
+
+.customerForm .form .radios{
+    display: flex;
+}
+
+.customerForm .form .radios .item-radio{
+    height: 35px;
+}
+
+.customerForm .form .radios .item-radio .item-content{
+    padding-right: 42px;
+}
+
+.customerForm .form .radios .item-radio .item-content.selected{
+    background-color: #32cd32;
+}
+
+.customerForm .form .radios .item-radio .radio-content{
+   line-height: 3px;
+}
+
+.customerForm .form .radios .item-radio .radio-content .radio-icon::before{
+    line-height:5px;
+    color: #000000;
+    font-size: 26px;
+}
+
+.customerForm .form .radios .item-radio:first-child{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.customerForm .form .radios .item-radio:last-child{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.customerForm .form .input-form{
+    margin-right: -25px;
+}
+
+.customerForm .form .input-form input{
+    width: 100%;
+}
+
+.customerForm .form .input-form ion-scroll{
+    padding-left: 5px;
+    height: 500px;
+}
+
+.customerForm .footerBar{
+    margin-top: 55px;
+}
+
+.customerForm .row .col.info{
+    padding-top:18px;
+    text-align: center;
+    margin-left:-50px;
+    margin-right: -50px;
+}
+
+.customerForm .row .col.version{
+    padding-top:18px;
+    text-align: right;
+}
