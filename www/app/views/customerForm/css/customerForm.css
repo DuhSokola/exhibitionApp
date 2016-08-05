@@ -41,6 +41,7 @@
 
 .customerForm .form .radios{
     display: flex;
+    padding-left: 1px;
 }
 
 .customerForm .form .radios .item-radio{
@@ -79,8 +80,18 @@
     margin-right: -25px;
 }
 
-.customerForm .form .input-form input{
+.customerForm .form .input-form .remarks-ta{
+    border:1px solid #9e9e9e;
+    border-radius: 5px;
     width: 100%;
+    height: 100px;
+    resize: none;
+    padding-left: 5px;
+}
+
+.customerForm .form .input-form input[type=text]{
+    width: 100%;
+    border-color: #9e9e9e;
 }
 
 .customerForm .form .input-form ion-scroll{

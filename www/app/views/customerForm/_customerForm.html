@@ -41,16 +41,30 @@
                                         <div class="catalogTyp">
                                             <h4 class="checkbox-label">Katalog</h4>
                                             <div class="radios">
-                                                <ion-radio id="radioElectronic" name="catalogTyp" ng-model="catalogTyp" ng-value="'electronic'" ng-click="selectCatalogTyp('electronic');">{{'CUSTOMERFORM_RADIO_CATALOG_ELECTRO' | translate}}</ion-radio>
-                                                <ion-radio id="radioPrinted" name="catalogTyp" ng-model="catalogTyp" ng-value="'printed'" ng-click="selectCatalogTyp('printed');">{{'CUSTOMERFORM_RADIO_CATALOG_PRINTED' | translate}}</ion-radio>
+                                                <ion-radio id="radioElectronic" name="catalogTyp"
+                                                           ng-model="data.catalogTyp" ng-value="'electronic'"
+                                                           ng-click="selectCatalogTyp('electronic');">
+                                                    {{'CUSTOMERFORM_RADIO_CATALOG_ELECTRO' | translate}}
+                                                </ion-radio>
+                                                <ion-radio id="radioPrinted" name="catalogTyp"
+                                                           ng-model="data.catalogTyp" ng-value="'printed'"
+                                                           ng-click="selectCatalogTyp('printed');">
+                                                    {{'CUSTOMERFORM_RADIO_CATALOG_PRINTED' | translate}}
+                                                </ion-radio>
                                             </div>
                                         </div>
 
                                         <div class="salutation">
                                             <h4 class="checkbox-label">Ansprache</h4>
                                             <div class="radios">
-                                                <ion-radio id="salutationM" name="salutation" ng-model="salutation" ng-value="'m'" ng-click="selectSalutation('m');">{{'CUSTOMERFORM_RADIO_SALUTATION_M' | translate}}</ion-radio>
-                                                <ion-radio id="salutationF" name="salutation" ng-model="salutation" ng-value="'f'" ng-click="selectSalutation('f');">{{'CUSTOMERFORM_RADIO_SALUTATION_F' | translate}}</ion-radio>
+                                                <ion-radio id="salutationM" name="salutation" ng-model="data.salutation"
+                                                           ng-value="'m'" ng-click="selectSalutation('m');">
+                                                    {{'CUSTOMERFORM_RADIO_SALUTATION_M' | translate}}
+                                                </ion-radio>
+                                                <ion-radio id="salutationF" name="salutation" ng-model="data.salutation"
+                                                           ng-value="'f'" ng-click="selectSalutation('f');">
+                                                    {{'CUSTOMERFORM_RADIO_SALUTATION_F' | translate}}
+                                                </ion-radio>
                                             </div>
                                         </div>
 
@@ -89,39 +103,45 @@
 
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" class="custom-input firstname" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.firstname">
+                                        <input type="text" class="custom-input firstname"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}"
+                                               ng-model="data.firstname">
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="custom-input lastname" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}" ng-model="data.lastname">
+                                        <input type="text" class="custom-input lastname"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}"
+                                               ng-model="data.lastname">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" class="custom-input firm" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRM'|translate}}" ng-model="data.firstname">
+                                        <input type="text" class="custom-input firm"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRM'|translate}}"
+                                               ng-model="data.firm">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-75">
-                                        <input type="text" class="custom-input street" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}" ng-model="data.firstname">
+                                        <input type="text" class="custom-input street"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}"
+                                               ng-model="data.street">
                                     </div>
                                     <div class="col col-25">
-                                        <input type="text" class="custom-input streetNr" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}" ng-model="data.lastname">
+                                        <input type="text" class="custom-input streetNr"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}"
+                                               ng-model="data.streetNr">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-25">
-                                        <input type="text" class="custom-input zip" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}" ng-model="data.firstname">
+                                        <input type="text" class="custom-input zip"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}"
+                                               ng-model="data.zip">
                                     </div>
                                     <div class="col col-75">
-                                        <input type="text" class="custom-input city" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}" ng-model="data.lastname">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="custom-input phone" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}" ng-model="data.firstname">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="custom-input email" placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}" ng-model="data.lastname">
+                                        <input type="text" class="custom-input city"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}"
+                                               ng-model="data.city">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -129,11 +149,54 @@
                                         Land:
                                     </div>
                                     <div class="col col-90">
-                                        <select ng-model="hoi" style="width: 100%">
-                                            <option value="" class="ng-binding">Schweiz</option>
-                                            <option value="" class="ng-binding">Deutschland</option>
-                                            <option value="" class="ng-binding">England</option>
-                                        </select>
+                                        <select-item sl-label="bitte Auswählen" ng-model="data.country"
+                                                     select-list="[{label:'123', code:'123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}]"></select-item>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="custom-input phone"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}"
+                                               ng-model="data.phone">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="custom-input email"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}"
+                                               ng-model="data.email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-20">
+                                        Wunsch Händler:
+                                    </div>
+                                    <div class="col col-80">
+                                        <select-item sl-label="bitte Auswählen" ng-model="data.country"
+                                                     select-list="[{label:'123', code:'123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}]"></select-item>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="remarks">
+                                            <textarea class="remarks-ta" placeholder="Bemerkungen"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-25">
+                                        Datenschutzbestimmungen:
+                                    </div>
+                                    <div class="col col-75">
+                                        <input type="checkbox" name="vehicle" value="Bike">
+                                        <span>Ja, ist mit den Datenschutzbestimmungen einverstanden</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-25">
+                                        Newsletter:
+                                    </div>
+                                    <div class="col col-75">
+                                        <input type="checkbox" name="vehicle" value="Bike">
+                                        <span>Ja, möchte über Neuigkeiten informiert werden</span>
                                     </div>
                                 </div>
                             </ion-scroll>

@@ -3,7 +3,8 @@
 
     var dependencies = [
         'app.leadEntity',
-        'app.userEntity'
+        'app.userEntity',
+        'app.selectItem.directive'
     ];
 
     var app = angular.module('app.customerForm.ctrl', dependencies);
@@ -11,9 +12,20 @@
     app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', function ($scope, $state, LeadEntity, UserEntity) {
 
         $scope.data = {};
-
-        $scope.data.customer = {};
-
+        $scope.data.catalogTyp = undefined;
+        $scope.data.salutation = undefined;
+        $scope.data.firstname = undefined;
+        $scope.data.lastname = undefined;
+        $scope.data.firm = undefined;
+        $scope.data.street = undefined;
+        $scope.data.streetNr = undefined;
+        $scope.data.zip = undefined;
+        $scope.data.city = undefined;
+        $scope.data.phone = undefined;
+        $scope.data.email = undefined;
+        $scope.data.country = 'ch';
+        $scope.data.catalogTyp = undefined;
+        
         $scope.ui = {};
         $scope.ui.campaign = UserEntity.getCampaign();
         $scope.ui.brand = UserEntity.getBrand();

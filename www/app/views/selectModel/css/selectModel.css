@@ -23,6 +23,10 @@
     background-color: #32cd32;
 }
 
+.selectModelView .row ion-scroll{
+    border: 1px solid #9e9e9e;
+}
+
 .selectModelView .row ion-scroll .tableRow{
     height: 30px;
     border-bottom: 1px solid black;
@@ -41,6 +45,15 @@
 
 .selectModelView .row ion-scroll .tableRow label{
     padding-left:5px;
+}
+
+.selectModelView .scrollTitle .col{
+    text-align: center;
+}
+
+.selectModelView .scrollTitle .col span{
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .selectModelView .row .col.info{
