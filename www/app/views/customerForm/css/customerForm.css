@@ -40,7 +40,7 @@
 }
 
 .customerForm .form .radios{
-    display: flex;
+    display: -webkit-flex;
     padding-left: 1px;
 }
 
