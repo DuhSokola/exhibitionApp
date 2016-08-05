@@ -2,55 +2,56 @@
     'use strict';
 
     var dependencies = [
-        'campaignResource'
     ];
 
-    var app = angular.module('app.selectCampaign.directive', dependencies);
+    var app = angular.module('app.selectItem.directive', dependencies);
 
-    app.directive('selectCampaign', function () {
+    app.directive('selectItem', function () {
         return {
             restrict: 'E',
-            controller: 'SelectCampaignCtrl',
+            controller: 'SelectItemCtrl',
             scope: {
                 ngModel: '=',
-                selectList: '=',
+                selectList: '='
             },
-            templateUrl: 'app/directives/selectCampaign/selectCampaign.tmpl.html',
-            link: function (scope, element, attrs, SelectCampaignCtrl) {
-                SelectCampaignCtrl.init(element, scope, attrs);
+            templateUrl: 'app/directives/selectItem/selectItem.tmpl.html',
+            link: function (scope, element, attrs, SelectItemCtrl) {
+                SelectItemCtrl.init(element, scope, attrs);
             }
         }
     });
 
-    app.controller('SelectCampaignCtrl', ['$scope', function ($scope) {
+    app.controller('SelectItemCtrl', ['$scope', function ($scope) {
         var self = this;
 
         this.init = function (element, scope, attrs) {
             self.$element = element;
             $scope.parent = scope;
-            $scope.campaignList = undefined;
+            $scope.itemList = undefined;
             $scope.label = attrs.slLabel;
 
-            //bind selectList to $scope.campaignList
+            console.log(123);
+            
+            //bind selectList to $scope.itemList
             scope.$watch('selectList', function (val) {
-                $scope.campaignList = val;
+                $scope.itemList = val;
             });
         };
 
-        $scope.$watch('campaignList', function (newVal) {
+        $scope.$watch('itemList', function (newVal) {
             if (newVal !== undefined && newVal !== '') {
                 if (newVal.constructor === Array) {
                     if (newVal.length == 0) {
-                        $scope.campaignList = [{
-                            code: 'noCampaign',
-                            label: 'noCampaignInDb'
+                        $scope.itemList = [{
+                            code: 'EmptyList',
+                            label: 'EmptyList'
                         }];
                     }
                 }
             }
         });
 
-        $scope.$watch('selectedCampaign', function (newVal) {
+        $scope.$watch('selectedItem', function (newVal) {
             if (newVal) {
                 if (newVal.constructor !== {}.constructor) {
                     try {

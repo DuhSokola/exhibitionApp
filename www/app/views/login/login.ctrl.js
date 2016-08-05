@@ -4,7 +4,7 @@
     var dependencies = [
         'app.selectBrand.directive',
         'app.selectLanguage.directive',
-        'app.selectCampaign.directive',
+        'app.selectItem.directive',
         'app.selectUser.directive',
         'ui.select',
         'ngSanitize',
