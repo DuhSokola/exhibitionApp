@@ -42,6 +42,7 @@
   "CUSTOMERFORM_TITLE" : "Interessentendaten",
   "CUSTOMERFORM_BUTTON_RESET_FORM" : "Daten zurücksetzen",
   "CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA" : "Interessenten aktualisieren",
+  "CUSTOMERFORM_BUTTON_SUBMIT" : "Absenden",
   "CUSTOMERFORM_RADIO_CATALOG_ELECTRO" : "Elektronisch",
   "CUSTOMERFORM_RADIO_CATALOG_PRINTED" : "Gedruckt",
   "CUSTOMERFORM_RADIO_SALUTATION_M" : "Herr",
@@ -54,6 +55,10 @@
   "CUSTOMERFORM_PLACEHOLDER_ZIP" : "PLZ",
   "CUSTOMERFORM_PLACEHOLDER_CITY" : "Ort",
   "CUSTOMERFORM_PLACEHOLDER_PHONE" : "Telefon",
-  "CUSTOMERFORM_PLACEHOLDER_EMAIL" : "Email"
+  "CUSTOMERFORM_PLACEHOLDER_EMAIL" : "Email",
+  "CUSTOMERFORM_LABEL_PRIVACY" : "Datenschutzbestimmungen",
+  "CUSTOMERFORM_LABEL_PRIVACY_TEXT" : "Ja, ich bin mit den Datenschutzbestimmungen einverstanden",
+  "CUSTOMERFORM_LABEL_NEWSLETTER" : "Newsletter",
+  "CUSTOMERFORM_LABEL_NEWSLETTER_TEXT" : "Ja, ich möchte über Neuigkeiten informiert werden"
 
 }

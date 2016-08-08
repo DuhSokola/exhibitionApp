@@ -8,6 +8,7 @@
     "angular-ui-select": "^0.18.1",
     "angular-translate": "~2.8.1",
     "angular-translate-loader-static-files": "~2.8.1",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "angular-sanitize": "^1.5.8"
   }
 }

@@ -15,7 +15,7 @@
                     </h1>
                 </div>
                 <div class="col">
-                    <button class="button button-assertive right" ng-click="goBack()">
+                    <button class="button button-assertive right" ng-click="resetForm()">
                         {{'CUSTOMERFORM_BUTTON_RESET_FORM' | translate}}
                         <icon class="ion-ios-close"></icon>
                     </button>
@@ -42,13 +42,11 @@
                                             <h4 class="checkbox-label">Katalog</h4>
                                             <div class="radios">
                                                 <ion-radio id="radioElectronic" name="catalogTyp"
-                                                           ng-model="data.catalogTyp" ng-value="'electronic'"
-                                                           ng-click="selectCatalogTyp('electronic');">
+                                                           ng-model="data.catalogTyp" ng-value="'electronic'">
                                                     {{'CUSTOMERFORM_RADIO_CATALOG_ELECTRO' | translate}}
                                                 </ion-radio>
                                                 <ion-radio id="radioPrinted" name="catalogTyp"
-                                                           ng-model="data.catalogTyp" ng-value="'printed'"
-                                                           ng-click="selectCatalogTyp('printed');">
+                                                           ng-model="data.catalogTyp" ng-value="'printed'">
                                                     {{'CUSTOMERFORM_RADIO_CATALOG_PRINTED' | translate}}
                                                 </ion-radio>
                                             </div>
@@ -150,7 +148,7 @@
                                     </div>
                                     <div class="col col-90">
                                         <select-item sl-label="bitte Auswählen" ng-model="data.country"
-                                                     select-list="[{label:'123', code:'123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}]"></select-item>
+                                                     select-list="ui.countryList"></select-item>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -170,36 +168,44 @@
                                         Wunsch Händler:
                                     </div>
                                     <div class="col col-80">
-                                        <select-item sl-label="bitte Auswählen" ng-model="data.country"
-                                                     select-list="[{label:'123', code:'123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}]"></select-item>
+                                        <select-item sl-label="bitte Auswählen" ng-model="data.seller"
+                                                     select-list="ui.sallerList"></select-item>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="remarks">
-                                            <textarea class="remarks-ta" placeholder="Bemerkungen"></textarea>
+                                            <textarea class="remarks-ta" ng-model="data.remarks" placeholder="Bemerkungen"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-25">
-                                        Datenschutzbestimmungen:
+                                        {{'CUSTOMERFORM_LABEL_PRIVACY' | translate}}:
                                     </div>
                                     <div class="col col-75">
-                                        <input type="checkbox" name="vehicle" value="Bike">
-                                        <span>Ja, ist mit den Datenschutzbestimmungen einverstanden</span>
+                                        <input type="checkbox" id="privacy" name="privacy" ng-model="data.privacy" value="">
+                                        <label for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}}</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-25">
-                                        Newsletter:
+                                        {{'CUSTOMERFORM_LABEL_NEWSLETTER' | translate}}:
                                     </div>
                                     <div class="col col-75">
-                                        <input type="checkbox" name="vehicle" value="Bike">
-                                        <span>Ja, möchte über Neuigkeiten informiert werden</span>
+                                        <input type="checkbox" id="newsletter" name="newsletter" ng-model="data.newsletter" value="">
+                                        <label for="newsletter">{{'CUSTOMERFORM_LABEL_NEWSLETTER_TEXT' | translate}}</label>
                                     </div>
                                 </div>
                             </ion-scroll>
+                            <div class="row">
+                                <div class="col col-75"></div>
+                                <div class="col col-25">
+                                    <button class="button button-positive right submit" ng-click="goBack()">
+                                        {{'CUSTOMERFORM_BUTTON_SUBMIT' | translate}}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

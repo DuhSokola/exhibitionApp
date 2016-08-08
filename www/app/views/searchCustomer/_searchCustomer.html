@@ -17,6 +17,7 @@
                 <div class="col">
                 </div>
             </div>
+
             <div class="search-form">
                 <div class="row">
                     <input type="text" class="custom-input firstname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.search.request.firstname">
@@ -69,11 +70,11 @@
                 <span>{{'SEARCHCUSTOMER_TEXT_CHANGE' | translate}}</span>
                 <br>
                 <br>
-                <button class="button button-calm changeLeadCountry" ng-click="goBack()">
+                <button class="button button-calm changeLeadCountry" ng-click="goToForeignForm()">
                     {{'SEARCHCUSTOMER_TEXT_TOFOREIGNLEAD' | translate}}
                 </button>
                 <!--TODO show if kein treffer-->
-                <button class="button button-positive goToManuallyInput" ng-click="goBack()">
+                <button class="button button-positive goToManuallyInput" ng-click="goManuallyForm()">
                     {{'SEARCHCUSTOMER_TEXT_TOMANUALLYFORM' | translate}}
                 </button>
             </div>

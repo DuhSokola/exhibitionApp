@@ -71,6 +71,15 @@
             $state.go('login');
         };
 
+        $scope.goToForeignForm = function(){
+            LeadEntity.setCustomerCountry('nonch');
+            $state.go('customerForm');
+        };
+
+        $scope.goManuallyForm = function(){
+            $state.go('customerForm');
+        };
+
     }]);
 
 }());
