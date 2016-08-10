@@ -80,7 +80,7 @@
 
 .searchCustomer .search-results ion-scroll .search-results-item{
     width: 100%;
-    display: inline-flex;
+    display: -webkit-flex;
     height: 40px;
     padding-top: 10px;
     border-bottom: 1px dashed black;

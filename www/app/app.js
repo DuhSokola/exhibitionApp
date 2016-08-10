@@ -16,7 +16,7 @@ var deps = [
 
 angular.module('starter', deps)
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, $rootScope, CarDataService, AccessoryDataService) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -29,7 +29,14 @@ angular.module('starter', deps)
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+            if (window.cordova && window.cordova.logger) {
+                window.cordova.logger.__onDeviceReady();
+            }
         });
+
+        $rootScope.appVersion = '1.0';
+        CarDataService.initCarData();
+        AccessoryDataService.initAccessoryData();
     })
 
     .config(function ($translateProvider) {
@@ -44,11 +51,5 @@ angular.module('starter', deps)
         $translateProvider.preferredLanguage('de');
 
     })
-
-    .run(function ($rootScope, CarDataService, AccessoryDataService) {
-        $rootScope.appVersion = '1.0';
-        CarDataService.initCarData();
-        AccessoryDataService.initAccessoryData();
-    });
 
     
