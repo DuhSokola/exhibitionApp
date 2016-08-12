@@ -15,7 +15,7 @@
 /*Hostesse Selection*/
 .selectHostLanguageContainer{
     margin-top:45px;
-    margin-right: calc(50% - 155px);
+    margin-right: calc(50% - 175px);
 }
 
 .selectHostLanguageContainer .selectHostLanguage{
@@ -26,7 +26,7 @@
 /*Campaign Selection*/
 .selectCampaignContainer{
     margin-top:45px;
-    margin-right: calc(50% - 140px);
+    margin-right: calc(50% - 161px);
 }
 
 .selectCampaignContainer h1{
@@ -42,7 +42,7 @@
 .selectUserContainer{
     margin-top: 105px;
     padding-bottom: 50px;
-    margin-right: calc(50% - 135px);
+    margin-right: calc(50% - 157px);
 }
 
 .selectUserContainer h1{
@@ -56,7 +56,7 @@
 
 .loginButton{
     padding-top: 40px;
-    margin-left: calc(50% - 160px);
+    margin-left: calc(50% - 140px);
 }
 
 .loginButton button{

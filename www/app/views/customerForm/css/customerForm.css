@@ -1,5 +1,5 @@
 .customerForm{
-    margin-right: 80px;
+    margin-right: 20px;
 }
 
 .customerForm h1{
@@ -39,9 +39,20 @@
     height: 140px
 }
 
+.customerForm .form .input-form select{
+    width: 100%;
+    border-radius: 5px;
+    height: 30px;
+    background-color: #ffffff;
+}
+
+.customerForm .form .input-form select.not-valid{
+    border-color: #db0000;
+    border-width: 2px;
+}
+
 .customerForm .form .radios{
-    display: -webkit-flex
-;
+    display: -webkit-flex;
     padding-left: 1px;
 }
 
@@ -55,6 +66,10 @@
 
 .customerForm .form .radios .item-radio .item-content.selected{
     background-color: #32cd32;
+}
+
+.customerForm .form .radios .item-radio .item-content.not-valid{
+    background-color: rgba(242, 0, 0, 0.79);
 }
 
 .customerForm .form .radios .item-radio .radio-content{
@@ -93,6 +108,15 @@
 .customerForm .form .input-form input[type=text]{
     width: 100%;
     border-color: #9e9e9e;
+}
+
+.customerForm .form .input-form input[type=text].not-valid{
+    border-color: #db0000;
+    border-width: 2px;
+}
+
+.customerForm .form .input-form input[type=text].not-valid::-webkit-input-placeholder{
+    color: #db0000;
 }
 
 .customerForm .form .input-form ion-scroll{

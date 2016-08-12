@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="input-form">
-                            <ion-scroll style="overflow:auto; !important" has-bouncing="false" class="input-form-scroll" zooming="false" direction="y">
+                            <ion-scroll class="input-form-scroll" zooming="false" direction="y">
                                 <div class="row">
                                     <div class="col">
                                         <button class="button button-royal btn-refresh" ng-click="goBack()">
@@ -101,43 +101,50 @@
 
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" class="custom-input firstname"
+                                        <input id="firstname"
+                                               type="text" class="custom-input firstname"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}"
-                                               ng-model="data.firstname">
+                                               ng-model="data.firstname" required>
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="custom-input lastname"
+                                        <input id="lastname"
+                                               type="text" class="custom-input lastname"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}"
                                                ng-model="data.lastname">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" class="custom-input firm"
+                                        <input id="firm"
+                                               type="text" class="custom-input firm"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRM'|translate}}"
                                                ng-model="data.firm">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-75">
-                                        <input type="text" class="custom-input street"
+                                        <input id="street"
+                                               type="text" class="custom-input street"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}"
                                                ng-model="data.street">
                                     </div>
                                     <div class="col col-25">
-                                        <input type="text" class="custom-input streetNr"
+                                        <input id="streetNr"
+                                               type="text" class="custom-input streetNr"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}"
                                                ng-model="data.streetNr">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-25">
-                                        <input type="text" class="custom-input zip"
+                                        <input id="zip"
+                                               type="text" class="custom-input zip"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}"
                                                ng-model="data.zip">
                                     </div>
                                     <div class="col col-75">
-                                        <input type="text" class="custom-input city"
+                                        <input id="city"
+                                               type="text" class="custom-input city"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}"
                                                ng-model="data.city">
                                     </div>
@@ -147,18 +154,22 @@
                                         Land:
                                     </div>
                                     <div class="col col-90">
-                                        <select-item sl-label="bitte Auswählen" ng-model="data.country"
-                                                     select-list="ui.countryList"></select-item>
+                                        <select id="country" ng-model="data.country">
+                                            <option value="">Bitte Auswählen</option>
+                                            <option ng-repeat="item in ui.countryList" value="{{item}}">{{item}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input type="text" class="custom-input phone"
+                                        <input id="phone"
+                                               type="text" class="custom-input phone"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}"
                                                ng-model="data.phone">
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="custom-input email"
+                                        <input id="email"
+                                               type="text" class="custom-input email"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}"
                                                ng-model="data.email">
                                     </div>
@@ -175,7 +186,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="remarks">
-                                            <textarea class="remarks-ta" ng-model="data.remarks" placeholder="Bemerkungen"></textarea>
+                                            <textarea id="remarks"
+                                                      class="remarks-ta" ng-model="data.remarks"
+                                                      placeholder="Bemerkungen"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -184,8 +197,9 @@
                                         {{'CUSTOMERFORM_LABEL_PRIVACY' | translate}}:
                                     </div>
                                     <div class="col col-75">
-                                        <input type="checkbox" id="privacy" name="privacy" ng-model="data.privacy" value="">
-                                        <label for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}}</label>
+                                        <input type="checkbox" id="privacy" name="privacy" ng-model="data.privacy"
+                                               value="">
+                                        <label id="privacyLabel" for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}}</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -193,15 +207,17 @@
                                         {{'CUSTOMERFORM_LABEL_NEWSLETTER' | translate}}:
                                     </div>
                                     <div class="col col-75">
-                                        <input type="checkbox" id="newsletter" name="newsletter" ng-model="data.newsletter" value="">
-                                        <label for="newsletter">{{'CUSTOMERFORM_LABEL_NEWSLETTER_TEXT' | translate}}</label>
+                                        <input type="checkbox" id="newsletter" name="newsletter"
+                                               ng-model="data.newsletter" value="">
+                                        <label for="newsletter">{{'CUSTOMERFORM_LABEL_NEWSLETTER_TEXT' |
+                                            translate}}</label>
                                     </div>
                                 </div>
                             </ion-scroll>
                             <div class="row">
                                 <div class="col col-75"></div>
                                 <div class="col col-25">
-                                    <button class="button button-positive right submit" ng-click="goBack()">
+                                    <button class="button button-positive right submit" ng-click="submitLead()">
                                         {{'CUSTOMERFORM_BUTTON_SUBMIT' | translate}}
                                     </button>
                                 </div>

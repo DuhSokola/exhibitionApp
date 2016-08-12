@@ -1,5 +1,5 @@
 .searchCustomer{
-    margin-right: 80px;
+    margin-right: 20px;
 }
 
 .searchCustomer h1{
@@ -11,7 +11,7 @@
 }
 
 .searchCustomer .search-form{
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .searchCustomer .search-form .row{
@@ -47,7 +47,6 @@
 
 .searchCustomer .search-results{
     margin-top: 10px;
-    margin-left: -3px;
     height: 295px;
     width: 89vw;
     border:2px solid black;
@@ -110,7 +109,7 @@
 
 .searchCustomer .search-controls button.goToManuallyInput{
     float: right;
-    margin-right: 15px;
+    margin-right: 20px;
     height: 30px;
     min-height: 30px;
     line-height: 25px;
