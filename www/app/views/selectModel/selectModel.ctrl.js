@@ -50,14 +50,11 @@
         initializeUiData();
         initializeLeadData();
 
-        $rootScope.$watch('refresh', function(newVal){
-            if(newVal === true){
-                console.log('reset scope');
+        $rootScope.$on('resetAllViews', function(){
+                console.log('reset selectModel scope');
                 initializeUiData();
                 initializeLeadData();
-                $scope.resetLead();
-                $rootScope.refresh = false;
-            }
+                $scope.reset();
         });
 
         $scope.selectOrderOption = function ($event, option) {
@@ -113,7 +110,7 @@
             }
         };
 
-        $scope.resetLead = function () {
+        $scope.reset = function () {
             initializeLeadData();
             $('.selectLeadType').find('button').removeClass('selected');
             $('.selectLeadType').find('icon').addClass('hidden');
@@ -134,8 +131,6 @@
         };
 
         $scope.goToHomePage = function () {
-            $scope.resetLead();
-            LeadEntity.resetAll();
             $state.go('login');
         };
 

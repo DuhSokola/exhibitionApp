@@ -30,8 +30,6 @@
             $scope.itemList = undefined;
             $scope.label = attrs.slLabel;
 
-            console.log(123);
-            
             //bind selectList to $scope.itemList
             scope.$watch('selectList', function (val) {
                 $scope.itemList = val;

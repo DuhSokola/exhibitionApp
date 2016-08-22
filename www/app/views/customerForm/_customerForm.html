@@ -104,13 +104,13 @@
                                         <input id="firstname"
                                                type="text" class="custom-input firstname"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}"
-                                               ng-model="data.firstname" required>
+                                               ng-model="data.firstname" maxlength="49">
                                     </div>
                                     <div class="col">
                                         <input id="lastname"
                                                type="text" class="custom-input lastname"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}"
-                                               ng-model="data.lastname">
+                                               ng-model="data.lastname" maxlength="49">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -118,7 +118,7 @@
                                         <input id="firm"
                                                type="text" class="custom-input firm"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRM'|translate}}"
-                                               ng-model="data.firm">
+                                               ng-model="data.firm" maxlength="249">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -126,13 +126,13 @@
                                         <input id="street"
                                                type="text" class="custom-input street"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}"
-                                               ng-model="data.street">
+                                               ng-model="data.street" maxlength="499">
                                     </div>
                                     <div class="col col-25">
                                         <input id="streetNr"
                                                type="text" class="custom-input streetNr"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}"
-                                               ng-model="data.streetNr">
+                                               ng-model="data.streetNr" maxlength="9">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -140,13 +140,13 @@
                                         <input id="zip"
                                                type="text" class="custom-input zip"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}"
-                                               ng-model="data.zip">
+                                               ng-model="data.zip" maxlength="15">
                                     </div>
                                     <div class="col col-75">
                                         <input id="city"
                                                type="text" class="custom-input city"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}"
-                                               ng-model="data.city">
+                                               ng-model="data.city" maxlength="49">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -154,7 +154,7 @@
                                         Land:
                                     </div>
                                     <div class="col col-90">
-                                        <select id="country" ng-model="data.country">
+                                        <select id="country" ng-model="data.country" ng-disabled="ui.mode === 'swiss'">
                                             <option value="">Bitte Auswählen</option>
                                             <option ng-repeat="item in ui.countryList" value="{{item}}">{{item}}</option>
                                         </select>
@@ -165,13 +165,13 @@
                                         <input id="phone"
                                                type="text" class="custom-input phone"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}"
-                                               ng-model="data.phone">
+                                               ng-model="data.phone" maxlength="49">
                                     </div>
                                     <div class="col">
                                         <input id="email"
                                                type="text" class="custom-input email"
                                                placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}"
-                                               ng-model="data.email">
+                                               ng-model="data.email" maxlength="254">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -179,8 +179,10 @@
                                         Wunsch Händler:
                                     </div>
                                     <div class="col col-80">
-                                        <select-item sl-label="bitte Auswählen" ng-model="data.seller"
-                                                     select-list="ui.sallerList"></select-item>
+                                        <select id="seller" ng-model="data.seller">
+                                            <option value="">Bitte Auswählen</option>
+                                            <option ng-repeat="item in ui.sellerList" value="{{item.code}}">{{item.label}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -188,7 +190,7 @@
                                         <div class="remarks">
                                             <textarea id="remarks"
                                                       class="remarks-ta" ng-model="data.remarks"
-                                                      placeholder="Bemerkungen"></textarea>
+                                                      placeholder="Bemerkungen" maxlength="999"></textarea>
                                         </div>
                                     </div>
                                 </div>

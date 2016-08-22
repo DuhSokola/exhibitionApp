@@ -37,7 +37,8 @@
         $stateProvider.state('searchCustomer', {
             url: '/searchCustomer',
             templateUrl: 'app/views/searchCustomer/_searchCustomer.html',
-            controller: 'SearchCustomerCtrl'
+            controller: 'SearchCustomerCtrl',
+            cache: false
         });
 
         $stateProvider.state('customerForm', {

@@ -21,6 +21,7 @@
 
         var initLeadOrder = function () {
             self.lead.order = {
+                brand: '',
                 cars: [],
                 accessories: []
             };
@@ -28,16 +29,23 @@
 
         var initLeadCutomer = function () {
             self.lead.customer = {
-                language: undefined,
-                country: undefined,
-                salutation: undefined,
-                firstname: undefined,
-                lastname: undefined,
-                houseNumber: undefined,
-                street: undefined,
-                zip: undefined,
-                city: undefined,
-                phone: undefined
+                language: '',
+                country: '',
+                salutation: '',
+                firstname: '',
+                lastname: '',
+                houseNumber: '',
+                street: '',
+                zip: '',
+                city: '',
+                phone: '',
+                email: '',
+                seller: '',
+                firm: '',
+                remarks: '',
+                newsletter: false,
+                privacy: false,
+                mode: ''
             };
         };
 
@@ -116,6 +124,30 @@
             },
             setCustomerPhone: function (_phone) {
                 self.lead.customer.phone = _phone;
+            },
+            setCustomerEmail: function(_email){
+                self.lead.customer.email = _email;
+            },
+            setCustomerSeller: function (_seller) {
+                self.lead.customer.seller = _seller;
+            },
+            setCustomerFirm: function (_firm) {
+                self.lead.customer.firm = _firm;
+            },
+            setCustomerRemarks: function (_remarks) {
+                self.lead.customer.remarks = _remarks;
+            },
+            setCustomerNewsletter: function (_newsletter) {
+                self.lead.customer.newsletter = _newsletter;
+            },
+            setCustomerPrivacy: function (_privacy) {
+                self.lead.customer.privacy = _privacy;
+            },
+            setBrand: function(_brand){
+                self.lead.order.brand = _brand;
+            },
+            setMode: function(_mode){
+                self.lead.customer.mode = _mode;
             }
 
         }

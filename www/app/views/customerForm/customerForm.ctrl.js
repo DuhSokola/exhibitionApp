@@ -6,29 +6,34 @@
         'app.userEntity',
         'app.selectItem.directive',
         'ngSanitize',
-        'iso-3166-country-codes'
+        'iso-3166-country-codes',
+        'app.localStorage',
+        'app.leadResource'
     ];
 
     var app = angular.module('app.customerForm.ctrl', dependencies);
 
-    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', function ($scope, $state, LeadEntity, UserEntity, ISO3166) {
+    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', 'LocalStorageService', 'LeadResourceService', function ($scope, $state, LeadEntity, UserEntity, ISO3166, LocalStorageService, LeadResourceService) {
 
         $scope.data = {};
         var initData = function () {
-            $scope.data.catalogTyp = undefined; //validation
-            $scope.data.salutation = undefined; //validation
-            $scope.data.firstname = undefined; //validation
-            $scope.data.lastname = undefined; //validation
-            $scope.data.firm = undefined;
-            $scope.data.street = undefined; //validation
-            $scope.data.streetNr = undefined; //validation
-            $scope.data.zip = undefined; //validation
-            $scope.data.city = undefined; //validation
-            $scope.data.phone = undefined; //validation
-            $scope.data.email = undefined; //validation
-            $scope.data.country = undefined; //validation
-            $scope.data.seller = undefined;
-            $scope.data.remarks = undefined;
+            $scope.data.catalogTyp = ''; //validation
+            $scope.data.salutation = ''; //validation
+            $scope.data.firstname = LeadEntity.getCustomer().firstname; //validation
+            $scope.data.lastname = LeadEntity.getCustomer().lastname; //validation
+            $scope.data.firm = '';
+            $scope.data.street = ''; //validation
+            $scope.data.streetNr = ''; //validation
+            $scope.data.zip = LeadEntity.getCustomer().zip; //validation
+            $scope.data.city = LeadEntity.getCustomer().city; //validation
+            $scope.data.phone = LeadEntity.getCustomer().phone.replace('*', '');//validation
+            $scope.data.email = ''; //validation
+            console.log(LeadEntity.getCustomer().country);
+            console.log(((LeadEntity.getCustomer().country === 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''));
+            $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
+            $scope.data.countryCode = LeadEntity.getCustomer().country;
+            $scope.data.seller = '';
+            $scope.data.remarks = '';
             $scope.data.privacy = false; //validation
             $scope.data.newsletter = false;
         };
@@ -39,19 +44,46 @@
         $scope.ui.brand = UserEntity.getBrand();
         $scope.ui.person = UserEntity.getPerson();
         $scope.ui.countryList = ISO3166.codeToCountry;
-
-        console.log($scope.ui.countryList);
-
+        $scope.ui.mode = LeadEntity.getCustomer().mode;
 
         //$scope.ui.countryList = [{label:'x123', code:'x123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}];
-        $scope.ui.sallerList = [{label: '123', code: '123'}, {label: '1234', code: '1234'}, {label: '1235', code: '1235'}];
+        $scope.ui.sellerList = [{label: '123', code: '123'}, {label: '1234', code: '1234'}, {label: '1235', code: '1235'}];
 
         $scope.submitLead = function () {
             if (formIsValid()) {
                 alert('VALID');
+                LeadEntity.setBrand(UserEntity.getBrand());
+                LeadEntity.setCustomerSalutation($scope.data.salutation);
+                LeadEntity.setCustomerFirstname($scope.data.firstname);
+                LeadEntity.setCustomerLastname($scope.data.lastname);
+                LeadEntity.setCustomerFirm($scope.data.firm);
+                LeadEntity.setCustomerStreet($scope.data.street);
+                LeadEntity.setCustomerHouseNumber($scope.data.streetNr);
+                LeadEntity.setCustomerZip($scope.data.zip);
+                LeadEntity.setCustomerCity($scope.data.city);
+                LeadEntity.setCustomerCountry($scope.data.countryCode);
+                LeadEntity.setCustomerPhone($scope.data.phone);
+                LeadEntity.setCustomerEmail($scope.data.email);
+                LeadEntity.setCustomerSeller($scope.data.seller);
+                LeadEntity.setCustomerRemarks($scope.data.remarks);
+                LeadEntity.setCustomerNewsletter($scope.data.newsletter);
+                LeadEntity.setCustomerPrivacy($scope.data.privacy);
+                LeadEntity.setTypeBrochures($scope.data.catalogTyp);
+
+                LeadResourceService.save();
+
                 $scope.startValidation = false;
             }
         };
+
+        $scope.$watch('data.country', function (newVal) {
+            if (newVal) {
+                if (newVal.length > 2) {
+                    $scope.data.countryCode = ISO3166.countryToCode[newVal].toLowerCase();
+                    console.log($scope.data.countryCode);
+                }
+            }
+        });
 
         $scope.$watch('data', function (newVal) {
             if ($scope.startValidation === true) {
@@ -99,7 +131,7 @@
             if (scope.lastname === undefined || scope.lastname === '') {
                 lastnameEl.addClass('not-valid');
                 formIsValid = false;
-            }else {
+            } else {
                 lastnameEl.removeClass('not-valid');
             }
 
@@ -107,7 +139,7 @@
             if (scope.street === undefined || scope.street === '') {
                 streetEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 streetEl.removeClass('not-valid');
             }
 
@@ -115,7 +147,7 @@
             if (scope.streetNr === undefined || scope.streetNr === '') {
                 streetNrEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 streetNrEl.removeClass('not-valid');
             }
 
@@ -123,7 +155,14 @@
             if (scope.zip === undefined || scope.zip === '') {
                 zipEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else if ($scope.ui.mode === 'swiss') {
+                if (scope.zip.length != 4) {
+                    zipEl.addClass('not-valid');
+                    formIsValid = false;
+                } else {
+                    zipEl.removeClass('not-valid');
+                }
+            } else {
                 zipEl.removeClass('not-valid');
             }
 
@@ -131,7 +170,7 @@
             if (scope.city === undefined || scope.city === '') {
                 cityEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 cityEl.removeClass('not-valid');
             }
 
@@ -139,7 +178,7 @@
             if (scope.phone === undefined || scope.phone === '') {
                 phoneEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 phoneEl.removeClass('not-valid');
             }
 
@@ -147,24 +186,24 @@
             if (scope.email === undefined || scope.email === '') {
                 emailEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 emailEl.removeClass('not-valid');
             }
 
             var countryEl = $('#country');
-            if (scope.country === undefined || scope.country === '') {
+            if (scope.countryCode === undefined || scope.countryCode === '') {
                 countryEl.addClass('not-valid');
                 formIsValid = false;
-            }else{
+            } else {
                 countryEl.removeClass('not-valid');
             }
 
             var privacyLblEl = $('#privacyLabel');
             if (scope.privacy != true) {
-                privacyLblEl.css('color','red');
+                privacyLblEl.css('color', 'red');
                 formIsValid = false;
-            }else{
-                privacyLblEl.css('color','black');
+            } else {
+                privacyLblEl.css('color', 'black');
             }
 
             return formIsValid;
@@ -211,7 +250,6 @@
         };
 
         $scope.goToHomePage = function () {
-            LeadEntity.resetAll();
             $state.go('login');
         };
 

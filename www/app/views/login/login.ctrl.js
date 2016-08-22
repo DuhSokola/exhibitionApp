@@ -6,6 +6,7 @@
         'app.selectLanguage.directive',
         'app.selectItem.directive',
         'app.selectUser.directive',
+        'app.leadEntity',
         'ui.select',
         'ngSanitize',
         'personResource',
@@ -17,7 +18,7 @@
 
     var app = angular.module('app.login.ctrl', dependencies);
 
-    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity) {
+    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity) {
         //define $scope objects for UI
         $scope.ui = {};
         $scope.ui.campaignList = undefined;
@@ -46,8 +47,9 @@
                 console.log("Language: " + UserEntity.getLanguage());
                 console.log("Campaign: " + UserEntity.getCampaign().label);
                 console.log("Person: " + UserEntity.getPerson().name + ' ' + UserEntity.getPerson().surname);
-                
-                $rootScope.refresh = true;
+
+                LeadEntity.resetAll();
+                $rootScope.$emit('resetAllViews');
                 $state.go('selectModel');
             }
         };

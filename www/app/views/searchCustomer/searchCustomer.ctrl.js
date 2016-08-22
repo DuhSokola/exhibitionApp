@@ -59,6 +59,9 @@
             LeadEntity.setCustomerCity(item.city);
             LeadEntity.setCustomerZip(item.zip);
             LeadEntity.setCustomerPhone(item.phone);
+            
+            console.log(item);
+            
             $state.go('customerForm');
         };
 
