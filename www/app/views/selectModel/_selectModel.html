@@ -33,7 +33,7 @@
                             <icon class="icon ion-checkmark-round hidden"></icon>
                             {{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}}
                         </button>
-                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'offer')">
+                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'offer')" ng-show="ui.person.dealer != undefined && ui.person.dealer != 0">
                             <icon class="icon ion-checkmark-round hidden"></icon>
                             {{'SELECTMODEL_CHECKFIELD_OFFER' | translate}}
                         </button>
@@ -44,10 +44,10 @@
 
             <div class="row scrollTitle">
                 <div class="col">
-                    <span>Modelle</span>
+                    <span>{{'SELECTMODEL_LABEL_MODEL' | translate}}</span>
                 </div>
                 <div class="col">
-                    <span>Zubehörkataloge</span>
+                    <span>{{'SELECTMODEL_LABEL_CATALOG' | translate}}</span>
                 </div>
             </div>
 

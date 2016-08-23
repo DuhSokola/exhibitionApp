@@ -37,6 +37,7 @@ angular.module('starter', deps)
         $rootScope.appVersion = '1.0';
         CarDataService.initCarData();
         AccessoryDataService.initAccessoryData();
+        $rootScope.dateOfDataLoad = new Date();
     })
 
     .config(function ($translateProvider) {

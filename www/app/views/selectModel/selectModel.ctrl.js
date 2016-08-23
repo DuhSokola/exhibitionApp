@@ -30,9 +30,6 @@
             $scope.ui.brand = UserEntity.getBrand();
             $scope.ui.person = UserEntity.getPerson();
 
-            //TODO Delete row
-            $scope.ui.brand = 'seat';
-
             $scope.ui.carList = CarDataService.getCarData();
             $scope.ui.accessoryList = AccessoryDataService.getAccessoryData();
         };
@@ -50,11 +47,11 @@
         initializeUiData();
         initializeLeadData();
 
-        $rootScope.$on('resetAllViews', function(){
-                console.log('reset selectModel scope');
-                initializeUiData();
-                initializeLeadData();
-                $scope.reset();
+        $rootScope.$on('resetAllViews', function () {
+            console.log('reset selectModel scope');
+            initializeUiData();
+            initializeLeadData();
+            $scope.reset();
         });
 
         $scope.selectOrderOption = function ($event, option) {
@@ -120,14 +117,40 @@
 
         $scope.goToCountrySelect = function () {
             //TODO Validate Data
-            LeadEntity.setTypeTestDrive($scope.data.lead.testdrive);
-            LeadEntity.setTypeBrochures($scope.data.lead.brochure);
-            LeadEntity.setTypeOffer($scope.data.lead.offer);
 
-            LeadEntity.setOrderCars($scope.data.lead.cars);
-            LeadEntity.setOrderAccessories($scope.data.lead.accessories);
+            if (validateFields()) {
+                LeadEntity.setTypeTestDrive($scope.data.lead.testdrive);
+                LeadEntity.setTypeBrochures($scope.data.lead.brochure);
+                LeadEntity.setTypeOffer($scope.data.lead.offer);
 
-            $state.go('selectCountry');
+                LeadEntity.setOrderCars($scope.data.lead.cars);
+                LeadEntity.setOrderAccessories($scope.data.lead.accessories);
+
+                $state.go('selectCountry');
+            }else{
+                alert('Bitte alles auswählen');
+            }
+
+
+        };
+
+        var validateFields = function () {
+            var isValid = true;
+
+            if ($scope.data.lead.testdrive == false
+                && $scope.data.lead.brochure == false
+                && $scope.data.lead.offer == false) {
+
+                isValid = false;
+            }
+
+            if($scope.data.lead.cars.length == 0
+                && $scope.data.lead.accessories.length == 0){
+
+                isValid = false;
+            }
+
+            return isValid;
         };
 
         $scope.goToHomePage = function () {

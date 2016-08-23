@@ -14,8 +14,8 @@
         var initializeLeadData = function () {
             $scope.data = {};
             $scope.data.customer = {};
-            $scope.data.customer.country = undefined;
-            $scope.data.customer.language = undefined;
+            $scope.data.customer.country = '';
+            $scope.data.customer.language = '';
         };
         var initializeUiData = function () {
             $scope.ui = {};
@@ -33,23 +33,39 @@
         });
 
         $scope.selectCountry = function (value) {
-            if (value === 'ch') {
-                $scope.data.customer.country = 'ch';
-                LeadEntity.setCustomerCountry($scope.data.customer.country);
-                LeadEntity.setCustomerLanguage($scope.data.customer.language);
-                LeadEntity.setMode('swiss');
-                $state.go('searchCustomer');
-            } else if (value === 'foreign') {
-                $scope.data.customer.country = 'nonch';
-                LeadEntity.setCustomerCountry($scope.data.customer.country);
-                LeadEntity.setCustomerLanguage($scope.data.customer.language);
-                LeadEntity.setMode('foreign');
-                $state.go('customerForm');
+            if (fieldsAreValid()) {
+                if (value === 'ch') {
+                    $scope.data.customer.country = 'ch';
+                    LeadEntity.setCustomerCountry($scope.data.customer.country);
+                    LeadEntity.setCustomerLanguage($scope.data.customer.language);
+                    LeadEntity.setMode('swiss');
+                    $state.go('searchCustomer');
+                } else if (value === 'foreign') {
+                    $scope.data.customer.country = 'nonch';
+                    LeadEntity.setCustomerCountry($scope.data.customer.country);
+                    LeadEntity.setCustomerLanguage($scope.data.customer.language);
+                    LeadEntity.setMode('foreign');
+                    $state.go('customerForm');
+                }
+            }else{
+                alert('Bitte Sprache auswählen');
             }
         };
 
-        var reset = function(){
-            $('.item.item-radio .radio-content .radio-icon').css('visibility','hidden');
+        var fieldsAreValid = function () {
+            var isValid = true;
+
+            if ($scope.data.customer.language == ''
+                || $scope.data.customer.language == undefined) {
+
+                isValid = false;
+            }
+
+            return isValid
+        };
+
+        var reset = function () {
+            $('.item.item-radio .radio-content .radio-icon').css('visibility', 'hidden');
             initializeUiData();
             initializeLeadData();
         };

@@ -19,32 +19,36 @@
         $stateProvider.state('login', {
             url: '/login',
             templateUrl: 'app/views/login/_login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+            cache: true
         });
 
         $stateProvider.state('selectModel', {
             url: '/selectModel',
             templateUrl: 'app/views/selectModel/_selectModel.html',
-            controller: 'SelectModelCtrl'
+            controller: 'SelectModelCtrl',
+            cache: true
         });
 
         $stateProvider.state('selectCountry', {
             url: '/selectCountry',
             templateUrl: 'app/views/selectCountry/_selectCountry.html',
-            controller: 'SelectCountryCtrl'
+            controller: 'SelectCountryCtrl',
+            cache: true
         });
 
         $stateProvider.state('searchCustomer', {
             url: '/searchCustomer',
             templateUrl: 'app/views/searchCustomer/_searchCustomer.html',
             controller: 'SearchCustomerCtrl',
-            cache: false
+            cache: true
         });
 
         $stateProvider.state('customerForm', {
             url: '/customerForm',
             templateUrl: 'app/views/customerForm/_customerForm.html',
-            controller: 'CustomerFormCtrl'
+            controller: 'CustomerFormCtrl',
+            cache: true
         });
 
     });

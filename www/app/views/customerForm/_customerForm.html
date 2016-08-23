@@ -29,7 +29,7 @@
                             <ion-scroll class="input-form-scroll" zooming="false" direction="y">
                                 <div class="row">
                                     <div class="col">
-                                        <button class="button button-royal btn-refresh" ng-click="goBack()">
+                                        <button class="button button-royal btn-refresh" ng-click="goToSearch()" ng-show="data.countryCode === 'ch'">
                                             <icon class="ion-refresh"></icon>
                                             {{'CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA' | translate}}
                                         </button>
@@ -39,7 +39,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="catalogTyp">
-                                            <h4 class="checkbox-label">Katalog</h4>
+                                            <h4 class="checkbox-label">{{'CUSTOMERFORM_RADIO_CATALOG_LABEL' | translate}}</h4>
                                             <div class="radios">
                                                 <ion-radio id="radioElectronic" name="catalogTyp"
                                                            ng-model="data.catalogTyp" ng-value="'electronic'">
@@ -53,7 +53,7 @@
                                         </div>
 
                                         <div class="salutation">
-                                            <h4 class="checkbox-label">Ansprache</h4>
+                                            <h4 class="checkbox-label">{{'CUSTOMERFORM_RADIO_SALUTATION_LABEL' | translate}}</h4>
                                             <div class="radios">
                                                 <ion-radio id="salutationM" name="salutation" ng-model="data.salutation"
                                                            ng-value="'m'" ng-click="selectSalutation('m');">
@@ -70,30 +70,24 @@
                                     <div class="col">
                                         <div class="leadInfo">
                                             <ion-scroll zooming="false" direction="y">
-                                                Testdrive:<!--TODO Selected Typ-->
+
+                                                <span class="header-detail-scroll">{{'CUSTOMERFORM_SCROLL_DETAIL_LEADTYPE' | translate}}: </span>
+                                                <span class="text-detail-scroll" ng-show="ui.testdrive">{{'SELECTMODEL_CHECKFIELD_TESTDRIVE' | translate}} </span>
+                                                <span class="text-detail-scroll" ng-show="ui.brochure">{{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}} </span>
+                                                <span class="text-detail-scroll" ng-show="ui.offer">{{'SELECTMODEL_CHECKFIELD_OFFER' | translate}} </span>
                                                 <br>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3AA3A3A3</span>
-                                                <span>A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3AA3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3AA3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
-                                                <span>A3A3A3A3A3A3A3A3A3A3A3A3</span>
+
+                                                <div style="word-break: normal" ng-show="ui.leadCarList.length > 0">
+                                                    <span class="header-detail-scroll">{{'CUSTOMERFORM_SCROLL_DETAIL_MODELS' | translate}}: </span>
+                                                    <span class="text-detail-scroll" ng-repeat="item in ui.leadCarList">{{item["label_"+ui.language]}}{{$last?'':','}} </span>
+                                                    <span class="text-detail-scroll" ng-repeat="item in ui.leadCarList">{{item["label_"+ui.language]}}{{$last?'':','}} </span>
+                                                </div>
+                                                <div style="word-break: normal" ng-show="ui.leadAccessoryList.length > 0">
+                                                    <span class="header-detail-scroll">{{'CUSTOMERFORM_SCROLL_DETAIL_ACCESSORIES' | translate}}: </span>
+                                                    <span class="text-detail-scroll" ng-repeat="item in ui.leadAccessoryList">{{item["label_"+ui.language]}}{{$last?'':','}} </span>
+                                                    <span class="text-detail-scroll" ng-repeat="item in ui.leadAccessoryList">{{item["label_"+ui.language]}}{{$last?'':','}} </span>
+                                                </div>
+
                                             </ion-scroll>
                                         </div>
                                     </div>
@@ -155,7 +149,7 @@
                                     </div>
                                     <div class="col col-90">
                                         <select id="country" ng-model="data.country" ng-disabled="ui.mode === 'swiss'">
-                                            <option value="">Bitte Auswählen</option>
+                                            <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
                                             <option ng-repeat="item in ui.countryList" value="{{item}}">{{item}}</option>
                                         </select>
                                     </div>
@@ -176,11 +170,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col col-20">
-                                        Wunsch Händler:
+                                        {{'CUSTOMERFORM_PLACEHOLDER_SELLER' | translate}}:
                                     </div>
                                     <div class="col col-80">
                                         <select id="seller" ng-model="data.seller">
-                                            <option value="">Bitte Auswählen</option>
+                                            <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
                                             <option ng-repeat="item in ui.sellerList" value="{{item.code}}">{{item.label}}</option>
                                         </select>
                                     </div>
@@ -190,7 +184,7 @@
                                         <div class="remarks">
                                             <textarea id="remarks"
                                                       class="remarks-ta" ng-model="data.remarks"
-                                                      placeholder="Bemerkungen" maxlength="999"></textarea>
+                                                      placeholder="{{'CUSTOMERFORM_PLACEHOLDER_REMARKS' | translate}}" maxlength="999"></textarea>
                                         </div>
                                     </div>
                                 </div>

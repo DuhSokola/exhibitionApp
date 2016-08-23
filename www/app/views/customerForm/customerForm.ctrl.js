@@ -13,17 +13,17 @@
 
     var app = angular.module('app.customerForm.ctrl', dependencies);
 
-    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', 'LocalStorageService', 'LeadResourceService', function ($scope, $state, LeadEntity, UserEntity, ISO3166, LocalStorageService, LeadResourceService) {
+    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', 'LocalStorageService', 'LeadResourceService', '$translate', function ($scope, $state, LeadEntity, UserEntity, ISO3166, LocalStorageService, LeadResourceService, $translate) {
 
         $scope.data = {};
         var initData = function () {
             $scope.data.catalogTyp = ''; //validation
-            $scope.data.salutation = ''; //validation
+            $scope.data.salutation = LeadEntity.getCustomer().salutation; //validation
             $scope.data.firstname = LeadEntity.getCustomer().firstname; //validation
             $scope.data.lastname = LeadEntity.getCustomer().lastname; //validation
             $scope.data.firm = '';
-            $scope.data.street = ''; //validation
-            $scope.data.streetNr = ''; //validation
+            $scope.data.street = LeadEntity.getCustomer().street; //validation
+            $scope.data.streetNr = LeadEntity.getCustomer().houseNumber; //validation
             $scope.data.zip = LeadEntity.getCustomer().zip; //validation
             $scope.data.city = LeadEntity.getCustomer().city; //validation
             $scope.data.phone = LeadEntity.getCustomer().phone.replace('*', '');//validation
@@ -45,8 +45,16 @@
         $scope.ui.person = UserEntity.getPerson();
         $scope.ui.countryList = ISO3166.codeToCountry;
         $scope.ui.mode = LeadEntity.getCustomer().mode;
+        $scope.ui.leadCarList = LeadEntity.getOrder().cars;
+        $scope.ui.leadAccessoryList = LeadEntity.getOrder().accessories;
+        $scope.ui.language = $translate.use();
+        $scope.ui.testdrive = LeadEntity.getLeadType().testdrive;
+        $scope.ui.brochure = LeadEntity.getLeadType().brochure;
+        $scope.ui.offer = LeadEntity.getLeadType().offer;
 
-        //$scope.ui.countryList = [{label:'x123', code:'x123'},{label:'1234', code:'1234'},{label:'1235', code:'1235'}];
+        console.log($scope.ui.leadCarList);
+        console.log($scope.ui.leadAccessoryList);
+
         $scope.ui.sellerList = [{label: '123', code: '123'}, {label: '1234', code: '1234'}, {label: '1235', code: '1235'}];
 
         $scope.submitLead = function () {
@@ -85,7 +93,7 @@
             }
         });
 
-        $scope.$watch('data', function (newVal) {
+        $scope.$watch('data', function () {
             if ($scope.startValidation === true) {
                 formIsValid();
             }
@@ -245,8 +253,11 @@
         };
 
         $scope.goBack = function () {
-            //Reset Form
             $state.go('selectModel');
+        };
+
+        $scope.goToSearch = function () {
+            $state.go('searchCustomer');
         };
 
         $scope.goToHomePage = function () {

@@ -19,8 +19,6 @@
                 console.log(errorData);
             };
 
-            console.log(firstname == undefined ? '' : firstname);
-
             var pa = 'searchSurname=' + (lastname == undefined ? '' : lastname) +
                 '&searchName=' + (firstname == undefined ? '' : firstname) +
                 '&searchZIP=' + (zip == undefined ? '' : zip) +

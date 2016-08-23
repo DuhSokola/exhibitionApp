@@ -18,7 +18,7 @@
 
     var app = angular.module('app.login.ctrl', dependencies);
 
-    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity) {
+    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', '$translate', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity, $translate) {
         //define $scope objects for UI
         $scope.ui = {};
         $scope.ui.campaignList = undefined;
@@ -47,17 +47,35 @@
                 console.log("Language: " + UserEntity.getLanguage());
                 console.log("Campaign: " + UserEntity.getCampaign().label);
                 console.log("Person: " + UserEntity.getPerson().name + ' ' + UserEntity.getPerson().surname);
+                console.log("Person DEALER: " + UserEntity.getPerson().dealer);
 
                 LeadEntity.resetAll();
                 $rootScope.$emit('resetAllViews');
                 $state.go('selectModel');
             }
         };
+        
+        $scope.$watch('data.user.language', function(newVal){
+            if(newVal) {
+                $translate.use(newVal);
+            }
+        });
+
+        $scope.$watch('data.user.brand', function(newVal){
+            if(newVal){
+                PersonResourceService.getAllByBrand(newVal, $scope.ui, 'personList');
+            }
+        });
 
         $scope.reloadData = function(){
             CarDataService.reloadCarData();
             AccessoryDataService.reloadAccessoryData();
+            $rootScope.dateOfDataLoad = new Date();
             console.log('reload Data');
+        };
+
+        $scope.resendLeads = function(){
+            //TODO
         };
 
         var fieldsAreValid = function () {
