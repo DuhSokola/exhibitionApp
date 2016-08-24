@@ -12,7 +12,7 @@
             scope: {
                 ngModel: '='
             },
-            templateUrl:'app/directives/selectLanguage/selectLanguage.tmpl.html',
+            templateUrl: 'app/directives/selectLanguage/selectLanguage.tmpl.html',
             link: function (scope, element, attrs, SelectLanguageCtrl) {
                 SelectLanguageCtrl.init(element, scope);
             }
@@ -25,8 +25,10 @@
         this.init = function (element, scope) {
             self.$element = element;
             $scope.parent = scope;
-            $scope.$watch('selectedLanguage', function(newVal){
-                $scope.parent.ngModel = newVal;
+            $scope.$watch('selectedLanguage', function (newVal) {
+                if (newVal) {
+                    $scope.parent.ngModel = newVal;
+                }
             });
         };
 

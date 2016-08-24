@@ -2,12 +2,13 @@
     'use strict';
 
     var deps = [
-        'carResource'
+        'carResource',
+        'app.localStorage'
     ];
 
     var app = angular.module('carData', deps);
 
-    app.factory('CarDataService', ['CarResourceService', '$rootScope', function(CarResourceService, $rootScope){
+    app.factory('CarDataService', ['CarResourceService', '$rootScope', 'LocalStorageService', function(CarResourceService, $rootScope, LocalStorageService){
 
         $rootScope.carData = {
             vw : [],
@@ -18,6 +19,11 @@
         };
 
         var loadCarData = function(){
+            $rootScope.carData.vw = LocalStorageService.getCarListByBrand('vw');
+            $rootScope.carData.vwnf = LocalStorageService.getCarListByBrand('vwnf');
+            $rootScope.carData.audi = LocalStorageService.getCarListByBrand('audi');
+            $rootScope.carData.skoda = LocalStorageService.getCarListByBrand('skoda');
+            $rootScope.carData.seat = LocalStorageService.getCarListByBrand('seat');
             CarResourceService.getAllByBrand('vw', $rootScope.carData, 'vw');
             CarResourceService.getAllByBrand('vwnf', $rootScope.carData, 'vwnf');
             CarResourceService.getAllByBrand('audi', $rootScope.carData, 'audi');

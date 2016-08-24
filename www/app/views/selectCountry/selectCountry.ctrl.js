@@ -9,13 +9,13 @@
 
     var app = angular.module('app.selectCountry.ctrl', dependencies);
 
-    app.controller('SelectCountryCtrl', ['$scope', '$rootScope', '$state', 'UserEntity', 'LeadEntity', function ($scope, $rootScope, $state, UserEntity, LeadEntity) {
+    app.controller('SelectCountryCtrl', ['$scope', '$rootScope', '$state', 'UserEntity', 'LeadEntity', '$timeout', function ($scope, $rootScope, $state, UserEntity, LeadEntity, $timeout) {
 
         var initializeLeadData = function () {
             $scope.data = {};
             $scope.data.customer = {};
             $scope.data.customer.country = '';
-            $scope.data.customer.language = '';
+            $scope.data.customer.language = LeadEntity.getCustomer().language;
         };
         var initializeUiData = function () {
             $scope.ui = {};
@@ -26,6 +26,15 @@
 
         initializeLeadData();
         initializeUiData();
+
+        $scope.$watch('data.customer.language', function(newVal, oldVal){
+            if (newVal && oldVal) {
+                var element = $('#lang label[name="' + oldVal + '"] .radio-content .radio-icon');
+                element.css('visibility', 'hidden');
+                var element = $('#lang label[name="' + newVal + '"] .radio-content .radio-icon');
+                element.css('visibility', 'visible');
+            }
+        });
 
         $rootScope.$on('resetAllViews', function () {
             console.log('reset selectCountry scope');
@@ -47,7 +56,7 @@
                     LeadEntity.setMode('foreign');
                     $state.go('customerForm');
                 }
-            }else{
+            } else {
                 alert('Bitte Sprache auswählen');
             }
         };
@@ -69,6 +78,12 @@
             initializeUiData();
             initializeLeadData();
         };
+
+        $scope.$watch('data.customer.language', function (newVal) {
+            if (newVal != null || newVal !== '') {
+                LeadEntity.setCustomerLanguage($scope.data.customer.language);
+            }
+        });
 
         $scope.goBack = function () {
             $state.go('selectModel');

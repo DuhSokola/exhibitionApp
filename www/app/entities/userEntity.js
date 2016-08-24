@@ -9,10 +9,10 @@
         var self = this;
 
         self.user = {};
-        self.user.brand = undefined;
-        self.user.language = undefined;
-        self.user.campaign = undefined;
-        self.user.person = undefined;
+        self.user.brand = '';
+        self.user.language = '';
+        self.user.campaign = '';
+        self.user.person = '';
 
         return {
             getBrand: function () {

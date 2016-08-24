@@ -15,8 +15,12 @@
                     </h1>
                 </div>
                 <div class="col">
-                    <button class="button button-balanced buttonNext" ng-click="goToCountrySelect()">
+                    <button class="button button-balanced buttonNext" ng-click="goToCountrySelect()" ng-show="ui.mode != 'adjustSelection'">
                         {{'GLOBAL_BUTTON_NEXT' | translate}}
+                        <icon class="ion-ios-arrow-forward"></icon>
+                    </button>
+                    <button class="button button-balanced buttonNext" ng-click="goToCustomerForm()" ng-show="ui.mode == 'adjustSelection'">
+                        {{'GLOBAL_BUTTON_SAVE' | translate}}
                         <icon class="ion-ios-arrow-forward"></icon>
                     </button>
                 </div>
@@ -25,15 +29,15 @@
             <div class="row">
                 <div class="col selectLeadType">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'testdrive')">
+                        <button id="testdrive-btn" type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'testdrive')">
                             <icon class="icon ion-checkmark-round hidden"></icon>
                             {{'SELECTMODEL_CHECKFIELD_TESTDRIVE' | translate}}
                         </button>
-                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'catalog')">
+                        <button id="catalog-btn" type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'catalog')">
                             <icon class="icon ion-checkmark-round hidden"></icon>
                             {{'SELECTMODEL_CHECKFIELD_CATALOG' | translate}}
                         </button>
-                        <button type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'offer')" ng-show="ui.person.dealer != undefined && ui.person.dealer != 0">
+                        <button id="offer-btn" type="button" class="btn btn-default" ng-click="selectOrderOption($event, 'offer')" ng-show="ui.person.dealer != undefined && ui.person.dealer != 0">
                             <icon class="icon ion-checkmark-round hidden"></icon>
                             {{'SELECTMODEL_CHECKFIELD_OFFER' | translate}}
                         </button>
@@ -53,7 +57,7 @@
 
             <div class="row">
                 <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:left;">
-                    <div class="tableRow" ng-repeat="item in ui.carList[ui.brand]"
+                    <div id="car{{item.code}}" class="tableRow" ng-repeat="item in ui.carList[ui.brand]"
                          ng-click="toggleSelectCar($event, item)">
                         <icon class="icon ion-checkmark-round hidden"></icon>
                         <label>{{item.label_de}}</label>
@@ -63,7 +67,7 @@
                 <div style="width: 2%"></div>
 
                 <ion-scroll zooming="false" direction="y" style="width: 49%; height: 400px; float:right;">
-                    <div class="tableRow" ng-repeat="item in ui.accessoryList[ui.brand]"
+                    <div id="accessory{{item.code}}" class="tableRow" ng-repeat="item in ui.accessoryList[ui.brand]"
                          ng-click="toggleSelectAccessory($event, item)">
                         <icon class="icon ion-checkmark-round hidden"></icon>
                         <label>{{item.label_de}}</label>

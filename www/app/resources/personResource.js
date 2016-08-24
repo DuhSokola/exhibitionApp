@@ -5,7 +5,7 @@
 
     var app = angular.module('personResource', deps);
 
-    app.factory('PersonResourceService', ['$http', function ($http) {
+    app.factory('PersonResourceService', ['$http', 'LocalStorageService', function ($http, LocalStorageService) {
         var self = this;
 
         //self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/personlist';
@@ -14,14 +14,16 @@
         var getAll = function (scope, attrName) {
             var onSuccess = function (responseData) {
                 scope[attrName] = responseData.data;
+                LocalStorageService.savePersonList(responseData.data);
             };
 
             var onError = function (errorData) {
+                scope[attrName] = LocalStorageService.getPersonList();
                 console.log(errorData);
             };
 
             //TODO set to false
-            $http.get(self.endpoint + '?onlySalespersons=true').then(onSuccess, onError);
+            $http.get(self.endpoint + '?onlySalespersons=false').then(onSuccess, onError);
         };
 
         var getAllByBrand = function (brand, scope, attrName) {
@@ -30,6 +32,7 @@
             };
 
             var onError = function (errorData) {
+                scope[attrName] = LocalStorageService.getPersonList();
                 console.log(errorData);
             };
 

@@ -17,25 +17,23 @@
 
         $scope.data = {};
         var initData = function () {
-            $scope.data.catalogTyp = ''; //validation
+            $scope.data.catalogTyp = LeadEntity.getLeadType().brochureType; //validation
             $scope.data.salutation = LeadEntity.getCustomer().salutation; //validation
             $scope.data.firstname = LeadEntity.getCustomer().firstname; //validation
             $scope.data.lastname = LeadEntity.getCustomer().lastname; //validation
-            $scope.data.firm = '';
+            $scope.data.firm = LeadEntity.getCustomer().firm;
             $scope.data.street = LeadEntity.getCustomer().street; //validation
             $scope.data.streetNr = LeadEntity.getCustomer().houseNumber; //validation
             $scope.data.zip = LeadEntity.getCustomer().zip; //validation
             $scope.data.city = LeadEntity.getCustomer().city; //validation
             $scope.data.phone = LeadEntity.getCustomer().phone.replace('*', '');//validation
-            $scope.data.email = ''; //validation
-            console.log(LeadEntity.getCustomer().country);
-            console.log(((LeadEntity.getCustomer().country === 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''));
+            $scope.data.email = LeadEntity.getCustomer().email; //validation
             $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
             $scope.data.countryCode = LeadEntity.getCustomer().country;
-            $scope.data.seller = '';
-            $scope.data.remarks = '';
-            $scope.data.privacy = false; //validation
-            $scope.data.newsletter = false;
+            $scope.data.seller = LeadEntity.getCustomer().seller;
+            $scope.data.remarks = LeadEntity.getCustomer().remarks;
+            $scope.data.privacy = LeadEntity.getCustomer().privacy; //validation
+            $scope.data.newsletter = LeadEntity.getCustomer().newsletter;
         };
         initData();
 
@@ -52,36 +50,36 @@
         $scope.ui.brochure = LeadEntity.getLeadType().brochure;
         $scope.ui.offer = LeadEntity.getLeadType().offer;
 
-        console.log($scope.ui.leadCarList);
-        console.log($scope.ui.leadAccessoryList);
-
         $scope.ui.sellerList = [{label: '123', code: '123'}, {label: '1234', code: '1234'}, {label: '1235', code: '1235'}];
+
 
         $scope.submitLead = function () {
             if (formIsValid()) {
                 alert('VALID');
-                LeadEntity.setBrand(UserEntity.getBrand());
-                LeadEntity.setCustomerSalutation($scope.data.salutation);
-                LeadEntity.setCustomerFirstname($scope.data.firstname);
-                LeadEntity.setCustomerLastname($scope.data.lastname);
-                LeadEntity.setCustomerFirm($scope.data.firm);
-                LeadEntity.setCustomerStreet($scope.data.street);
-                LeadEntity.setCustomerHouseNumber($scope.data.streetNr);
-                LeadEntity.setCustomerZip($scope.data.zip);
-                LeadEntity.setCustomerCity($scope.data.city);
-                LeadEntity.setCustomerCountry($scope.data.countryCode);
-                LeadEntity.setCustomerPhone($scope.data.phone);
-                LeadEntity.setCustomerEmail($scope.data.email);
-                LeadEntity.setCustomerSeller($scope.data.seller);
-                LeadEntity.setCustomerRemarks($scope.data.remarks);
-                LeadEntity.setCustomerNewsletter($scope.data.newsletter);
-                LeadEntity.setCustomerPrivacy($scope.data.privacy);
-                LeadEntity.setTypeBrochures($scope.data.catalogTyp);
 
                 LeadResourceService.save();
-
                 $scope.startValidation = false;
             }
+        };
+
+        var persistIntoLeadEntity = function () {
+            LeadEntity.setBrand(UserEntity.getBrand());
+            LeadEntity.setCustomerSalutation($scope.data.salutation);
+            LeadEntity.setCustomerFirstname($scope.data.firstname);
+            LeadEntity.setCustomerLastname($scope.data.lastname);
+            LeadEntity.setCustomerFirm($scope.data.firm);
+            LeadEntity.setCustomerStreet($scope.data.street);
+            LeadEntity.setCustomerHouseNumber($scope.data.streetNr);
+            LeadEntity.setCustomerZip($scope.data.zip);
+            LeadEntity.setCustomerCity($scope.data.city);
+            LeadEntity.setCustomerCountry($scope.data.countryCode);
+            LeadEntity.setCustomerPhone($scope.data.phone);
+            LeadEntity.setCustomerEmail($scope.data.email);
+            LeadEntity.setCustomerSeller($scope.data.seller);
+            LeadEntity.setCustomerRemarks($scope.data.remarks);
+            LeadEntity.setCustomerNewsletter($scope.data.newsletter);
+            LeadEntity.setCustomerPrivacy($scope.data.privacy);
+            LeadEntity.setBrochureType($scope.data.catalogTyp);
         };
 
         $scope.$watch('data.country', function (newVal) {
@@ -94,6 +92,7 @@
         });
 
         $scope.$watch('data', function () {
+            persistIntoLeadEntity();
             if ($scope.startValidation === true) {
                 formIsValid();
             }
@@ -107,18 +106,20 @@
 
             var printedCatalogEl = $('#radioElectronic .item-content');
             var electroCatalogEl = $('#radioPrinted .item-content');
-            if (scope.catalogTyp === undefined) {
-                printedCatalogEl.addClass('not-valid');
-                electroCatalogEl.addClass('not-valid');
-                formIsValid = false;
-            } else {
-                printedCatalogEl.removeClass('not-valid');
-                electroCatalogEl.removeClass('not-valid');
-            }
 
+            if ($scope.ui.brochure == true) {
+                if (scope.catalogTyp === undefined || scope.catalogTyp === '') {
+                    printedCatalogEl.addClass('not-valid');
+                    electroCatalogEl.addClass('not-valid');
+                    formIsValid = false;
+                } else {
+                    printedCatalogEl.removeClass('not-valid');
+                    electroCatalogEl.removeClass('not-valid');
+                }
+            }
             var maleSalutationEl = $('#salutationM .item-content');
             var femaleSalutationEl = $('#salutationF .item-content');
-            if (scope.salutation === undefined) {
+            if (scope.salutation === undefined || scope.salutation === '') {
                 maleSalutationEl.addClass('not-valid');
                 femaleSalutationEl.addClass('not-valid');
                 formIsValid = false;
@@ -159,6 +160,8 @@
                 streetNrEl.removeClass('not-valid');
             }
 
+            console.log($scope.ui.mode);
+
             var zipEl = $('#zip');
             if (scope.zip === undefined || scope.zip === '') {
                 zipEl.addClass('not-valid');
@@ -183,17 +186,38 @@
             }
 
             var phoneEl = $('#phone');
-            if (scope.phone === undefined || scope.phone === '') {
-                phoneEl.addClass('not-valid');
-                formIsValid = false;
+            if ($scope.ui.testdrive == true || $scope.ui.offer == true) {
+                if (scope.phone === undefined || scope.phone === '') {
+                    phoneEl.addClass('not-valid');
+                    formIsValid = false;
+                } else if ($scope.ui.mode === 'swiss') {
+                    var swissPhonePatter = new RegExp(/(0|\+41)(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}/);
+                    if (!swissPhonePatter.test(scope.phone)) {
+                        phoneEl.addClass('not-valid');
+                        formIsValid = false;
+                    } else {
+                        phoneEl.removeClass('not-valid');
+                    }
+                } else {
+                    phoneEl.removeClass('not-valid');
+                }
             } else {
                 phoneEl.removeClass('not-valid');
             }
 
             var emailEl = $('#email');
-            if (scope.email === undefined || scope.email === '') {
-                emailEl.addClass('not-valid');
-                formIsValid = false;
+            if (scope.catalogTyp === 'electronic') {
+                var emailPatter = new RegExp(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
+
+                if (scope.email === undefined || scope.email === '') {
+                    emailEl.addClass('not-valid');
+                    formIsValid = false;
+                } else if (!emailPatter.test(scope.email)) {
+                    emailEl.addClass('not-valid');
+                    formIsValid = false;
+                } else {
+                    emailEl.removeClass('not-valid');
+                }
             } else {
                 emailEl.removeClass('not-valid');
             }
@@ -244,19 +268,34 @@
             }
         });
 
+        $scope.$on('leadSendSuccess', function () {
+            console.log('SUCCESS');
+        });
+
+        $scope.$on('leadSendError', function () {
+            console.log('ERROR');
+        });
+
+        //TODO Check
         $scope.resetForm = function () {
             initData();
             $('.catalogTyp .radios label[id="radioElectronic"] .item-content').removeClass('selected');
             $('.catalogTyp .radios label[id="radioPrinted"] .item-content').removeClass('selected');
+
             $('.salutation .radios label[id="salutationM"] .item-content').removeClass('selected');
             $('.salutation .radios label[id="salutationF"] .item-content').removeClass('selected');
         };
 
         $scope.goBack = function () {
-            $state.go('selectModel');
+            $state.go('selectModel', {mode: 'adjustSelection'});
         };
 
         $scope.goToSearch = function () {
+            $state.go('searchCustomer');
+        };
+
+        $scope.goToSwissLead = function () {
+            LeadEntity.setMode('swiss');
             $state.go('searchCustomer');
         };
 

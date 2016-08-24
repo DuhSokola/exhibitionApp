@@ -15,11 +15,11 @@
 
         $scope.data.search = {};
         $scope.data.search.request = {};
-        $scope.data.search.request.firstname = '';
-        $scope.data.search.request.lastname = '';
-        $scope.data.search.request.phone = '';
-        $scope.data.search.request.zip = '';
-        $scope.data.search.request.city = '';
+        $scope.data.search.request.firstname = LeadEntity.getSearch().firstname;
+        $scope.data.search.request.lastname = LeadEntity.getSearch().lastname;
+        $scope.data.search.request.phone = LeadEntity.getSearch().phone;
+        $scope.data.search.request.zip = LeadEntity.getSearch().zip;
+        $scope.data.search.request.city = LeadEntity.getSearch().city;
 
         $scope.data.search.result = [];
 
@@ -37,7 +37,6 @@
         $scope.ui.showBtnToManually = false;
 
         $scope.$watch('data.search.request', function (newVal) {
-            console.log(newVal);
             if (newVal.firstname != '' ||
                 newVal.lastname != '' ||
                 newVal.phone != '' ||
@@ -46,6 +45,12 @@
 
                 $scope.data.search.result = [];
                 $scope.ui.showBtnToManually = false;
+
+                LeadEntity.setSearchFirstname($scope.data.search.request.firstname);
+                LeadEntity.setSearchLastname($scope.data.search.request.lastname);
+                LeadEntity.setSearchPhone($scope.data.search.request.phone);
+                LeadEntity.setSearchZip($scope.data.search.request.zip);
+                LeadEntity.setSearchCity($scope.data.search.request.city);
 
                 if (fieldsAreValid()) {
                     $scope.searchCustomer();
@@ -77,6 +82,8 @@
         };
 
         $scope.selectCustomer = function ($event, item) {
+
+            LeadEntity.setCustomerCountry('ch');
             LeadEntity.setCustomerSalutation(item.salutation == '1' ? 'm' : 'f');
             LeadEntity.setCustomerFirstname(item.name);
             LeadEntity.setCustomerLastname(item.surname);
@@ -85,8 +92,15 @@
             LeadEntity.setCustomerCity(item.city);
             LeadEntity.setCustomerZip(item.zip);
             LeadEntity.setCustomerPhone(item.phone);
+            LeadEntity.setMode('swiss');
 
-            console.log(item);
+            LeadEntity.setCustomerEmail('');
+            LeadEntity.setCustomerSeller('');
+            LeadEntity.setBrochureType('');
+            LeadEntity.setCustomerFirm('');
+            LeadEntity.setCustomerRemarks('');
+            LeadEntity.setCustomerPrivacy('');
+            LeadEntity.setCustomerNewsletter('');
 
             $state.go('customerForm');
         };
@@ -102,10 +116,6 @@
 
         $scope.goToForeignForm = function () {
             LeadEntity.setCustomerCountry('nonch');
-            $state.go('customerForm');
-        };
-
-        $scope.goManuallyForm = function () {
             LeadEntity.setCustomerSalutation('');
             LeadEntity.setCustomerFirstname('');
             LeadEntity.setCustomerLastname('');
@@ -114,6 +124,35 @@
             LeadEntity.setCustomerCity('');
             LeadEntity.setCustomerZip('');
             LeadEntity.setCustomerPhone('');
+            LeadEntity.setMode('foreign');
+            LeadEntity.setCustomerEmail('');
+            LeadEntity.setCustomerSeller('');
+            LeadEntity.setBrochureType('');
+            LeadEntity.setCustomerFirm('');
+            LeadEntity.setCustomerRemarks('');
+            LeadEntity.setCustomerPrivacy('');
+            LeadEntity.setCustomerNewsletter('');
+            $state.go('customerForm');
+        };
+
+        $scope.goManuallyForm = function () {
+            LeadEntity.setCustomerCountry('ch');
+            LeadEntity.setCustomerSalutation('');
+            LeadEntity.setCustomerFirstname($scope.data.search.request.firstname);
+            LeadEntity.setCustomerLastname($scope.data.search.request.lastname);
+            LeadEntity.setCustomerStreet('');
+            LeadEntity.setCustomerHouseNumber('');
+            LeadEntity.setCustomerCity($scope.data.search.request.city);
+            LeadEntity.setCustomerZip($scope.data.search.request.zip);
+            LeadEntity.setCustomerPhone($scope.data.search.request.phone);
+            LeadEntity.setMode('swiss');
+            LeadEntity.setCustomerEmail('');
+            LeadEntity.setCustomerSeller('');
+            LeadEntity.setBrochureType('');
+            LeadEntity.setCustomerFirm('');
+            LeadEntity.setCustomerRemarks('');
+            LeadEntity.setCustomerPrivacy('');
+            LeadEntity.setCustomerNewsletter('');
             $state.go('customerForm');
         };
 

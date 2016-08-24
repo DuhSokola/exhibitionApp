@@ -18,11 +18,15 @@
 
     var app = angular.module('app.login.ctrl', dependencies);
 
-    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', '$translate', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity, $translate) {
+    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', '$translate', 'LocalStorageService', 'LeadResourceService', '$timeout', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity, $translate, LocalStorageService, LeadResourceService, $timeout) {
+
+        $rootScope.dateOfDataLoad = new Date(LocalStorageService.getDateOfData());
+
         //define $scope objects for UI
         $scope.ui = {};
         $scope.ui.campaignList = undefined;
         $scope.ui.personList = undefined;
+        $scope.ui.failedLeadSize = LocalStorageService.getSizeOfFailedList();
 
         //get UI data and save into $scope
         CampaignResourceService.getAll($scope.ui, 'campaignList');
@@ -30,10 +34,10 @@
 
         $scope.data = {};
         $scope.data.user = {};
-        $scope.data.user.brand = undefined;
-        $scope.data.user.language = undefined;
-        $scope.data.user.campaign = undefined;
-        $scope.data.user.person = undefined;
+        $scope.data.user.brand = UserEntity.getBrand();
+        $scope.data.user.language = UserEntity.getLanguage();
+        $scope.data.user.campaign = UserEntity.getCampaign();
+        $scope.data.user.person = UserEntity.getPerson();
 
         $scope.login = function () {
             if (fieldsAreValid()) {
@@ -54,28 +58,30 @@
                 $state.go('selectModel');
             }
         };
-        
-        $scope.$watch('data.user.language', function(newVal){
-            if(newVal) {
+
+        $scope.$watch('data.user.language', function (newVal) {
+            if (newVal) {
                 $translate.use(newVal);
             }
         });
 
-        $scope.$watch('data.user.brand', function(newVal){
-            if(newVal){
+        $scope.$watch('data.user.brand', function (newVal) {
+            if (newVal) {
                 PersonResourceService.getAllByBrand(newVal, $scope.ui, 'personList');
             }
         });
 
-        $scope.reloadData = function(){
+        $scope.$on('failedLeadSendSuccess', function(){
+            $scope.ui.failedLeadSize = LocalStorageService.getSizeOfFailedList();
+        });
+
+        $scope.reloadData = function () {
             CarDataService.reloadCarData();
             AccessoryDataService.reloadAccessoryData();
-            $rootScope.dateOfDataLoad = new Date();
-            console.log('reload Data');
         };
 
-        $scope.resendLeads = function(){
-            //TODO
+        $scope.resendLeads = function () {
+            LeadResourceService.resendFailedLeads();
         };
 
         var fieldsAreValid = function () {

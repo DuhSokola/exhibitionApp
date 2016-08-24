@@ -11,12 +11,13 @@ var deps = [
     'app.route',
     'pascalprecht.translate',
     'carData',
-    'accessoryData'
+    'accessoryData',
+    'app.leadResource'
 ];
 
 angular.module('starter', deps)
 
-    .run(function ($ionicPlatform, $rootScope, CarDataService, AccessoryDataService) {
+    .run(function ($ionicPlatform, $rootScope, CarDataService, AccessoryDataService, $interval, LeadResourceService) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -37,7 +38,12 @@ angular.module('starter', deps)
         $rootScope.appVersion = '1.0';
         CarDataService.initCarData();
         AccessoryDataService.initAccessoryData();
-        $rootScope.dateOfDataLoad = new Date();
+
+        $interval(function(){
+            LeadResourceService.resendFailedLeads();
+            console.log('Resend Failed Leads');
+        }, 1000*10*60*15);
+
     })
 
     .config(function ($translateProvider) {
@@ -51,6 +57,6 @@ angular.module('starter', deps)
         });
         $translateProvider.preferredLanguage('de');
 
-    })
+    });
 
     

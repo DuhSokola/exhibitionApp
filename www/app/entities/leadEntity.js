@@ -8,13 +8,13 @@
     app.factory('LeadEntity', function () {
         var self = this;
 
-
         self.lead = {};
 
         var initLeadType = function () {
             self.lead.type = {
                 testdrive: false,
                 brochure: false,
+                brochureType: '',
                 offer: false
             };
         };
@@ -49,9 +49,20 @@
             };
         };
 
+        var initSearchParams = function () {
+            self.search = {
+                firstname: '',
+                lastname: '',
+                phone: '',
+                zip: '',
+                city: ''
+            };
+        };
+
         initLeadType();
         initLeadOrder();
         initLeadCutomer();
+        initSearchParams();
 
         return {
             getLead: function () {
@@ -61,6 +72,7 @@
                 initLeadType();
                 initLeadOrder();
                 initLeadCutomer();
+                initSearchParams();
             },
             getLeadType: function () {
                 return self.lead.type;
@@ -148,6 +160,27 @@
             },
             setMode: function(_mode){
                 self.lead.customer.mode = _mode;
+            },
+            getSearch : function(){
+                return self.search;
+            },
+            setSearchFirstname : function(_val){
+                return self.search.firstname = _val;
+            },
+            setSearchLastname : function(_val){
+                return self.search.lastname = _val;
+            },
+            setSearchPhone : function(_val){
+                return self.search.phone = _val;
+            },
+            setSearchZip : function(_val){
+                return self.search.zip = _val;
+            },
+            setSearchCity : function(_val){
+                return self.search.city = _val;
+            },
+            setBrochureType : function(_val){
+                return self.lead.type.brochureType = _val;
             }
 
         }

@@ -49,10 +49,10 @@
         </div>
 
         <div class="resendLeadsButton" style="float:left;">
-            <button class="button button-assertive" ng-click="resendLead()">
+            <button class="button button-assertive" ng-click="resendLeads()" ng-show="ui.failedLeadSize > 0">
                 <icon style="font-size: 20px" class="ion-paper-airplane"></icon>
                 <!--TODO Number of failed Leads-->
-                10 {{'LOGIN_BUTTON_RESEND_LEADS' | translate}}
+                {{ui.failedLeadSize}} {{'LOGIN_BUTTON_RESEND_LEADS' | translate}}
             </button>
         </div>
 

@@ -7,7 +7,7 @@
 
     var app = angular.module('accessoryData', deps);
 
-    app.factory('AccessoryDataService', ['AccessoryResourceService', '$rootScope', function(AccessoryResourceService, $rootScope){
+    app.factory('AccessoryDataService', ['AccessoryResourceService', '$rootScope', 'LocalStorageService', function(AccessoryResourceService, $rootScope, LocalStorageService){
 
         $rootScope.accessoryData = {
             vw : [],
@@ -18,6 +18,11 @@
         };
 
         var loadAccessoryData = function(){
+            $rootScope.accessoryData.vw = LocalStorageService.getAccessoryListByBrand('vw');
+            $rootScope.accessoryData.vwnf = LocalStorageService.getAccessoryListByBrand('vwnf');
+            $rootScope.accessoryData.audi = LocalStorageService.getAccessoryListByBrand('audi');
+            $rootScope.accessoryData.skoda = LocalStorageService.getAccessoryListByBrand('skoda');
+            $rootScope.accessoryData.seat = LocalStorageService.getAccessoryListByBrand('seat');
             AccessoryResourceService.getAllByBrand('vw', $rootScope.accessoryData, 'vw');
             AccessoryResourceService.getAllByBrand('vwnf', $rootScope.accessoryData, 'vwnf');
             AccessoryResourceService.getAllByBrand('audi', $rootScope.accessoryData, 'audi');

@@ -2,6 +2,7 @@
   "GLOBAL_BUTTON_NEXT" : "Weiter",
   "GLOBAL_BUTTON_HOME" : "Startseite",
   "GLOBAL_APP_VERSION" : "App-Version",
+  "GLOBAL_BUTTON_SAVE" : "Speichern",
   "GLOBAL_BUTTON_BACK" : "Zurück zur Auswahl",
   "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte Auswählen...",
 
@@ -46,6 +47,7 @@
   "CUSTOMERFORM_BUTTON_RESET_FORM" : "Daten zurücksetzen",
   "CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA" : "Interessenten aktualisieren",
   "CUSTOMERFORM_BUTTON_SUBMIT" : "Absenden",
+  "CUSTOMERFORM_BUTTON_TO_SWISS_LEAD" : "Zum Schweizer Lead wechseln",
   "CUSTOMERFORM_RADIO_CATALOG_LABEL" : "Katalog",
   "CUSTOMERFORM_RADIO_CATALOG_ELECTRO" : "Elektronisch",
   "CUSTOMERFORM_RADIO_CATALOG_PRINTED" : "Gedruckt",

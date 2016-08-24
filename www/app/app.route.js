@@ -24,31 +24,31 @@
         });
 
         $stateProvider.state('selectModel', {
-            url: '/selectModel',
+            url: '/selectModel/:mode',
             templateUrl: 'app/views/selectModel/_selectModel.html',
             controller: 'SelectModelCtrl',
-            cache: true
+            cache: false
         });
 
         $stateProvider.state('selectCountry', {
             url: '/selectCountry',
             templateUrl: 'app/views/selectCountry/_selectCountry.html',
             controller: 'SelectCountryCtrl',
-            cache: true
+            cache: false
         });
 
         $stateProvider.state('searchCustomer', {
             url: '/searchCustomer',
             templateUrl: 'app/views/searchCustomer/_searchCustomer.html',
             controller: 'SearchCustomerCtrl',
-            cache: true
+            cache: false
         });
 
         $stateProvider.state('customerForm', {
             url: '/customerForm',
             templateUrl: 'app/views/customerForm/_customerForm.html',
             controller: 'CustomerFormCtrl',
-            cache: true
+            cache: false
         });
 
     });
