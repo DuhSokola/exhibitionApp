@@ -309,7 +309,7 @@
             $scope.data.phone = '';//validation
             $scope.data.email = ''; //validation
             $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
-            $scope.data.countryCode = '';
+            $scope.data.countryCode = LeadEntity.getCustomer().country;
             $scope.data.seller = '';
             $scope.data.remarks = '';
             $scope.data.privacy = false; //validation

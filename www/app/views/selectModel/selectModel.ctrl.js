@@ -155,6 +155,11 @@
                     element.find('icon').removeClass('hidden');
                     $scope.data.lead.cars.push(item);
                 }
+            } else{
+                $('#popup_leadtyp_not_selected').addClass('active');
+                $timeout(function () {
+                    $('#popup_leadtyp_not_selected').removeClass('active');
+                }, 1000);
             }
         };
 
@@ -171,6 +176,11 @@
                     element.find('icon').removeClass('hidden');
                     $scope.data.lead.accessories.push(item);
                 }
+            } else{
+                $('#popup_catalog_not_selected').addClass('active');
+                $timeout(function () {
+                    $('#popup_catalog_not_selected').removeClass('active');
+                }, 1000);
             }
         };
 
@@ -217,7 +227,10 @@
 
                 $state.go('customerForm');
             } else {
-                alert('Bitte alles auswählen');
+                $('#popup_validation_error').addClass('active');
+                $timeout(function () {
+                    $('#popup_validation_error').removeClass('active');
+                }, 1000);
             }
         };
 

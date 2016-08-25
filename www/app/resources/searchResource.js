@@ -5,13 +5,14 @@
 
     var app = angular.module('app.searchResource', deps);
 
-    app.factory('SearchResourceService', ['$http', function ($http) {
+    app.factory('SearchResourceService', ['$http', '$rootScope', function ($http, $rootScope) {
         var self = this;
 
         self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/customersearch';
 
         var search = function (scope, attrName, firstname, lastname, zip, city, phone) {
             var onSuccess = function (responseData) {
+                $rootScope.$broadcast('searchDone');
                 scope[attrName] = responseData.data;
             };
 

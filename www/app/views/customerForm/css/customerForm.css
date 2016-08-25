@@ -152,8 +152,18 @@
     font-size: 16px;
 }
 
-#popup_validation_error2 .popup-text{
+.customerForm #popup_validation_error .popup-text{
     margin-top: 20px;
+}
+
+.customerForm .info-popup.agb {
+    margin-top: 5%;
+    width: 800px;
+    height: 470px;
+}
+
+.customerForm .info-popup.agb button {
+    width: 150px;
 }
 
 

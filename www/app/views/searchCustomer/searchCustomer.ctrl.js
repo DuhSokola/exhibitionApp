@@ -9,7 +9,7 @@
 
     var app = angular.module('app.searchCustomer.ctrl', dependencies);
 
-    app.controller('SearchCustomerCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'SearchResourceService', '$timeout', function ($scope, $state, LeadEntity, UserEntity, SearchResourceService, $timeout) {
+    app.controller('SearchCustomerCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'SearchResourceService', '$timeout', '$rootScope', function ($scope, $state, LeadEntity, UserEntity, SearchResourceService, $timeout, $rootScope) {
 
         $scope.data = {};
 
@@ -70,19 +70,27 @@
                 isValid = false;
             }
 
-            if (scope.zip === undefined || scope.zip === '') {
+            if (scope.zip === undefined || scope.zip === '' || scope.zip.length < 2) {
                 isValid = false;
+            }
+
+            if(!isValid){
+                $scope.ui.startSearch = undefined;
             }
 
             return isValid;
         };
 
+        $rootScope.$on('searchDone', function(){
+            $scope.ui.startSearch = false;
+        });
+
         $scope.searchCustomer = function () {
+            $scope.ui.startSearch = true;
             SearchResourceService.search($scope.data.search, 'result', $scope.data.search.request.firstname, $scope.data.search.request.lastname, $scope.data.search.request.zip, $scope.data.search.request.city, $scope.data.search.request.phone)
         };
 
         $scope.selectCustomer = function ($event, item) {
-
             LeadEntity.setCustomerCountry('ch');
             LeadEntity.setCustomerSalutation(item.salutation == '1' ? 'm' : 'f');
             LeadEntity.setCustomerFirstname(item.name);

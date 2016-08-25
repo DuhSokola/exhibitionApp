@@ -197,12 +197,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col col-25">
-                                        {{'CUSTOMERFORM_LABEL_PRIVACY' | translate}}:
+                                        <a onclick="$('#popup_agb').addClass('active');">{{'CUSTOMERFORM_LABEL_PRIVACY' | translate}}*:</a>
                                     </div>
                                     <div class="col col-75">
                                         <input type="checkbox" id="privacy" name="privacy" ng-model="data.privacy"
                                                value="">
-                                        <label id="privacyLabel" for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}} *</label>
+                                        <label id="privacyLabel" for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}}</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -256,6 +256,19 @@
 
             <div id="popup_validation_error" class="info-popup error">
                 <p class="popup-text">{{'GLOBAL_VALIDATION_ERROR'|translate}}</p>
+            </div>
+
+            <div id="popup_agb" class="info-popup error agb">
+                <h1>{{'CUSTOMERFORM_POPUP_AGB_TITLE'|translate}}</h1>
+                <p class="popup-text" ng-show="data.countryCode == 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT'|translate}}</p>
+                <p class="popup-text" ng-show="ui.brand == 'vw' && data.countryCode != 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_VW'|translate}}</p>
+                <p class="popup-text" ng-show="ui.brand == 'vwnf' && data.countryCode != 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_VWNF'|translate}}</p>
+                <p class="popup-text" ng-show="ui.brand == 'audi' && data.countryCode != 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_AUDI'|translate}}</p>
+                <p class="popup-text" ng-show="ui.brand == 'seat' && data.countryCode != 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_SEAT'|translate}}</p>
+                <p class="popup-text" ng-show="ui.brand == 'skoda' && data.countryCode != 'ch'">{{'CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_SKODA'|translate}}</p>
+                <button class="ui secondary button" onclick="$('#popup_agb').removeClass('active');">
+                    OK
+                </button>
             </div>
 
         </div>

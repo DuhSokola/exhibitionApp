@@ -64,6 +64,8 @@
                     </div>
 
                     <div ng-show="data.search.result == -1">{{'SEARCHCUSTOMER_ERROR_SEARCH' | translate}}</div>
+                    <div ng-show="data.search.result.length == 0 && ui.startSearch == false">{{'SEARCHCUSTOMER_SEARCH_NOTHING_FOUND' | translate}}</div>
+                    <div ng-show="ui.startSearch">{{'SEARCHCUSTOMER_SEARCH_STARTED' | translate}}</div>
 
                 </ion-scroll>
             </div>

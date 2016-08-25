@@ -25,6 +25,8 @@
   "SELECTMODEL_CHECKFIELD_OFFER" : "Offerte",
   "SELECTMODEL_LABEL_MODEL" : "Modelle",
   "SELECTMODEL_LABEL_CATALOG" : "Zubehörkataloge",
+  "SELECTMODEL_LEADTYP_NOT_SELECTED_ERROR" : "Lead Typ wurde nicht ausgewählt",
+  "SELECTMODEL_CATALOG_NOT_SELECTED_ERROR" : "Katalog wurde nicht ausgewählt",
 
   "SELECTCOUNTRY_TITLE" : "Interessentensuche",
   "SELECTCOUNTRY_BUTTON_SWISS" : "Schweizer Interessenten",
@@ -34,7 +36,7 @@
 
   "SEARCHCUSTOMER_TITLE" : "Interessentensuche",
   "SEARCHCUSTOMER_TEXT_OR" : "oder",
-  "SEARCHCUSTOMER_TEXT_MIN" : "mind. 6 Zeichen und 2 Stellen PLZ",
+  "SEARCHCUSTOMER_TEXT_MIN" : "mind. 5 Zeichen und 2 Stellen PLZ",
   "SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME" : "Vorname",
   "SEARCHCUSTOMER_PLACEHOLDER_LASTNAME" : "Nachname",
   "SEARCHCUSTOMER_PLACEHOLDER_PHONE" : "Telefon",
@@ -44,7 +46,9 @@
   "SEARCHCUSTOMER_TEXT_CHANGE" : "Einträge können im nächsten Schritt angepasst werden",
   "SEARCHCUSTOMER_TEXT_TOFOREIGNLEAD" : "zu ausländischem Lead wechseln",
   "SEARCHCUSTOMER_TEXT_TOMANUALLYFORM" : "zur manuellen Eingabe",
-  "SEARCHCUSTOMER_ERROR_SEARCH" : "Es besteht ein Problem mit der Internetverbindung, drücken Sie 'zur manuellen Eingabe'",
+  "SEARCHCUSTOMER_ERROR_SEARCH" : "Es besteht ein Problem mit der Internetverbindung, drücken Sie 'zur manuellen Eingabe'...",
+  "SEARCHCUSTOMER_SEARCH_STARTED" : "Wird gesucht...",
+  "SEARCHCUSTOMER_SEARCH_NOTHING_FOUND" : "Es wurden keine Personen gefunden...",
 
   "CUSTOMERFORM_TITLE" : "Interessentendaten",
   "CUSTOMERFORM_BUTTON_RESET_FORM" : "Daten zurücksetzen",
@@ -77,5 +81,12 @@
   "CUSTOMERFORM_LABEL_NEWSLETTER" : "Newsletter",
   "CUSTOMERFORM_LABEL_NEWSLETTER_TEXT" : "Ja, ich möchte über Neuigkeiten informiert werden",
   "CUSTOMERFORM_POPUP_SUCCESS" : "Lead wurde erfolgreich abgeschickt",
-  "CUSTOMERFORM_POPUP_ERROR" : "Es ist ein Fehler aufgetreten, der Lead wird lokal gespeichert und automatisch abgeschickt"
+  "CUSTOMERFORM_POPUP_ERROR" : "Es ist ein Fehler aufgetreten, der Lead wird lokal gespeichert und automatisch abgeschickt",
+  "CUSTOMERFORM_POPUP_AGB_TITLE" : "Datenverwendungsklausel",
+  "CUSTOMERFORM_POPUP_AGB_TEXT" : "Ich bin damit einverstanden, dass meine personenbezogenen Daten zum Zwecke der Interessentenbefragung und Interessenteninformation (z.B. über Produkte, Dienstleistungen und Veranstaltungen der AMAG Automobil- und Motoren AG und ihren Marken) bearbeitet werden. Weiter bin ich damit einverstanden, dass meine Daten der AMAG Automobil- und Motoren AG, Aarauerstrasse 20, 5116 Schinznach-Bad, deren Vertragspartner und/oder an einen autorisierten Dienstleister übermittelt werden. Schliesslich bin ich damit einverstanden, dass mir die AMAG Automobil- und Motoren AG fernmeldetechnisch (z.B. per E-Mail) Informationen und Werbung zu Produkten, Dienstleistungen und Veranstaltungen ihrer Marken sendet. Die Daten werden ausschliesslich in Übereinstimmung mit den schweizerischen Bestimmungen zum Datenschutz verwendet. Insbesondere erfolgt keine Weitergabe von Daten an unbefugte Dritte.",
+  "CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_VW" : "Die nachstehende Einwilligungserklärung erfolgt freiwillig und kann jederzeit widerrufen werden. Ich bin damit einverstanden, dass meine vorstehend im Rahmen des Kundenereignisses (z. B. Veranstaltung, Messe, Gewinnspiel, Interessentenbetreuung) angegebenen personenbezogenen Daten und soweit ich jeweils eingewilligt habe meine angegebene E-Mail-Adresse und Telefonnummer (einschließlich SMS), zu Zwecken der Kundenbetreuung, -befragung und persönlich auf mich zugeschnittenen Kundeninformation von der AUDI AG, den Gesellschaften des Volkswagen Konzerns und den Audi Partnern (Händlern und Werkstätten) erhoben, verarbeitet, übermittelt und genutzt werden dürfen. Einzelheiten zum Datenschutz bei der VOLKSWAGEN AG entnehmen Sie bitte den Richtlinien zur Datenerhebung, -verarbeitung, -übermittlung und -nutzung. VOLKSWAGEN AG Berliner Ring 2 38440 Wolfsburg kundenbetreuung@volkswagen.de",
+  "CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_VWNF" : "Die nachstehende Einwilligungserklärung erfolgt freiwillig und kann jederzeit widerrufen werden. Ich bin damit einverstanden, dass meine vorstehend im Rahmen des Kundenereignisses (z. B. Veranstaltung, Messe, Gewinnspiel, Interessentenbetreuung) angegebenen personenbezogenen Daten und soweit ich jeweils eingewilligt habe meine angegebene E-Mail-Adresse und Telefonnummer (einschließlich SMS), zu Zwecken der Kundenbetreuung, -befragung und persönlich auf mich zugeschnittenen Kundeninformation von der AUDI AG, den Gesellschaften des Volkswagen Konzerns und den Audi Partnern (Händlern und Werkstätten) erhoben, verarbeitet, übermittelt und genutzt werden dürfen. Einzelheiten zum Datenschutz bei der VOLKSWAGEN AG entnehmen Sie bitte den Richtlinien zur Datenerhebung, -verarbeitung, -übermittlung und -nutzung. VOLKSWAGEN AG Berliner Ring 2 38440 Wolfsburg kundenbetreuung@volkswagen.de",
+  "CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_AUDI" : "Die nachstehende Einwilligungserklärung erfolgt freiwillig und kann jederzeit widerrufen werden. Ich bin damit einverstanden, dass meine vorstehend im Rahmen des Kundenereignisses (z. B. Veranstaltung, Messe, Gewinnspiel, Interessentenbetreuung) angegebenen personenbezogenen Daten und soweit ich jeweils eingewilligt habe meine angegebene E-Mail-Adresse und Telefonnummer (einschließlich SMS), zu Zwecken der Kundenbetreuung, -befragung und persönlich auf mich zugeschnittenen Kundeninformation von der AUDI AG, den Gesellschaften des Volkswagen Konzerns und den Audi Partnern (Händlern und Werkstätten) erhoben, verarbeitet, übermittelt und genutzt werden dürfen. Einzelheiten zum Datenschutz bei der AUDI AG entnehmen Sie bitte den Richtlinien zur Datenerhebung, -verarbeitung, -übermittlung und -nutzung unter www.audi.de/datenschutz AUDI AG Kundenbetreuung Deutschland Postfach 10 04 57 85045 Ingolstadt E-Mail: kundenbetreuung@audi.de",
+  "CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_SEAT" : "Die nachstehende Einwilligungserklärung erfolgt freiwillig und kann jederzeit widerrufen werden. Ich bin damit einverstanden, dass meine vorstehend im Rahmen des Kundenereignisses (z. B. Veranstaltung, Messe, Gewinnspiel, Interessentenbetreuung) angegebenen personenbezogenen Daten und soweit ich jeweils eingewilligt habe meine angegebene E-Mail-Adresse und Telefonnummer (einschließlich SMS), zu Zwecken der Kundenbetreuung, -befragung und persönlich auf mich zugeschnittenen Kundeninformation von der SEAT, S.A., den Gesellschaften des Volkswagen Konzerns und den Audi Partnern (Händlern und Werkstätten) erhoben, verarbeitet, übermittelt und genutzt werden dürfen. Einzelheiten zum Datenschutz bei der AUDI AG entnehmen Sie bitte den Richtlinien zur Datenerhebung, -verarbeitung, -übermittlung und -nutzung. SEAT, S.A. Autovía A-2, km 585 E-08760 Martorell BARCELONA",
+  "CUSTOMERFORM_POPUP_AGB_TEXT_FOREIGN_SKODA" : "Die nachstehende Einwilligungserklärung erfolgt freiwillig und kann jederzeit widerrufen werden. Ich bin damit einverstanden, dass meine vorstehend im Rahmen des Kundenereignisses (z. B. Veranstaltung, Messe, Gewinnspiel, Interessentenbetreuung) angegebenen personenbezogenen Daten und soweit ich jeweils eingewilligt habe meine angegebene E-Mail-Adresse und Telefonnummer (einschliesslich SMS), zu Zwecken der Kundenbetreuung, -befragung und persönlich auf mich zugeschnittenen Kundeninformation von der ŠKODA AUTO a.s., den Gesellschaften des Volkswagen Konzerns und den ŠKODA Partnern (Händlern und Werkstätten) erhoben, verarbeitet, übermittelt und genutzt werden dürfen. Einzelheiten zum Datenschutz bei der ŠKODA AUTO a.s. entnehmen Sie bitte den Richtlinien zur Datenerhebung, -verarbeitung, -übermittlung und -nutzung unter www.skoda-auto.com/en/system/privacy-statement ŠKODA AUTO a.s. Václava Klementa 869 293 60 Mladá Boleslav Czech Republic E-Mail: info@skoda-info.cz"
 }
