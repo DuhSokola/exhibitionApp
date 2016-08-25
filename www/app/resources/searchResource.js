@@ -8,7 +8,7 @@
     app.factory('SearchResourceService', ['$http', function ($http) {
         var self = this;
 
-        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp2/backend2/customersearch';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/customersearch';
 
         var search = function (scope, attrName, firstname, lastname, zip, city, phone) {
             var onSuccess = function (responseData) {

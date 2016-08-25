@@ -33,6 +33,8 @@ angular.module('starter', deps)
             if (window.cordova && window.cordova.logger) {
                 window.cordova.logger.__onDeviceReady();
             }
+
+            alert("OK");
         });
 
         $rootScope.appVersion = '1.0';

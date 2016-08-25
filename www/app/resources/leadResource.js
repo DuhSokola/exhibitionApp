@@ -12,7 +12,7 @@
         var self = this;
 
         //self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/leadsubmission';
-        self.endpoint = 'http://localhost:8083/leadsubmission';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/leadsubmission';
 
 
         var createURLParamChain = function (brand, customer, leadType, person, order, leadId) {

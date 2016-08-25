@@ -10,7 +10,7 @@
     app.factory('CarResourceService', ['$http', 'LocalStorageService', '$rootScope', function($http, LocalStorageService, $rootScope){
         var self = this;
 
-        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/optionlist';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/optionlist';
 
         var getAllByBrand = function(brand, scope, attrName){
             var onSuccess = function(responseData){
