@@ -54,7 +54,6 @@
                 console.log("Person DEALER: " + UserEntity.getPerson().dealer);
 
                 LeadEntity.resetAll();
-                $rootScope.$emit('resetAllViews');
                 $state.go('selectModel');
             }
         };

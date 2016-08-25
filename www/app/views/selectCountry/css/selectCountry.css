@@ -52,3 +52,6 @@
     text-align: right;
 }
 
+.selectCountryView #popup_validation_error .popup-text{
+    margin-top: 20px;
+}

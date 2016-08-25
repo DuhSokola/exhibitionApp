@@ -90,6 +90,10 @@
                                                     <span class="text-detail-scroll" ng-repeat="item in ui.leadAccessoryList">{{item["label_"+ui.language]}}{{$last?'':','}} </span>
                                                 </div>
 
+                                                <span class="header-detail-scroll">{{'CUSTOMERFORM_SCROLL_DETAIL_COR_LANG' | translate}}:</span>
+                                                <span>{{ui.corLanguage.toUpperCase()}}</span>
+
+
                                             </ion-scroll>
                                         </div>
                                     </div>
@@ -99,13 +103,13 @@
                                     <div class="col">
                                         <input id="firstname"
                                                type="text" class="custom-input firstname"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_FIRSTNAME'|translate}} *"
                                                ng-model="data.firstname" maxlength="49">
                                     </div>
                                     <div class="col">
                                         <input id="lastname"
                                                type="text" class="custom-input lastname"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_LASTNAME'|translate}} *"
                                                ng-model="data.lastname" maxlength="49">
                                     </div>
                                 </div>
@@ -121,13 +125,13 @@
                                     <div class="col col-75">
                                         <input id="street"
                                                type="text" class="custom-input street"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREET'|translate}} *"
                                                ng-model="data.street" maxlength="499">
                                     </div>
                                     <div class="col col-25">
                                         <input id="streetNr"
                                                type="text" class="custom-input streetNr"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_STREETNR'|translate}} *"
                                                ng-model="data.streetNr" maxlength="9">
                                     </div>
                                 </div>
@@ -135,13 +139,13 @@
                                     <div class="col col-25">
                                         <input id="zip"
                                                type="text" class="custom-input zip"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_ZIP'|translate}} *"
                                                ng-model="data.zip" maxlength="{{ui.mode == 'swiss' ? 4 : 15}}">
                                     </div>
                                     <div class="col col-75">
                                         <input id="city"
                                                type="text" class="custom-input city"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_CITY'|translate}} *"
                                                ng-model="data.city" maxlength="49">
                                     </div>
                                 </div>
@@ -151,7 +155,7 @@
                                     </div>
                                     <div class="col col-90">
                                         <select id="country" ng-model="data.country" ng-disabled="ui.mode === 'swiss'">
-                                            <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
+                                            <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}} *</option>
                                             <option ng-repeat="item in ui.countryList" value="{{item}}">{{item}}</option>
                                         </select>
                                     </div>
@@ -160,13 +164,13 @@
                                     <div class="col">
                                         <input id="phone"
                                                type="text" class="custom-input phone"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_PHONE'|translate}} {{ui.testdrive ? '*' : ''}}"
                                                ng-model="data.phone" maxlength="49">
                                     </div>
                                     <div class="col">
                                         <input id="email"
                                                type="text" class="custom-input email"
-                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}}"
+                                               placeholder="{{'CUSTOMERFORM_PLACEHOLDER_EMAIL'|translate}} {{data.catalogTyp == 'electronic' ? '*' : ''}}"
                                                ng-model="data.email" maxlength="254">
                                     </div>
                                 </div>
@@ -198,7 +202,7 @@
                                     <div class="col col-75">
                                         <input type="checkbox" id="privacy" name="privacy" ng-model="data.privacy"
                                                value="">
-                                        <label id="privacyLabel" for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}}</label>
+                                        <label id="privacyLabel" for="privacy">{{'CUSTOMERFORM_LABEL_PRIVACY_TEXT' | translate}} *</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -240,6 +244,18 @@
                 <div class="col version">
                     {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
                 </div>
+            </div>
+
+            <div id="popup_leadsend_success" class="info-popup success">
+                <p class="popup-text">{{'CUSTOMERFORM_POPUP_SUCCESS'|translate}}</p>
+            </div>
+
+            <div id="popup_leadsend_error" class="info-popup error">
+                <p class="popup-text">{{'CUSTOMERFORM_POPUP_ERROR'|translate}}</p>
+            </div>
+
+            <div id="popup_validation_error" class="info-popup error">
+                <p class="popup-text">{{'GLOBAL_VALIDATION_ERROR'|translate}}</p>
             </div>
 
         </div>

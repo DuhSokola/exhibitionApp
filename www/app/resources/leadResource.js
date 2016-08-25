@@ -31,7 +31,7 @@
                 '&orderbrochureselectro=' + (leadType.brochure == 'electronic') +
                 '&conditionsAccepted=' + customer.privacy +
                 '&brand=' + brand +
-                //'&campaigncode=' + UserEntity.getCampaign().code +
+                //'&campaigncode=' + UserEntity.getCampaign().code + //TODO
                 '&campaigncode=' + 'testcamp' +
                 '&testdrive=' + leadType.testdrive +
                 '&orderbrochures=' + (leadType.brochure.length > 0) +
@@ -124,6 +124,7 @@
                 for (var i = 0; i < failedLeadsList.length; i++) {
                     var failedLead = JSON.parse(failedLeadsList[i]);
                     persist(failedLead.user.brand, failedLead.lead.customer, failedLead.lead.type, failedLead.user.person, failedLead.lead.order, function (res) {
+                        console.log(res);
                         LocalStorageService.removeLeadById(res.data.leadId);
                         $rootScope.$broadcast('failedLeadSendSuccess');
                     }, function (errorData) {

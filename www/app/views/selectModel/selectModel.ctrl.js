@@ -13,7 +13,7 @@
 
     var app = angular.module('app.selectModel.ctrl', dependencies);
 
-    app.controller('SelectModelCtrl', ['$scope', '$rootScope', '$state', 'UserEntity', 'LeadEntity', 'CarDataService', 'AccessoryDataService', '$timeout', '$stateParams', function ($scope, $rootScope, $state, UserEntity, LeadEntity, CarDataService, AccessoryDataService, $timeout, $stateParams) {
+    app.controller('SelectModelCtrl', ['$scope', '$rootScope', '$state', 'UserEntity', 'LeadEntity', 'CarDataService', 'AccessoryDataService', '$timeout', '$stateParams', '$translate', function ($scope, $rootScope, $state, UserEntity, LeadEntity, CarDataService, AccessoryDataService, $timeout, $stateParams, $translate) {
         $scope.ui = {};
         $scope.data = {};
 
@@ -24,8 +24,11 @@
             $scope.ui.accessoryList = AccessoryDataService.getAccessoryData();
             $scope.ui.campaign = UserEntity.getCampaign();
             $scope.ui.brand = UserEntity.getBrand();
-            $scope.ui.brand = 'seat';
+            if(!$scope.ui.brand || $scope.ui.brand == '' ){
+                $scope.ui.brand = 'audi';
+            }
             $scope.ui.person = UserEntity.getPerson();
+            $scope.ui.language = $translate.proposedLanguage() !== undefined ? $translate.proposedLanguage() : $translate.use();
         };
         var initializeLeadData = function () {
             $scope.data.lead = {
@@ -86,11 +89,6 @@
         initializeUiData();
         initializeLeadData();
         initStyles();
-
-        $rootScope.$on('resetAllViews', function () {
-            console.log('reset selectModel scope');
-            $scope.reset();
-        });
 
         $scope.selectOrderOption = function ($event, option) {
             var element = $($event.target);
@@ -170,7 +168,10 @@
 
                 $state.go('selectCountry');
             } else {
-                alert('Bitte alles auswählen');
+                $('#popup_validation_error').addClass('active');
+                $timeout(function () {
+                    $('#popup_validation_error').removeClass('active');
+                }, 1000);
             }
         };
 

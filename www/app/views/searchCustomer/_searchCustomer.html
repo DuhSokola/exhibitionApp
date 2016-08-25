@@ -26,7 +26,7 @@
                     <input type="text" class="custom-input phone" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_PHONE'|translate}}" ng-model="data.search.request.phone">
                 </div>
                 <div class="row">
-                    <input type="text" class="custom-input zip" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_ZIP'|translate}}" ng-model="data.search.request.zip">
+                    <input id="zip" type="text" class="custom-input zip" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_ZIP'|translate}}" ng-model="data.search.request.zip">
                     <input type="text" class="custom-input city" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_CITY'|translate}}" ng-model="data.search.request.city">
                     <span class="sc-span">{{'SEARCHCUSTOMER_TEXT_MIN' | translate}}</span>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_CITY' | translate}}</div>
                 </div>
                 <ion-scroll zooming="false" direction="y">
-                    <div class="search-results-item" ng-repeat="person in data.search.result | orderBy:'-name':true" ng-click="selectCustomer($event, person);">
+                    <div class="search-results-item" ng-repeat="person in data.search.result | orderBy:'-name':true" ng-click="selectCustomer($event, person);" ng-if="data.search.result != -1">
                         <div class="el ic">
                             <icon class="ion-android-person-add"></icon>
                         </div>
@@ -62,6 +62,8 @@
                             {{person.city}}
                         </div>
                     </div>
+
+                    <div ng-show="data.search.result == -1">{{'SEARCHCUSTOMER_ERROR_SEARCH' | translate}}</div>
 
                 </ion-scroll>
             </div>

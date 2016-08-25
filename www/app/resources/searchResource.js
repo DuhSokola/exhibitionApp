@@ -16,6 +16,7 @@
             };
 
             var onError = function (errorData) {
+                scope[attrName] = -1;
                 console.log(errorData);
             };
 

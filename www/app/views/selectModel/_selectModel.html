@@ -60,7 +60,7 @@
                     <div id="car{{item.code}}" class="tableRow" ng-repeat="item in ui.carList[ui.brand]"
                          ng-click="toggleSelectCar($event, item)">
                         <icon class="icon ion-checkmark-round hidden"></icon>
-                        <label>{{item.label_de}}</label>
+                        <label>{{item['label_'+ui.language]}}</label>
                     </div>
                 </ion-scroll>
 
@@ -70,7 +70,7 @@
                     <div id="accessory{{item.code}}" class="tableRow" ng-repeat="item in ui.accessoryList[ui.brand]"
                          ng-click="toggleSelectAccessory($event, item)">
                         <icon class="icon ion-checkmark-round hidden"></icon>
-                        <label>{{item.label_de}}</label>
+                        <label>{{item['label_'+ui.language]}}</label>
                     </div>
                 </ion-scroll>
             </div>
@@ -90,6 +90,10 @@
                 <div class="col version">
                     {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
                 </div>
+            </div>
+
+            <div id="popup_validation_error" class="info-popup error">
+                <p class="popup-text">{{'GLOBAL_VALIDATION_ERROR'|translate}}</p>
             </div>
 
         </div>

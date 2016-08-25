@@ -71,3 +71,7 @@
 .selectModelView .buttonNext{
     float:right;
 }
+
+.selectModelView #popup_validation_error .popup-text{
+    margin-top: 20px;
+}

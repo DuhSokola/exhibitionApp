@@ -5,6 +5,7 @@
   "GLOBAL_BUTTON_SAVE" : "Speichern",
   "GLOBAL_BUTTON_BACK" : "Zurück zur Auswahl",
   "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte Auswählen...",
+  "GLOBAL_VALIDATION_ERROR" : "Ihre Eingaben sind nicht korrekt",
 
   "LOGIN_LABEL_SELECT_BRAND" : "Marke wählen",
   "LOGIN_LABEL_SELECT_LANGUAGE" : "Sprache der Hostesse",
@@ -29,6 +30,7 @@
   "SELECTCOUNTRY_BUTTON_SWISS" : "Schweizer Interessenten",
   "SELECTCOUNTRY_BUTTON_FOREIGN" : "Ausländische Interessenten",
   "SELECTCOUNTRY_LABEL_LANGUAGE" : "Korrespondenzsprache",
+  "SELECTCOUNTRY_LANGUAGE_NOT_SELECTED_ERROR" : "Korrespondenzsprache wurde nicht selektiert",
 
   "SEARCHCUSTOMER_TITLE" : "Interessentensuche",
   "SEARCHCUSTOMER_TEXT_OR" : "oder",
@@ -42,6 +44,7 @@
   "SEARCHCUSTOMER_TEXT_CHANGE" : "Einträge können im nächsten Schritt angepasst werden",
   "SEARCHCUSTOMER_TEXT_TOFOREIGNLEAD" : "zu ausländischem Lead wechseln",
   "SEARCHCUSTOMER_TEXT_TOMANUALLYFORM" : "zur manuellen Eingabe",
+  "SEARCHCUSTOMER_ERROR_SEARCH" : "Es besteht ein Problem mit der Internetverbindung, drücken Sie 'zur manuellen Eingabe'",
 
   "CUSTOMERFORM_TITLE" : "Interessentendaten",
   "CUSTOMERFORM_BUTTON_RESET_FORM" : "Daten zurücksetzen",
@@ -57,6 +60,7 @@
   "CUSTOMERFORM_SCROLL_DETAIL_LEADTYPE" : "Bestellung Typ",
   "CUSTOMERFORM_SCROLL_DETAIL_MODELS" : "Modelle",
   "CUSTOMERFORM_SCROLL_DETAIL_ACCESSORIES" : "Zubehör",
+  "CUSTOMERFORM_SCROLL_DETAIL_COR_LANG" : "Korrespondenzsprache",
   "CUSTOMERFORM_PLACEHOLDER_FIRSTNAME" : "Vorname",
   "CUSTOMERFORM_PLACEHOLDER_LASTNAME" : "Nachname",
   "CUSTOMERFORM_PLACEHOLDER_FIRM" : "Firma",
@@ -71,5 +75,7 @@
   "CUSTOMERFORM_LABEL_PRIVACY" : "Datenschutzbestimmungen",
   "CUSTOMERFORM_LABEL_PRIVACY_TEXT" : "Ja, ich bin mit den Datenschutzbestimmungen einverstanden",
   "CUSTOMERFORM_LABEL_NEWSLETTER" : "Newsletter",
-  "CUSTOMERFORM_LABEL_NEWSLETTER_TEXT" : "Ja, ich möchte über Neuigkeiten informiert werden"
+  "CUSTOMERFORM_LABEL_NEWSLETTER_TEXT" : "Ja, ich möchte über Neuigkeiten informiert werden",
+  "CUSTOMERFORM_POPUP_SUCCESS" : "Lead wurde erfolgreich abgeschickt",
+  "CUSTOMERFORM_POPUP_ERROR" : "Es ist ein Fehler aufgetreten, der Lead wird lokal gespeichert und automatisch abgeschickt"
 }

@@ -36,11 +36,6 @@
             }
         });
 
-        $rootScope.$on('resetAllViews', function () {
-            console.log('reset selectCountry scope');
-            reset();
-        });
-
         $scope.selectCountry = function (value) {
             if (fieldsAreValid()) {
                 if (value === 'ch') {
@@ -57,7 +52,10 @@
                     $state.go('customerForm');
                 }
             } else {
-                alert('Bitte Sprache auswählen');
+                $('#popup_validation_error').addClass('active');
+                $timeout(function () {
+                    $('#popup_validation_error').removeClass('active');
+                }, 1000);
             }
         };
 
@@ -71,12 +69,6 @@
             }
 
             return isValid
-        };
-
-        var reset = function () {
-            $('.item.item-radio .radio-content .radio-icon').css('visibility', 'hidden');
-            initializeUiData();
-            initializeLeadData();
         };
 
         $scope.$watch('data.customer.language', function (newVal) {

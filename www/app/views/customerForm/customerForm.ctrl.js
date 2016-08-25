@@ -13,7 +13,7 @@
 
     var app = angular.module('app.customerForm.ctrl', dependencies);
 
-    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', 'LocalStorageService', 'LeadResourceService', '$translate', function ($scope, $state, LeadEntity, UserEntity, ISO3166, LocalStorageService, LeadResourceService, $translate) {
+    app.controller('CustomerFormCtrl', ['$scope', '$state', 'LeadEntity', 'UserEntity', 'ISO3166', 'LocalStorageService', 'LeadResourceService', '$translate', '$timeout', function ($scope, $state, LeadEntity, UserEntity, ISO3166, LocalStorageService, LeadResourceService, $translate, $timeout) {
 
         $scope.data = {};
         var initData = function () {
@@ -46,6 +46,7 @@
         $scope.ui.leadCarList = LeadEntity.getOrder().cars;
         $scope.ui.leadAccessoryList = LeadEntity.getOrder().accessories;
         $scope.ui.language = $translate.use();
+        $scope.ui.corLanguage = LeadEntity.getCustomer().language;
         $scope.ui.testdrive = LeadEntity.getLeadType().testdrive;
         $scope.ui.brochure = LeadEntity.getLeadType().brochure;
         $scope.ui.offer = LeadEntity.getLeadType().offer;
@@ -55,10 +56,13 @@
 
         $scope.submitLead = function () {
             if (formIsValid()) {
-                alert('VALID');
-
                 LeadResourceService.save();
                 $scope.startValidation = false;
+            }else{
+                $('#popup_validation_error').addClass('active');
+                $timeout(function () {
+                    $('#popup_validation_error').removeClass('active');
+                }, 800);
             }
         };
 
@@ -206,15 +210,19 @@
             }
 
             var emailEl = $('#email');
-            if (scope.catalogTyp === 'electronic') {
-                var emailPatter = new RegExp(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
+            if ($scope.ui.brochure == true) {
+                if (scope.catalogTyp === 'electronic') {
+                    var emailPatter = new RegExp(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
-                if (scope.email === undefined || scope.email === '') {
-                    emailEl.addClass('not-valid');
-                    formIsValid = false;
-                } else if (!emailPatter.test(scope.email)) {
-                    emailEl.addClass('not-valid');
-                    formIsValid = false;
+                    if (scope.email === undefined || scope.email === '') {
+                        emailEl.addClass('not-valid');
+                        formIsValid = false;
+                    } else if (!emailPatter.test(scope.email)) {
+                        emailEl.addClass('not-valid');
+                        formIsValid = false;
+                    } else {
+                        emailEl.removeClass('not-valid');
+                    }
                 } else {
                     emailEl.removeClass('not-valid');
                 }
@@ -270,15 +278,42 @@
 
         $scope.$on('leadSendSuccess', function () {
             console.log('SUCCESS');
+            $('#popup_leadsend_success').addClass('active');
+            $timeout(function () {
+                $('#popup_leadsend_success').removeClass('active');
+                LeadEntity.resetAll();
+                $state.go('selectModel')
+            }, 1200);
         });
 
         $scope.$on('leadSendError', function () {
             console.log('ERROR');
+            $('#popup_leadsend_error').addClass('active');
+            $timeout(function () {
+                $('#popup_leadsend_error').removeClass('active');
+                LeadEntity.resetAll();
+                $state.go('selectModel')
+            }, 1200);
         });
 
-        //TODO Check
         $scope.resetForm = function () {
-            initData();
+            $scope.data.catalogTyp = ''; //validation
+            $scope.data.salutation = ''; //validation
+            $scope.data.firstname = ''; //validation
+            $scope.data.lastname = ''; //validation
+            $scope.data.firm = '';
+            $scope.data.street = ''; //validation
+            $scope.data.streetNr = ''; //validation
+            $scope.data.zip = ''; //validation
+            $scope.data.city = ''; //validation
+            $scope.data.phone = '';//validation
+            $scope.data.email = ''; //validation
+            $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
+            $scope.data.countryCode = '';
+            $scope.data.seller = '';
+            $scope.data.remarks = '';
+            $scope.data.privacy = false; //validation
+            $scope.data.newsletter = false;
             $('.catalogTyp .radios label[id="radioElectronic"] .item-content').removeClass('selected');
             $('.catalogTyp .radios label[id="radioPrinted"] .item-content').removeClass('selected');
 
@@ -302,6 +337,26 @@
         $scope.goToHomePage = function () {
             $state.go('login');
         };
+
+        $("#zip").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: Ctrl+C
+                (e.keyCode == 67 && e.ctrlKey === true) ||
+                // Allow: Ctrl+X
+                (e.keyCode == 88 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
 
     }]);
 
