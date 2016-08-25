@@ -55,6 +55,11 @@
 
                 LeadEntity.resetAll();
                 $state.go('selectModel');
+            }else{
+                $('#popup_validation_error2').addClass('active');
+                $timeout(function () {
+                    $('#popup_validation_error2').removeClass('active');
+                }, 1000);
             }
         };
 
@@ -85,8 +90,6 @@
 
         var fieldsAreValid = function () {
             if (!$scope.data.user.brand || !$scope.data.user.language || !$scope.data.user.campaign || !$scope.data.user.person) {
-
-                alert("Bitte alle Felder ausfüllen");
                 return false;
             }
             return true;

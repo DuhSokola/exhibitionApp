@@ -24,7 +24,7 @@
             $scope.ui.accessoryList = AccessoryDataService.getAccessoryData();
             $scope.ui.campaign = UserEntity.getCampaign();
             $scope.ui.brand = UserEntity.getBrand();
-            if(!$scope.ui.brand || $scope.ui.brand == '' ){
+            if (!$scope.ui.brand || $scope.ui.brand == '') {
                 $scope.ui.brand = 'audi';
             }
             $scope.ui.person = UserEntity.getPerson();
@@ -45,15 +45,15 @@
 
             $timeout(function () {
 
-                if($scope.data.lead.testdrive == true){
+                if ($scope.data.lead.testdrive == true) {
                     $('#testdrive-btn').addClass('selected');
                     $('#testdrive-btn').find('icon').removeClass('hidden');
                 }
-                if($scope.data.lead.brochure == true){
+                if ($scope.data.lead.brochure == true) {
                     $('#catalog-btn').addClass('selected');
                     $('#catalog-btn').find('icon').removeClass('hidden');
                 }
-                if($scope.data.lead.offer == true){
+                if ($scope.data.lead.offer == true) {
                     $('#offer-btn').addClass('selected');
                     $('#offer-btn').find('icon').removeClass('hidden');
                 }
@@ -91,18 +91,45 @@
         initStyles();
 
         $scope.selectOrderOption = function ($event, option) {
-            var element = $($event.target);
 
             //Toggle Value
             if (option === 'testdrive') {
                 $scope.data.lead.testdrive = !$scope.data.lead.testdrive;
+                if ($scope.data.lead.testdrive == false && $scope.data.lead.brochure == false) {
+                    var carList = $('[id^="car"]');
+                    carList.removeClass('selected');
+                    carList.find('icon').addClass('hidden');
+                    $scope.data.lead.cars = [];
+                }
             }
             else if (option === 'catalog') {
                 $scope.data.lead.brochure = !$scope.data.lead.brochure;
+                if ($scope.data.lead.brochure == false) {
+                    var accessoryList = $('[id^="accessory"]');
+                    accessoryList.removeClass('selected');
+                    accessoryList.find('icon').addClass('hidden');
+                    $scope.data.lead.accessories = [];
+
+                    if($scope.data.lead.testdrive == false){
+                        var carList = $('[id^="car"]');
+                        carList.removeClass('selected');
+                        carList.find('icon').addClass('hidden');
+                        $scope.data.lead.cars = [];
+                    }
+
+                }
             }
             else if (option === 'offer') {
                 $scope.data.lead.offer = !$scope.data.lead.offer;
+                if ($scope.data.lead.offer == false && $scope.data.lead.brochure == false) {
+                    var carList = $('[id^="car"]');
+                    carList.removeClass('selected');
+                    carList.find('icon').addClass('hidden');
+                    $scope.data.lead.cars = [];
+                }
             }
+
+            var element = $($event.target);
 
             //Toggle Style
             if (element.hasClass('selected')) {
@@ -115,31 +142,35 @@
         };
 
         $scope.toggleSelectCar = function ($event, item) {
-            var element = $($event.currentTarget);
+            if ($scope.data.lead.testdrive || $scope.data.lead.brochure || $scope.data.lead.offer) {
+                var element = $($event.currentTarget);
 
-            if (element.hasClass('selected')) {
-                element.removeClass('selected');
-                element.find('icon').addClass('hidden');
-                $scope.data.lead.cars.indexOf(item);
-                $scope.data.lead.cars.splice($scope.data.lead.cars.indexOf(item), 1);
-            } else {
-                element.addClass('selected');
-                element.find('icon').removeClass('hidden');
-                $scope.data.lead.cars.push(item);
+                if (element.hasClass('selected')) {
+                    element.removeClass('selected');
+                    element.find('icon').addClass('hidden');
+                    $scope.data.lead.cars.indexOf(item);
+                    $scope.data.lead.cars.splice($scope.data.lead.cars.indexOf(item), 1);
+                } else {
+                    element.addClass('selected');
+                    element.find('icon').removeClass('hidden');
+                    $scope.data.lead.cars.push(item);
+                }
             }
         };
 
         $scope.toggleSelectAccessory = function ($event, item) {
-            var element = $($event.currentTarget);
+            if ($scope.data.lead.brochure == true) {
+                var element = $($event.currentTarget);
 
-            if (element.hasClass('selected')) {
-                element.removeClass('selected');
-                element.find('icon').addClass('hidden');
-                $scope.data.lead.accessories.splice($scope.data.lead.accessories.indexOf(item), 1);
-            } else {
-                element.addClass('selected');
-                element.find('icon').removeClass('hidden');
-                $scope.data.lead.accessories.push(item);
+                if (element.hasClass('selected')) {
+                    element.removeClass('selected');
+                    element.find('icon').addClass('hidden');
+                    $scope.data.lead.accessories.splice($scope.data.lead.accessories.indexOf(item), 1);
+                } else {
+                    element.addClass('selected');
+                    element.find('icon').removeClass('hidden');
+                    $scope.data.lead.accessories.push(item);
+                }
             }
         };
 

@@ -56,13 +56,14 @@
             </button>
         </div>
 
-        <!--TODO-->
         <div class="versionInfo" style="float:right;">
             <p>{{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}</p>
             <p>{{'LOGIN_LABEL_MODEL_DATA_FROM' | translate}}: {{dateOfDataLoad.getDay()}}.{{dateOfDataLoad.getMonth()}}.{{dateOfDataLoad.getFullYear()}} {{dateOfDataLoad.getHours()}}:{{dateOfDataLoad.getMinutes()}}:{{dateOfDataLoad.getSeconds()}}</p>
         </div>
 
-        <!--TODO Modelldaten, Popups, Lokale Kundendaten übertragen Button -->
+        <div id="popup_validation_error2" class="info-popup error">
+            <p class="popup-text">{{'GLOBAL_VALIDATION_ERROR'|translate}}</p>
+        </div>
 
     </ion-content>
 </ion-view>

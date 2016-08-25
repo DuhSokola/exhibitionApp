@@ -5,7 +5,7 @@
   "GLOBAL_BUTTON_SAVE" : "Speichern",
   "GLOBAL_BUTTON_BACK" : "Zurück zur Auswahl",
   "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte Auswählen...",
-  "GLOBAL_VALIDATION_ERROR" : "Ihre Eingaben sind nicht korrekt",
+  "GLOBAL_VALIDATION_ERROR" : "Ihre Eingaben sind nicht vollständig",
 
   "LOGIN_LABEL_SELECT_BRAND" : "Marke wählen",
   "LOGIN_LABEL_SELECT_LANGUAGE" : "Sprache der Hostesse",

@@ -33,8 +33,6 @@ angular.module('starter', deps)
             if (window.cordova && window.cordova.logger) {
                 window.cordova.logger.__onDeviceReady();
             }
-
-            alert("OK");
         });
 
         $rootScope.appVersion = '1.0';
@@ -44,7 +42,7 @@ angular.module('starter', deps)
         $interval(function(){
             LeadResourceService.resendFailedLeads();
             console.log('Resend Failed Leads');
-        }, 1000*10*60*15);
+        }, 1000*10*60*5);
 
     })
 
