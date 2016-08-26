@@ -110,7 +110,7 @@
                     accessoryList.find('icon').addClass('hidden');
                     $scope.data.lead.accessories = [];
 
-                    if($scope.data.lead.testdrive == false){
+                    if($scope.data.lead.testdrive == false && $scope.data.lead.offer == false){
                         var carList = $('[id^="car"]');
                         carList.removeClass('selected');
                         carList.find('icon').addClass('hidden');
