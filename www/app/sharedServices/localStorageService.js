@@ -18,7 +18,14 @@
             carList: {},
             accessoryList: {},
             lead: [],
-            dateOfData: ''
+            dateOfData: '',
+            dealerList: {
+                vw: [],
+                vwnf: [],
+                audi: [],
+                skoda: [],
+                seat: []
+            }
         });
 
         console.log(storage);
@@ -46,7 +53,6 @@
             storage.lead.push(JSON.stringify(obj));
             $rootScope.$broadcast('failedLeadSaved');
         };
-
         var getFailedLeadList = function () {
             return storage.lead;
         };
@@ -94,6 +100,13 @@
             return storage.dateOfData;
         };
 
+        var saveDealerListByBrand = function (dealerList, brand) {
+            storage.dealerList[brand] = dealerList;
+        };
+        var getDealerListByBrand = function (brand) {
+            return storage.dealerList[brand];
+        };
+
         return {
             saveCampaignList: saveCampaignList,
             getCampaignList: getCampaignList,
@@ -108,7 +121,9 @@
             removeLeadById: removeLeadById,
             getSizeOfFailedList: getSizeOfFailedList,
             saveDateOfData: saveDateOfData,
-            getDateOfData: getDateOfData
+            getDateOfData: getDateOfData,
+            saveDealerListByBrand: saveDealerListByBrand,
+            getDealerListByBrand: getDealerListByBrand
         }
 
     }]);

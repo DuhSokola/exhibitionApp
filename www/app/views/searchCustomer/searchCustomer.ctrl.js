@@ -74,14 +74,14 @@
                 isValid = false;
             }
 
-            if(!isValid){
+            if (!isValid) {
                 $scope.ui.startSearch = undefined;
             }
 
             return isValid;
         };
 
-        $rootScope.$on('searchDone', function(){
+        $rootScope.$on('searchDone', function () {
             $scope.ui.startSearch = false;
         });
 
@@ -103,7 +103,7 @@
             LeadEntity.setMode('swiss');
 
             LeadEntity.setCustomerEmail('');
-            LeadEntity.setCustomerSeller('');
+            LeadEntity.setCustomerDealer('');
             LeadEntity.setBrochureType('');
             LeadEntity.setCustomerFirm('');
             LeadEntity.setCustomerRemarks('');
@@ -133,7 +133,7 @@
             LeadEntity.setCustomerPhone('');
             LeadEntity.setMode('foreign');
             LeadEntity.setCustomerEmail('');
-            LeadEntity.setCustomerSeller('');
+            LeadEntity.setCustomerDealer('');
             LeadEntity.setBrochureType('');
             LeadEntity.setCustomerFirm('');
             LeadEntity.setCustomerRemarks('');
@@ -154,7 +154,7 @@
             LeadEntity.setCustomerPhone($scope.data.search.request.phone);
             LeadEntity.setMode('swiss');
             LeadEntity.setCustomerEmail('');
-            LeadEntity.setCustomerSeller('');
+            LeadEntity.setCustomerDealer('');
             LeadEntity.setBrochureType('');
             LeadEntity.setCustomerFirm('');
             LeadEntity.setCustomerRemarks('');

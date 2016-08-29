@@ -12,12 +12,13 @@ var deps = [
     'pascalprecht.translate',
     'carData',
     'accessoryData',
-    'app.leadResource'
+    'app.leadResource',
+    'app.dealerResource'
 ];
 
 angular.module('starter', deps)
 
-    .run(function ($ionicPlatform, $rootScope, CarDataService, AccessoryDataService, $interval, LeadResourceService) {
+    .run(function ($ionicPlatform, $rootScope, CarDataService, AccessoryDataService, $interval, LeadResourceService, DealerResource) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -38,6 +39,7 @@ angular.module('starter', deps)
         $rootScope.appVersion = '1.0';
         CarDataService.initCarData();
         AccessoryDataService.initAccessoryData();
+        DealerResource.getAll();
 
         $interval(function(){
             LeadResourceService.resendFailedLeads();

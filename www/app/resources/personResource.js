@@ -9,7 +9,7 @@
         var self = this;
 
         //self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/personlist';
-        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/personlist';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/personlist';
 
         var getAll = function (scope, attrName) {
             var onSuccess = function (responseData) {

@@ -9,7 +9,7 @@
     app.factory('CampaignResourceService', ['$http', 'LocalStorageService', function($http, LocalStorageService){
         var self = this;
 
-        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/campaignlist';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/campaignlist';
 
         var getAll = function(scope, attrName){
             var onSuccess = function(responseData){

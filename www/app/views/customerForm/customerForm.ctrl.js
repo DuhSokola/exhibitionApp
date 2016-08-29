@@ -30,7 +30,7 @@
             $scope.data.email = LeadEntity.getCustomer().email; //validation
             $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
             $scope.data.countryCode = LeadEntity.getCustomer().country;
-            $scope.data.seller = LeadEntity.getCustomer().seller;
+            $scope.data.dealer = LeadEntity.getCustomer().dealer;
             $scope.data.remarks = LeadEntity.getCustomer().remarks;
             $scope.data.privacy = LeadEntity.getCustomer().privacy; //validation
             $scope.data.newsletter = LeadEntity.getCustomer().newsletter;
@@ -51,7 +51,15 @@
         $scope.ui.brochure = LeadEntity.getLeadType().brochure;
         $scope.ui.offer = LeadEntity.getLeadType().offer;
 
-        $scope.ui.sellerList = [{label: '123', code: '123'}, {label: '1234', code: '1234'}, {label: '1235', code: '1235'}];
+        $scope.ui.dealerSearch = {};
+        $scope.ui.dealerSearch.name = '';
+        $scope.ui.dealerSearch.city = '';
+        $scope.ui.dealerSearch.zip = '';
+
+        $scope.ui.brand = 'vw';
+        $scope.ui.dealerList = LocalStorageService.getDealerListByBrand($scope.ui.brand);
+
+        console.log($scope.ui.dealerList);
 
 
         $scope.submitLead = function () {
@@ -64,6 +72,16 @@
                     $('#popup_validation_error').removeClass('active');
                 }, 800);
             }
+        };
+
+        $scope.selectDealer = function(dealer){
+            $scope.data.dealer = dealer;
+            $('#popup_dealerSearch').removeClass('active');
+        };
+
+        $scope.removeDealer = function(){
+            $scope.data.dealer = '';
+            $('#popup_dealerSearch').removeClass('active');
         };
 
         var persistIntoLeadEntity = function () {
@@ -79,7 +97,7 @@
             LeadEntity.setCustomerCountry($scope.data.countryCode);
             LeadEntity.setCustomerPhone($scope.data.phone);
             LeadEntity.setCustomerEmail($scope.data.email);
-            LeadEntity.setCustomerSeller($scope.data.seller);
+            LeadEntity.setCustomerDealer($scope.data.dealer);
             LeadEntity.setCustomerRemarks($scope.data.remarks);
             LeadEntity.setCustomerNewsletter($scope.data.newsletter);
             LeadEntity.setCustomerPrivacy($scope.data.privacy);
@@ -310,7 +328,7 @@
             $scope.data.email = ''; //validation
             $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
             $scope.data.countryCode = LeadEntity.getCustomer().country;
-            $scope.data.seller = '';
+            $scope.data.dealer = '';
             $scope.data.remarks = '';
             $scope.data.privacy = false; //validation
             $scope.data.newsletter = false;

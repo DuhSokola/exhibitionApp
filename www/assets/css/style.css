@@ -49,6 +49,7 @@ input.custom-input{
     margin: 20% auto 0 25%;
     text-align: center;
     border-radius: 10px;
+    background: white;
 }
 .info-popup.success {
     background: #c9ffd1;

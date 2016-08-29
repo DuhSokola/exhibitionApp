@@ -40,7 +40,7 @@
                 city: '',
                 phone: '',
                 email: '',
-                seller: '',
+                dealer: '',
                 firm: '',
                 remarks: '',
                 newsletter: false,
@@ -140,8 +140,8 @@
             setCustomerEmail: function(_email){
                 self.lead.customer.email = _email;
             },
-            setCustomerSeller: function (_seller) {
-                self.lead.customer.seller = _seller;
+            setCustomerDealer: function (_dealer) {
+                self.lead.customer.dealer = _dealer;
             },
             setCustomerFirm: function (_firm) {
                 self.lead.customer.firm = _firm;

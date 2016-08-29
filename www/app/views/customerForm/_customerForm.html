@@ -179,10 +179,14 @@
                                         {{'CUSTOMERFORM_PLACEHOLDER_SELLER' | translate}}:
                                     </div>
                                     <div class="col col-80">
-                                        <select id="seller" ng-model="data.seller">
-                                            <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
-                                            <option ng-repeat="item in ui.sellerList" value="{{item.code}}">{{item.label}}</option>
-                                        </select>
+                                        <div class="dealer-select-btn" onclick="$('#popup_dealerSearch').addClass('active');">
+                                            <span ng-if="data.dealer == '' || data.dealer == undefined">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</span>
+                                            <span ng-if="data.dealer != '' && data.dealer != undefined">{{data.dealer.dealername}}</span>
+                                        </div>
+                                        <!-- <select id="seller" ng-model="data.seller" >
+                                             <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
+                                             <option ng-repeat="item in ui.dealerList | orderBy:'dealername'" value="{{item.dealername}}">{{item.dealername}}</option>
+                                         </select>-->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -244,6 +248,59 @@
                 <div class="col version">
                     {{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}
                 </div>
+            </div>
+
+            <div id="popup_dealerSearch" class="info-popup">
+                <div class="row">
+                    <div class="col">
+                        <span class="icon ion-trash-a delete" ng-click="removeDealer();"></span>
+                    </div>
+                    <div class="col">
+                        <h3>Händlersuche</h3>
+                    </div>
+                    <div class="col">
+                        <span class="icon ion-close-circled close" onclick="$('#popup_dealerSearch').removeClass('active');"> </span>
+                    </div>
+                </div>
+
+                <div class="dealerSearch-inputs">
+                    <div class="row">
+                        <div class="col col-33">
+                            <label>{{'CUSTOMERFORM_LABEL_SEARCHDEALER_NAME'|translate}}</label>
+                            <input type="text" class="dealerSearch-name custom-input" ng-model="ui.dealerSearch.name">
+                        </div>
+
+                        <div class="col col-33">
+                            <label>{{'CUSTOMERFORM_LABEL_SEARCHDEALER_CITY'|translate}}</label>
+                            <input type="text" class="dealerSearch-name custom-input" ng-model="ui.dealerSearch.city">
+                        </div>
+                        <div class="col col-33">
+                            <label>{{'CUSTOMERFORM_LABEL_SEARCHDEALER_ZIP'|translate}}</label>
+                            <input type="text" class="dealerSearch-name custom-input" ng-model="ui.dealerSearch.zip">
+                        </div>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="table-icon"></th>
+                        <th class="table-name">{{'CUSTOMERFORM_LABEL_SEARCHDEALER_NAME'|translate}}</th>
+                        <th class="table-city">{{'CUSTOMERFORM_LABEL_SEARCHDEALER_CITY'|translate}}</th>
+                        <th class="table-zip">{{'CUSTOMERFORM_LABEL_SEARCHDEALER_ZIP'|translate}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in ui.dealerList | filter: ui.dealerSearch.name | filter: ui.dealerSearch.city | filter: ui.dealerSearch.zip | limitTo:7 | orderBy:'dealername'"
+                        ng-click="selectDealer(item);">
+                        <td class="table-icon">
+                            <span class="icon ion-plus-round"></span>
+                        </td>
+                        <td class="table-name">{{item.dealername}}</td>
+                        <td class="table-city">{{item.city}}</td>
+                        <td class="table-zip">{{item.zip}}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div id="popup_leadsend_success" class="info-popup success">

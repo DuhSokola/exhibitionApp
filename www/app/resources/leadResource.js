@@ -12,7 +12,7 @@
         var self = this;
 
         //self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/leadsubmission';
-        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp1/backend1/leadsubmission';
+        self.endpoint = 'https://www.leadcollector.amag.ch/exhibitionapp/backend/leadsubmission';
 
 
         var createURLParamChain = function (brand, customer, leadType, person, order, leadId) {
@@ -31,14 +31,14 @@
                 '&orderbrochureselectro=' + (leadType.brochure == 'electronic') +
                 '&conditionsAccepted=' + customer.privacy +
                 '&brand=' + brand +
-                //'&campaigncode=' + UserEntity.getCampaign().code + //TODO
-                '&campaigncode=' + 'testcamp' +
+                '&campaigncode=' + UserEntity.getCampaign().code + //TODO
+                //'&campaigncode=' + 'testcamp' +
                 '&testdrive=' + leadType.testdrive +
                 '&orderbrochures=' + (leadType.brochure.length > 0) +
                 '&newsletter=' + customer.newsletter +
                 '&company=' + customer.firm +
                 '&country=' + customer.country +
-                '&dealer=' + ((customer.seller.code != undefined) ? customer.seller.code : '') +
+                '&dealer=' + ((customer.dealer.dealer != undefined) ? customer.dealer.dealer : '') +
                 '&reachability=' +
                 '&remarks=' + customer.remarks +
                 '&salesperson=' + person.name + ' ' + person.surname +
