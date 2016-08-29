@@ -27,6 +27,9 @@
         $scope.ui.campaignList = undefined;
         $scope.ui.personList = undefined;
         $scope.ui.failedLeadSize = LocalStorageService.getSizeOfFailedList();
+        $scope.ui.userSearch = {};
+        $scope.ui.userSearch.firstname = '';
+        $scope.ui.userSearch.lastname = '';
 
         //get UI data and save into $scope
         CampaignResourceService.getAll($scope.ui, 'campaignList');
@@ -40,6 +43,9 @@
         $scope.data.user.person = UserEntity.getPerson();
 
         $scope.login = function () {
+            
+            console.log($scope.ui.personList);
+            
             if (fieldsAreValid()) {
                 UserEntity.setBrand($scope.data.user.brand);
                 UserEntity.setLanguage($scope.data.user.language);
@@ -63,6 +69,16 @@
             }
         };
 
+        $scope.selectUser = function(user){
+            $scope.data.user.person = user;
+            $('#popup_userSearch').removeClass('active');
+        };
+
+        $scope.removeUser = function(){
+            $scope.data.user.person = '';
+            $('#popup_userSearch').removeClass('active');
+        };
+
         $scope.$watch('data.user.language', function (newVal) {
             if (newVal) {
                 $translate.use(newVal);
@@ -82,6 +98,7 @@
         $scope.reloadData = function () {
             CarDataService.reloadCarData();
             AccessoryDataService.reloadAccessoryData();
+            DealerResource.getAll();
         };
 
         $scope.resendLeads = function () {

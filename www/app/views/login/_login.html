@@ -29,7 +29,11 @@
             <h1>{{'LOGIN_LABEL_SELECT_PERSON' | translate}}:</h1>
 
             <div class="selectUser">
-                <select-user ng-model="data.user.person" select-list="ui.personList"></select-user>
+                <div class="user-select-btn" onclick="$('#popup_userSearch').addClass('active');">
+                    <span ng-if="data.user.person == '' || data.user.person == undefined">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</span>
+                    <span ng-if="data.user.person != '' && data.user.person != undefined">{{data.user.person.surname}} {{data.user.person.name}}</span>
+                </div>
+                <!--<select-user ng-model="data.user.person" select-list="ui.personList"></select-user>-->
                 <!-- <ion-select label="Placa do Veículo" label-field="nmPlaca" provider="veiculos"  ng-model="veiculo"/>-->
             </div>
         </div>
@@ -63,6 +67,59 @@
 
         <div id="popup_validation_error2" class="info-popup error">
             <p class="popup-text">{{'GLOBAL_VALIDATION_ERROR'|translate}}</p>
+        </div>
+
+        <div id="popup_userSearch" class="info-popup">
+            <div class="row">
+                <div class="col">
+                    <span class="icon ion-trash-a delete" ng-click="removeUser();"></span>
+                </div>
+                <div class="col">
+                    <h3>{{'LOGIN_POPUP_USERSEARCH_TITLE' | translate}}</h3>
+                </div>
+                <div class="col">
+                    <span class="icon ion-close-circled close" onclick="$('#popup_userSearch').removeClass('active');"> </span>
+                </div>
+            </div>
+
+            <div class="userSearch-inputs">
+                <div class="row">
+                    <div class="col col-50">
+                        <label>{{'LOGIN_POPUP_USERSEARCH_FIRSTNAME'|translate}}</label>
+                        <input type="text" class="dealerSearch-name custom-input" ng-model="ui.userSearch.firstname">
+                    </div>
+
+                    <div class="col col-50">
+                        <label>{{'LOGIN_POPUP_USERSEARCH_LASTNAME'|translate}}</label>
+                        <input type="text" class="userSearch-name custom-input" ng-model="ui.userSearch.lastname">
+                    </div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th class="table-icon"></th>
+                    <th class="table-name">{{'LOGIN_POPUP_USERSEARCH_FIRSTNAME'|translate}}</th>
+                    <th class="table-city">{{'LOGIN_POPUP_USERSEARCH_LASTNAME'|translate}}</th>
+                    <th class="table-isSales"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in ui.personList | filter: ui.userSearch.firstname | filter: ui.userSearch.lastname | limitTo:7 | orderBy:'surname'"
+                    ng-click="selectUser(item);">
+                    <td class="table-icon">
+                        <span class="icon ion-plus-round"></span>
+                    </td>
+                    <td class="table-name">{{item.surname}}</td>
+                    <td class="table-zip">{{item.name}}</td>
+                    <td class="table-isSales">
+                        <span ng-show="item.dealer != '' && item.dealer != undefined">
+                            <span class="icon ion-person"></span>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
     </ion-content>

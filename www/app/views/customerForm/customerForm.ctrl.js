@@ -59,9 +59,6 @@
         $scope.ui.brand = 'vw';
         $scope.ui.dealerList = LocalStorageService.getDealerListByBrand($scope.ui.brand);
 
-        console.log($scope.ui.dealerList);
-
-
         $scope.submitLead = function () {
             if (formIsValid()) {
                 LeadResourceService.save();
@@ -108,7 +105,6 @@
             if (newVal) {
                 if (newVal.length > 2) {
                     $scope.data.countryCode = ISO3166.countryToCode[newVal].toLowerCase();
-                    console.log($scope.data.countryCode);
                 }
             }
         });

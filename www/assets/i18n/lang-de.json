@@ -4,7 +4,7 @@
   "GLOBAL_APP_VERSION" : "App-Version",
   "GLOBAL_BUTTON_SAVE" : "Speichern",
   "GLOBAL_BUTTON_BACK" : "Zurück zur Auswahl",
-  "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte Auswählen...",
+  "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte auswählen...",
   "GLOBAL_VALIDATION_ERROR" : "Ihre Eingaben sind nicht vollständig",
 
   "LOGIN_LABEL_SELECT_BRAND" : "Marke wählen",
@@ -17,6 +17,9 @@
   "LOGIN_BUTTON_REFRESH_DATA" : "Daten aktualisieren",
   "LOGIN_BUTTON_RESEND_LEADS" : "fehlgeschlagene Leads absenden",
   "LOGIN_LABEL_MODEL_DATA_FROM" : "Modelldaten",
+  "LOGIN_POPUP_USERSEARCH_TITLE" : "Benutzersuche",
+  "LOGIN_POPUP_USERSEARCH_FIRSTNAME" : "Vorname",
+  "LOGIN_POPUP_USERSEARCH_LASTNAME" : "Nachname",
 
   "SELECTMODEL_TITLE" : "Fahrzeuge",
   "SELECTMODEL_BUTTON_RESET" : "Auswahl zurücksetzen",
@@ -76,6 +79,7 @@
   "CUSTOMERFORM_PLACEHOLDER_EMAIL" : "Email",
   "CUSTOMERFORM_PLACEHOLDER_SELLER" : "Wunsch Händler",
   "CUSTOMERFORM_PLACEHOLDER_REMARKS" : "Bemerkungen",
+  "CUSTOMERFORM_TITLE_SEARCHDEALER" : "Händlersuche",
   "CUSTOMERFORM_LABEL_SEARCHDEALER_NAME" : "Name",
   "CUSTOMERFORM_LABEL_SEARCHDEALER_CITY" : "Ort",
   "CUSTOMERFORM_LABEL_SEARCHDEALER_ZIP" : "PLZ",

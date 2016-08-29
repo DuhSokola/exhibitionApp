@@ -42,7 +42,7 @@
 .selectUserContainer{
     margin-top: 105px;
     padding-bottom: 50px;
-    margin-right: calc(50% - 157px);
+    margin-right: calc(50% - 160px);
 }
 
 .selectUserContainer h1{
@@ -51,7 +51,7 @@
 
 .selectUserContainer .selectUser{
     float:right;
-    width: 370px;
+    width: 374px;
 }
 
 .loginButton{
@@ -84,4 +84,94 @@
 
 #popup_validation_error2 .popup-text{
     margin-top: 20px;
+}
+
+#popup_validation_error .popup-text {
+    margin-top: 20px;
+}
+
+#popup_userSearch {
+    margin-top: 75px;
+    margin-left: 15%;
+    height: 460px;
+    width: 600px;
+    padding-top: 10px;
+}
+
+#popup_userSearch .userSearch-inputs {
+    margin-top: -10px;
+    margin-left: 25px;
+}
+
+#popup_userSearch .userSearch-inputs input {
+    width: 265px;
+}
+
+#popup_userSearch .userSearch-inputs label {
+    float: left;
+    font-weight: bold;
+}
+
+#popup_userSearch table {
+    margin-left: 20px;
+}
+
+#popup_userSearch table thead {
+    border-bottom: 2px solid #4b8bf4;
+    font-weight: bold;
+}
+
+#popup_userSearch table th, td {
+    text-align: left;
+    padding-right: 7px;
+    word-break: break-all;
+}
+
+#popup_userSearch table td {
+    height: 30px;
+    border-bottom: 1px solid black;
+    padding-top: 1px;
+}
+
+#popup_userSearch table .table-icon {
+    width: 40px;
+    padding-left: 7px;
+    font-size: 23px;
+    color: #08c83c;
+}
+
+#popup_userSearch .icon.close {
+    margin-top: -10px;
+    margin-right: -10px;
+    float: right;
+    font-size: 30px;
+}
+
+#popup_userSearch .icon.delete {
+    margin-left: 15px;
+    margin-top: -10px;
+    float: left;
+    font-size: 30px;
+    color: red;
+}
+
+#popup_userSearch table .table-name {
+    width: 320px;
+}
+
+#popup_userSearch table .table-city {
+    width: 170px;
+}
+
+#popup_userSearch table .table-zip {
+    width: 100px;
+}
+
+.user-select-btn {
+    height: 32px;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 5px;
+    width: 100%;
+    line-height: 29px;
+    padding-left: 3px;
 }
