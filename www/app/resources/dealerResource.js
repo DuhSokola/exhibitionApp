@@ -18,6 +18,7 @@
             };
 
             var onError = function(errorData){
+                $rootScope.$emit('cantLoadDealerData');
                 console.log(errorData);
             };
 
@@ -34,7 +35,8 @@
         };
 
         return{
-            getAll : getAll
+            getAll : getAll,
+            reloadDealerData : getAll
         }
 
     }]);

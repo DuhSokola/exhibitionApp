@@ -66,13 +66,13 @@
 
             var lengthSum = scope.firstname.length + scope.lastname.length;
 
-            if (lengthSum < 5) {
+            if (lengthSum < 2) {
                 isValid = false;
             }
 
-            if (scope.zip === undefined || scope.zip === '' || scope.zip.length < 2) {
+            /*if (scope.zip === undefined || scope.zip === '' || scope.zip.length < 2) {
                 isValid = false;
-            }
+            }*/
 
             if (!isValid) {
                 $scope.ui.startSearch = undefined;

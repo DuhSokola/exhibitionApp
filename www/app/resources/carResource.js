@@ -21,6 +21,7 @@
             };
 
             var onError = function(errorData){
+                $rootScope.$emit('cantLoadCarData');
                 console.log(errorData);
             };
             

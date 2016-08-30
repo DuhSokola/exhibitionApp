@@ -64,7 +64,7 @@
             </button>
         </div>
 
-        <div class="versionInfo" style="float:right;">
+        <div class="versionInfo" ng-click="activateTestMode();">
             <p>{{'GLOBAL_APP_VERSION' | translate}}: {{appVersion}}</p>
             <p>{{'LOGIN_LABEL_MODEL_DATA_FROM' | translate}}: {{dateOfDataLoad.getDay()}}.{{dateOfDataLoad.getMonth()}}.{{dateOfDataLoad.getFullYear()}} {{dateOfDataLoad.getHours()}}:{{dateOfDataLoad.getMinutes()}}:{{dateOfDataLoad.getSeconds()}}</p>
         </div>

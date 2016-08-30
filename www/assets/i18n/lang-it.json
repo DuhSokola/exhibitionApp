@@ -32,8 +32,8 @@
   "SELECTMODEL_CATALOG_NOT_SELECTED_ERROR" : "Il catalogo non è stato selezionato",
 
   "SELECTCOUNTRY_TITLE" : "Ricerca interessati",
-  "SELECTCOUNTRY_BUTTON_SWISS" : "Interessati svizzeri",
-  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Interessati stranieri",
+  "SELECTCOUNTRY_BUTTON_SWISS" : "Residenti in Svizzera",
+  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Residenti in estero",
   "SELECTCOUNTRY_LABEL_LANGUAGE" : "Lingua di corrispondenza",
   "SELECTCOUNTRY_LANGUAGE_NOT_SELECTED_ERROR" : "La lingua di corrispondenza non è stata selezionata",
 

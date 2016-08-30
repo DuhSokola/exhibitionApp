@@ -86,3 +86,11 @@ input.custom-input{
     padding-top: 3px;
     text-decoration: none;
 }
+
+.ng-animate .scroll-bar {
+    visibility: visible !important;
+}
+
+.scroll-bar-fade-out{
+    opacity:1 !important
+}

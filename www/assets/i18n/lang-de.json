@@ -3,7 +3,7 @@
   "GLOBAL_BUTTON_HOME" : "Startseite",
   "GLOBAL_APP_VERSION" : "App-Version",
   "GLOBAL_BUTTON_SAVE" : "Speichern",
-  "GLOBAL_BUTTON_BACK" : "Zurück zur Auswahl",
+  "GLOBAL_BUTTON_BACK" : "Zurück zur Modellauswahl",
   "GLOBAL_BUTTON_PLEASE_CHOOSE" : "Bitte auswählen...",
   "GLOBAL_VALIDATION_ERROR" : "Ihre Eingaben sind nicht vollständig",
 
@@ -32,14 +32,14 @@
   "SELECTMODEL_CATALOG_NOT_SELECTED_ERROR" : "Katalog wurde nicht ausgewählt",
 
   "SELECTCOUNTRY_TITLE" : "Interessentensuche",
-  "SELECTCOUNTRY_BUTTON_SWISS" : "Schweizer Interessenten",
-  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Ausländische Interessenten",
+  "SELECTCOUNTRY_BUTTON_SWISS" : "Wohnsitz in der Schweiz",
+  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Wohnsitz in der Ausland",
   "SELECTCOUNTRY_LABEL_LANGUAGE" : "Korrespondenzsprache",
   "SELECTCOUNTRY_LANGUAGE_NOT_SELECTED_ERROR" : "Korrespondenzsprache wurde nicht selektiert",
 
   "SEARCHCUSTOMER_TITLE" : "Interessentensuche",
   "SEARCHCUSTOMER_TEXT_OR" : "oder",
-  "SEARCHCUSTOMER_TEXT_MIN" : "mind. 5 Zeichen und 2 Stellen PLZ",
+  "SEARCHCUSTOMER_TEXT_MIN" : "mind. 2 Zeichen",
   "SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME" : "Vorname",
   "SEARCHCUSTOMER_PLACEHOLDER_LASTNAME" : "Nachname",
   "SEARCHCUSTOMER_PLACEHOLDER_PHONE" : "Telefon",
@@ -55,7 +55,7 @@
 
   "CUSTOMERFORM_TITLE" : "Interessentendaten",
   "CUSTOMERFORM_BUTTON_RESET_FORM" : "Daten zurücksetzen",
-  "CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA" : "Interessenten aktualisieren",
+  "CUSTOMERFORM_BUTTON_REFRESH_CUTOMERDATA" : "Zurück zur Interessentensuche",
   "CUSTOMERFORM_BUTTON_SUBMIT" : "Absenden",
   "CUSTOMERFORM_BUTTON_TO_SWISS_LEAD" : "Zum Schweizer Lead wechseln",
   "CUSTOMERFORM_RADIO_CATALOG_LABEL" : "Katalog",

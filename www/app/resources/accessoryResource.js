@@ -20,6 +20,7 @@
             };
 
             var onError = function(errorData){
+                $rootScope.$emit('cantLoadAccessoryData');
                 console.log(errorData);
             };
 

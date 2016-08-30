@@ -28,7 +28,15 @@
             $scope.data.city = LeadEntity.getCustomer().city; //validation
             $scope.data.phone = LeadEntity.getCustomer().phone.replace('*', '');//validation
             $scope.data.email = LeadEntity.getCustomer().email; //validation
-            $scope.data.country = ((LeadEntity.getCustomer().country == 'ch') ? ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()] : ''); //validation
+            if (LeadEntity.getCustomer().country === 'ch') {
+                $scope.data.country = ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()];
+            } else {
+                if (LeadEntity.getCustomer().country === 'nonch') {
+                    $scope.data.country = '';
+                } else {
+                    $scope.data.country = ISO3166.codeToCountry[LeadEntity.getCustomer().country.toUpperCase()]
+                }
+            }
             $scope.data.countryCode = LeadEntity.getCustomer().country;
             $scope.data.dealer = LeadEntity.getCustomer().dealer;
             $scope.data.remarks = LeadEntity.getCustomer().remarks;
@@ -63,7 +71,7 @@
             if (formIsValid()) {
                 LeadResourceService.save();
                 $scope.startValidation = false;
-            }else{
+            } else {
                 $('#popup_validation_error').addClass('active');
                 $timeout(function () {
                     $('#popup_validation_error').removeClass('active');
@@ -71,12 +79,12 @@
             }
         };
 
-        $scope.selectDealer = function(dealer){
+        $scope.selectDealer = function (dealer) {
             $scope.data.dealer = dealer;
             $('#popup_dealerSearch').removeClass('active');
         };
 
-        $scope.removeDealer = function(){
+        $scope.removeDealer = function () {
             $scope.data.dealer = '';
             $('#popup_dealerSearch').removeClass('active');
         };
@@ -122,9 +130,9 @@
             var scope = $scope.data;
             var formIsValid = true;
 
+            //catalog validation
             var printedCatalogEl = $('#radioElectronic .item-content');
             var electroCatalogEl = $('#radioPrinted .item-content');
-
             if ($scope.ui.brochure == true) {
                 if (scope.catalogTyp === undefined || scope.catalogTyp === '') {
                     printedCatalogEl.addClass('not-valid');
@@ -135,6 +143,8 @@
                     electroCatalogEl.removeClass('not-valid');
                 }
             }
+
+            //salutation validation
             var maleSalutationEl = $('#salutationM .item-content');
             var femaleSalutationEl = $('#salutationF .item-content');
             if (scope.salutation === undefined || scope.salutation === '') {
@@ -146,6 +156,7 @@
                 femaleSalutationEl.removeClass('not-valid');
             }
 
+            //firstname validation
             var firstnameEl = $('#firstname');
             if (scope.firstname === undefined || scope.firstname === '') {
                 firstnameEl.addClass('not-valid');
@@ -154,6 +165,7 @@
                 firstnameEl.removeClass('not-valid');
             }
 
+            //lastname validation
             var lastnameEl = $('#lastname');
             if (scope.lastname === undefined || scope.lastname === '') {
                 lastnameEl.addClass('not-valid');
@@ -162,6 +174,7 @@
                 lastnameEl.removeClass('not-valid');
             }
 
+            //street validation
             var streetEl = $('#street');
             if (scope.street === undefined || scope.street === '') {
                 streetEl.addClass('not-valid');
@@ -170,6 +183,7 @@
                 streetEl.removeClass('not-valid');
             }
 
+            //streetNr validation
             var streetNrEl = $('#streetNr');
             if (scope.streetNr === undefined || scope.streetNr === '') {
                 streetNrEl.addClass('not-valid');
@@ -178,8 +192,7 @@
                 streetNrEl.removeClass('not-valid');
             }
 
-            console.log($scope.ui.mode);
-
+            //zip validation
             var zipEl = $('#zip');
             if (scope.zip === undefined || scope.zip === '') {
                 zipEl.addClass('not-valid');
@@ -195,6 +208,7 @@
                 zipEl.removeClass('not-valid');
             }
 
+            //city validation
             var cityEl = $('#city');
             if (scope.city === undefined || scope.city === '') {
                 cityEl.addClass('not-valid');
@@ -203,6 +217,7 @@
                 cityEl.removeClass('not-valid');
             }
 
+            //phone validation
             var phoneEl = $('#phone');
             if ($scope.ui.testdrive == true || $scope.ui.offer == true) {
                 if (scope.phone === undefined || scope.phone === '') {
@@ -223,15 +238,38 @@
                 phoneEl.removeClass('not-valid');
             }
 
+            //email validation
             var emailEl = $('#email');
-            if ($scope.ui.brochure == true) {
-                if (scope.catalogTyp === 'electronic') {
-                    var emailPatter = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
+            var emailPatter = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
+            if ($scope.ui.brochure == true || $scope.data.newsletter == true) {
+                if (scope.catalogTyp === 'electronic' || $scope.data.newsletter == true) {
                     if (scope.email === undefined || scope.email === '') {
                         emailEl.addClass('not-valid');
                         formIsValid = false;
-                    } else if (!emailPatter.test(scope.email)) {
+                    } else {
+                        if (!emailPatter.test(scope.email)) {
+                            emailEl.addClass('not-valid');
+                            formIsValid = false;
+                        } else {
+                            emailEl.removeClass('not-valid');
+                        }
+                    }
+                } else {
+                    if (scope.email != undefined && scope.email != '') {
+                        if (!emailPatter.test(scope.email)) {
+                            emailEl.addClass('not-valid');
+                            formIsValid = false;
+                        } else {
+                            emailEl.removeClass('not-valid');
+                        }
+                    } else {
+                        emailEl.removeClass('not-valid');
+                    }
+                }
+            } else {
+                if (scope.email != undefined && scope.email != '') {
+                    if (!emailPatter.test(scope.email)) {
                         emailEl.addClass('not-valid');
                         formIsValid = false;
                     } else {
@@ -240,18 +278,19 @@
                 } else {
                     emailEl.removeClass('not-valid');
                 }
-            } else {
-                emailEl.removeClass('not-valid');
             }
 
+            //country validation
             var countryEl = $('#country');
-            if (scope.countryCode === undefined || scope.countryCode === '') {
+            console.log(scope.countryCode);
+            if (scope.countryCode === undefined || scope.countryCode === '' || scope.countryCode === 'nonch') {
                 countryEl.addClass('not-valid');
                 formIsValid = false;
             } else {
                 countryEl.removeClass('not-valid');
             }
 
+            //privacy validation
             var privacyLblEl = $('#privacyLabel');
             if (scope.privacy != true) {
                 privacyLblEl.css('color', 'red');
@@ -353,6 +392,26 @@
         };
 
         $("#zip").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: Ctrl+C
+                (e.keyCode == 67 && e.ctrlKey === true) ||
+                // Allow: Ctrl+X
+                (e.keyCode == 88 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $("#phone").keydown(function (e) {
             // Allow: backspace, delete, tab, escape, enter and .
             if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
                 // Allow: Ctrl+A

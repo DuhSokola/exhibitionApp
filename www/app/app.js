@@ -41,6 +41,10 @@ angular.module('starter', deps)
         AccessoryDataService.initAccessoryData();
         DealerResource.getAll();
 
+        $rootScope.testmode = false;
+        $rootScope.testmodeCount = 0;
+
+        //every 5 Minutes
         $interval(function(){
             LeadResourceService.resendFailedLeads();
             console.log('Resend Failed Leads');

@@ -20,8 +20,8 @@
 
             <div class="search-form">
                 <div class="row">
-                    <input type="text" class="custom-input firstname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.search.request.firstname">
                     <input type="text" class="custom-input lastname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_LASTNAME'|translate}}" ng-model="data.search.request.lastname">
+                    <input type="text" class="custom-input firstname" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME'|translate}}" ng-model="data.search.request.firstname">
                     <span class="sc-span">{{'SEARCHCUSTOMER_TEXT_OR' | translate}}</span>
                     <input type="text" class="custom-input phone" placeholder="{{'SEARCHCUSTOMER_PLACEHOLDER_PHONE'|translate}}" ng-model="data.search.request.phone">
                 </div>
@@ -35,22 +35,22 @@
             <div class="search-results">
                 <div class="search-results-header">
                     <div class="search-results-header-item ic"></div>
-                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME' | translate}}</div>
                     <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_LASTNAME' | translate}}</div>
+                    <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_FIRSTNAME' | translate}}</div>
                     <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_STREET' | translate}}</div>
                     <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_ZIP' | translate}}</div>
                     <div class="search-results-header-item">{{'SEARCHCUSTOMER_PLACEHOLDER_CITY' | translate}}</div>
                 </div>
                 <ion-scroll zooming="false" direction="y">
-                    <div class="search-results-item" ng-repeat="person in data.search.result | orderBy:'-name':true" ng-click="selectCustomer($event, person);" ng-if="data.search.result != -1">
+                    <div class="search-results-item" ng-repeat="person in data.search.result | orderBy:'-surname':true" ng-click="selectCustomer($event, person);" ng-if="data.search.result != -1">
                         <div class="el ic">
                             <icon class="ion-android-person-add"></icon>
                         </div>
                         <div class="el">
-                            {{person.name}}
+                            {{person.surname}}
                         </div>
                         <div class="el">
-                            {{person.surname}}
+                            {{person.name}}
                         </div>
                         <div class="el">
                             {{person.address}}

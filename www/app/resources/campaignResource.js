@@ -19,6 +19,7 @@
 
             var onError = function(errorData){
                 scope[attrName] = LocalStorageService.getCampaignList();
+                $rootScope.$emit('cantLoadCampaignData');
                 console.log(errorData);
             };
 
@@ -26,7 +27,8 @@
         };
 
         return{
-            getAll : getAll
+            getAll : getAll,
+            reloadCampaignData: getAll
         }
 
     }]);

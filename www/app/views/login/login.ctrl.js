@@ -124,7 +124,8 @@
         $scope.reloadData = function () {
             CarDataService.reloadCarData();
             AccessoryDataService.reloadAccessoryData();
-            DealerResource.getAll();
+            DealerResource.reloadDealerData();
+            CampaignResourceService.getAll($scope.ui, 'campaignList');
         };
 
         $scope.resendLeads = function () {
@@ -136,6 +137,26 @@
                 return false;
             }
             return true;
+        };
+
+        $rootScope.$on('cantLoadCarData', function(){
+            //TODO ERROR-POPUP on Reload
+        });
+        $rootScope.$on('cantLoadAccessoryData', function(){
+            //TODO ERROR-POPUP on Reload
+        });
+        $rootScope.$on('cantLoadDealerData', function(){
+            //TODO ERROR-POPUP on Reload
+        });
+        $rootScope.$on('cantLoadCampaignData', function(){
+            //TODO ERROR-POPUP on Reload
+        });
+
+        $scope.activateTestMode = function(){
+            $rootScope.testmodeCount = $rootScope.testmodeCount++;
+            if($rootScope.testmodeCount/5){
+
+            }
         }
 
     }]);

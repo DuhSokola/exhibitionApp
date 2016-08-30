@@ -17,7 +17,7 @@
   "LOGIN_BUTTON_REFRESH_DATA" : "Actualiser les données",
   "LOGIN_BUTTON_RESEND_LEADS" : "envoi des leads ayant échoués",
   "LOGIN_LABEL_MODEL_DATA_FROM" : "Données du modèle",
-  "LOGIN_POPUP_USERSEARCH_TITLE" : "Recherche de user",
+  "LOGIN_POPUP_USERSEARCH_TITLE" : "Recherche de usssssser",
   "LOGIN_POPUP_USERSEARCH_FIRSTNAME" : "Prénom",
   "LOGIN_POPUP_USERSEARCH_LASTNAME" : "Nom de famille",
 
@@ -32,8 +32,8 @@
   "SELECTMODEL_CATALOG_NOT_SELECTED_ERROR" : "Le catalogue n'a pas été sélectionné",
 
   "SELECTCOUNTRY_TITLE" : "Recherche de person",
-  "SELECTCOUNTRY_BUTTON_SWISS" : "Personnes intéressées suisses",
-  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Personnes intéressées étrangères",
+  "SELECTCOUNTRY_BUTTON_SWISS" : "Domicilié en Suisse",
+  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Résider à l'étranger",
   "SELECTCOUNTRY_LABEL_LANGUAGE" : "Langue de correspondance",
   "SELECTCOUNTRY_LANGUAGE_NOT_SELECTED_ERROR" : "La langue de correspondance n'a pas été sélectionnée",
 
