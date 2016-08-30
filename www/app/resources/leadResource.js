@@ -31,7 +31,6 @@
                 '&conditionsAccepted=' + customer.privacy +
                 '&brand=' + brand +
                 '&campaigncode=' + UserEntity.getCampaign().code +
-                //'&campaigncode=' + 'testcamp' +
                 '&testdrive=' + leadType.testdrive +
                 '&offerrequest=' + leadType.offer +
                 '&orderbrochures=' + leadType.brochure +

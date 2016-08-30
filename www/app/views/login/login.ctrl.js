@@ -39,7 +39,14 @@
         $scope.data.user = {};
         $scope.data.user.brand = UserEntity.getBrand();
         $scope.data.user.language = UserEntity.getLanguage();
-        $scope.data.user.campaign = UserEntity.getCampaign();
+
+        if (UserEntity.getCampaign().constructor == {}.constructor) {
+            try {
+                $scope.data.user.campaign = JSON.stringify(UserEntity.getCampaign());
+            } catch (ex) {
+                $scope.data.user.campaign = UserEntity.getCampaign();
+            }
+        }
         $scope.data.user.person = UserEntity.getPerson();
 
         var initStyles = function () {
@@ -65,11 +72,10 @@
         });
 
         $scope.login = function () {
-            console.log($scope.ui.personList);
             if (fieldsAreValid()) {
                 UserEntity.setBrand($scope.data.user.brand);
                 UserEntity.setLanguage($scope.data.user.language);
-                UserEntity.setCampaign($scope.data.user.campaign);
+                UserEntity.setCampaign(JSON.parse($scope.data.user.campaign));
                 UserEntity.setPerson($scope.data.user.person);
 
                 console.log("You are logged in:");
