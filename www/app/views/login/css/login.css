@@ -167,6 +167,11 @@
     width: 100px;
 }
 
+#popup_userSearch h3{
+    width: 200px;
+    word-break: keep-all;
+}
+
 .user-select-btn {
     height: 32px;
     border: 1px solid rgb(158, 158, 158);

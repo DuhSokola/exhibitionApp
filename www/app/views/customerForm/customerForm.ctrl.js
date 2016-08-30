@@ -226,7 +226,7 @@
             var emailEl = $('#email');
             if ($scope.ui.brochure == true) {
                 if (scope.catalogTyp === 'electronic') {
-                    var emailPatter = new RegExp(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
+                    var emailPatter = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
                     if (scope.email === undefined || scope.email === '') {
                         emailEl.addClass('not-valid');
