@@ -20,7 +20,7 @@
             url: '/login',
             templateUrl: 'app/views/login/_login.html',
             controller: 'LoginCtrl',
-            cache: true
+            cache: false
         });
 
         $stateProvider.state('selectModel', {

@@ -42,10 +42,30 @@
         $scope.data.user.campaign = UserEntity.getCampaign();
         $scope.data.user.person = UserEntity.getPerson();
 
+        var initStyles = function () {
+            if ($scope.data.user.brand) {
+                $('select-brand .col.'+$scope.data.user.brand).addClass('selected');
+            }
+            if ($scope.data.user.language){
+                console.log($scope.data.user.language);
+                $('select-language .radio-icon').css('visibility', 'hidden');
+                $('select-language .item[name='+$scope.data.user.language+'] .radio-icon').css('visibility', 'visible');
+            }
+        };
+
+        $timeout(function () {
+            initStyles();
+        },100);
+
+        $scope.$watch('data.user.language', function(newVal){
+            if(newVal){
+                $('select-language .radio-icon').css('visibility', 'hidden');
+                $('select-language .item[name='+newVal+'] .radio-icon').css('visibility', 'visible');
+            }
+        });
+
         $scope.login = function () {
-            
             console.log($scope.ui.personList);
-            
             if (fieldsAreValid()) {
                 UserEntity.setBrand($scope.data.user.brand);
                 UserEntity.setLanguage($scope.data.user.language);
@@ -61,7 +81,7 @@
 
                 LeadEntity.resetAll();
                 $state.go('selectModel');
-            }else{
+            } else {
                 $('#popup_validation_error2').addClass('active');
                 $timeout(function () {
                     $('#popup_validation_error2').removeClass('active');
@@ -69,12 +89,12 @@
             }
         };
 
-        $scope.selectUser = function(user){
+        $scope.selectUser = function (user) {
             $scope.data.user.person = user;
             $('#popup_userSearch').removeClass('active');
         };
 
-        $scope.removeUser = function(){
+        $scope.removeUser = function () {
             $scope.data.user.person = '';
             $('#popup_userSearch').removeClass('active');
         };
@@ -91,7 +111,7 @@
             }
         });
 
-        $scope.$on('failedLeadSendSuccess', function(){
+        $scope.$on('failedLeadSendSuccess', function () {
             $scope.ui.failedLeadSize = LocalStorageService.getSizeOfFailedList();
         });
 

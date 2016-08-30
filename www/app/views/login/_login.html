@@ -21,7 +21,11 @@
             <h1>{{'LOGIN_LABEL_SELECT_CAMPAIGN' | translate}}:</h1>
 
             <div class="selectCampaign">
-                <select-item sl-label="{{'LOGIN_PLACEHOLDER_SELECT_CAMPAIGN'|translate}}" ng-model="data.user.campaign" select-list="ui.campaignList"></select-item>
+                <select class="campaign-selector" ng-model="data.user.campaign">
+                    <option value="">{{'GLOBAL_BUTTON_PLEASE_CHOOSE' | translate}}</option>
+                    <option ng-repeat="item in ui.campaignList" value="{{item}}">{{item.label}}</option>
+                </select>
+                <!--<select-item sl-label="{{'LOGIN_PLACEHOLDER_SELECT_CAMPAIGN'|translate}}" ng-model="data.user.campaign" select-list="ui.campaignList"></select-item>-->
             </div>
         </div>
 
@@ -105,7 +109,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="item in ui.personList | filter: ui.userSearch.firstname | filter: ui.userSearch.lastname | limitTo:7 | orderBy:'surname'"
+                <tr ng-repeat="item in ui.personList | filter: ui.userSearch.firstname | filter: ui.userSearch.lastname | limitTo:7 | orderBy: 'surname'"
                     ng-click="selectUser(item);">
                     <td class="table-icon">
                         <span class="icon ion-plus-round"></span>

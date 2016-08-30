@@ -28,13 +28,14 @@
                 '&city=' + customer.city +
                 '&phone=' + customer.phone +
                 '&mail=' + customer.email +
-                '&orderbrochureselectro=' + (leadType.brochure == 'electronic') +
                 '&conditionsAccepted=' + customer.privacy +
                 '&brand=' + brand +
-                '&campaigncode=' + UserEntity.getCampaign().code + //TODO
+                '&campaigncode=' + UserEntity.getCampaign().code +
                 //'&campaigncode=' + 'testcamp' +
                 '&testdrive=' + leadType.testdrive +
-                '&orderbrochures=' + (leadType.brochure.length > 0) +
+                '&offerrequest=' + leadType.offer +
+                '&orderbrochures=' + leadType.brochure +
+                '&orderbrochureselectro=' + (leadType.brochureType == 'electronic') +
                 '&newsletter=' + customer.newsletter +
                 '&company=' + customer.firm +
                 '&country=' + customer.country +
@@ -52,40 +53,6 @@
                 '&currentModel=' +
                 '&testmode=true';
 
-            /*var params =
-             'salutation=' + LeadEntity.getCustomer().salutation +
-             '&lang=' + LeadEntity.getCustomer().language +
-             '&name=' + LeadEntity.getCustomer().firstname +
-             '&surname=' + LeadEntity.getCustomer().lastname +
-             '&street=' + LeadEntity.getCustomer().street +
-             '&houseNumber=' + LeadEntity.getCustomer().houseNumber +
-             '&zip=' + LeadEntity.getCustomer().zip +
-             '&city=' + LeadEntity.getCustomer().city +
-             '&phone=' + LeadEntity.getCustomer().phone +
-             '&mail=' + LeadEntity.getCustomer().email +
-             '&orderbrochureselectro=' + (LeadEntity.getLeadType().brochure == 'electronic') +
-             '&conditionsAccepted=' + LeadEntity.getCustomer().privacy +
-             '&brand=' + UserEntity.getBrand() +
-             //'&campaigncode=' + UserEntity.getCampaign().code +
-             '&campaigncode=' + 'testcamp' +
-             '&testdrive=' + LeadEntity.getLeadType().testdrive +
-             '&orderbrochures=' + (LeadEntity.getLeadType().brochure.length > 0) +
-             '&newsletter=' + LeadEntity.getCustomer().newsletter +
-             '&company=' + LeadEntity.getCustomer().firm +
-             '&country=' + LeadEntity.getCustomer().country +
-             '&dealer=' + ((LeadEntity.getCustomer().seller.code != undefined) ? LeadEntity.getCustomer().seller.code : '') +
-             '&reachability=' +
-             '&remarks=' + LeadEntity.getCustomer().remarks +
-             '&salesperson=' + UserEntity.getPerson().name + ' ' + UserEntity.getPerson().surname +
-             '&dynamicSearchResult=false' +
-             '&collector=LeadApp_v2' +
-             '&versionNumber=0.1.0' +
-             '&contact=false' +
-             '&leadactiontyp=' +
-             '&age=' +
-             '&currentBrand=' +
-             '&currentModel=' +
-             '&testmode=true';*/
 
             for (var i = 0; i < order.cars.length; i++) {
                 params += '&vlcoptions=' + 'option_' + order.cars[i].code;
@@ -109,8 +76,6 @@
         var save = function () {
             persist(UserEntity.getBrand(), LeadEntity.getCustomer(), LeadEntity.getLeadType(), UserEntity.getPerson(), LeadEntity.getOrder(), function () {
                 $rootScope.$broadcast('leadSendSuccess');
-                //TODO DELETE
-                LocalStorageService.saveFailedLead();
             }, function (errorData) {
                 console.log(errorData);
                 $rootScope.$broadcast('leadSendError');
@@ -132,8 +97,6 @@
                 }
             }
         };
-
-
 
         return {
             save: save,
