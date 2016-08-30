@@ -33,7 +33,7 @@
 
   "SELECTCOUNTRY_TITLE" : "Interessentensuche",
   "SELECTCOUNTRY_BUTTON_SWISS" : "Wohnsitz in der Schweiz",
-  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Wohnsitz in der Ausland",
+  "SELECTCOUNTRY_BUTTON_FOREIGN" : "Wohnsitz im Ausland",
   "SELECTCOUNTRY_LABEL_LANGUAGE" : "Korrespondenzsprache",
   "SELECTCOUNTRY_LANGUAGE_NOT_SELECTED_ERROR" : "Korrespondenzsprache wurde nicht selektiert",
 
