@@ -50,7 +50,7 @@
                 '&age=' +
                 '&currentBrand=' +
                 '&currentModel=' +
-                '&testmode=true';
+                '&testmode='+$rootScope.testmode;
 
 
             for (var i = 0; i < order.cars.length; i++) {

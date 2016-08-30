@@ -51,23 +51,23 @@
 
         var initStyles = function () {
             if ($scope.data.user.brand) {
-                $('select-brand .col.'+$scope.data.user.brand).addClass('selected');
+                $('select-brand .col.' + $scope.data.user.brand).addClass('selected');
             }
-            if ($scope.data.user.language){
+            if ($scope.data.user.language) {
                 console.log($scope.data.user.language);
                 $('select-language .radio-icon').css('visibility', 'hidden');
-                $('select-language .item[name='+$scope.data.user.language+'] .radio-icon').css('visibility', 'visible');
+                $('select-language .item[name=' + $scope.data.user.language + '] .radio-icon').css('visibility', 'visible');
             }
         };
 
         $timeout(function () {
             initStyles();
-        },100);
+        }, 100);
 
-        $scope.$watch('data.user.language', function(newVal){
-            if(newVal){
+        $scope.$watch('data.user.language', function (newVal) {
+            if (newVal) {
                 $('select-language .radio-icon').css('visibility', 'hidden');
-                $('select-language .item[name='+newVal+'] .radio-icon').css('visibility', 'visible');
+                $('select-language .item[name=' + newVal + '] .radio-icon').css('visibility', 'visible');
             }
         });
 
@@ -139,23 +139,31 @@
             return true;
         };
 
-        $rootScope.$on('cantLoadCarData', function(){
+        $rootScope.$on('cantLoadCarData', function () {
             //TODO ERROR-POPUP on Reload
         });
-        $rootScope.$on('cantLoadAccessoryData', function(){
+        $rootScope.$on('cantLoadAccessoryData', function () {
             //TODO ERROR-POPUP on Reload
         });
-        $rootScope.$on('cantLoadDealerData', function(){
+        $rootScope.$on('cantLoadDealerData', function () {
             //TODO ERROR-POPUP on Reload
         });
-        $rootScope.$on('cantLoadCampaignData', function(){
+        $rootScope.$on('cantLoadCampaignData', function () {
             //TODO ERROR-POPUP on Reload
         });
 
-        $scope.activateTestMode = function(){
-            $rootScope.testmodeCount = $rootScope.testmodeCount++;
-            if($rootScope.testmodeCount/5){
+        $scope.activateTestMode = function () {
+            $rootScope.testmodeCount = ++$rootScope.testmodeCount;
+            function isOdd(num) {
+                return ((num % 2) == 1);
+            }
 
+            if ($rootScope.testmodeCount % 5 == 0) {
+                if (isOdd($rootScope.testmodeCount / 5)) {
+                    $rootScope.testmode = true;
+                } else if (!isOdd($rootScope.testmodeCount / 5)) {
+                    $rootScope.testmode = false;
+                }
             }
         }
 
