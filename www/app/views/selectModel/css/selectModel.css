@@ -75,3 +75,7 @@
 .selectModelView .info-popup.selMod .popup-text{
     margin-top: 20px;
 }
+
+.selectModelView .footer{
+    margin-top: 40px;
+}
