@@ -18,7 +18,7 @@
 
     var app = angular.module('app.login.ctrl', dependencies);
 
-    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', '$translate', 'LocalStorageService', 'LeadResourceService', '$timeout', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity, $translate, LocalStorageService, LeadResourceService, $timeout) {
+    app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'PersonResourceService', 'CampaignResourceService', 'CarDataService', 'AccessoryDataService', 'UserEntity', 'LeadEntity', '$translate', 'LocalStorageService', 'LeadResourceService', '$timeout', 'DealerResource', function ($scope, $rootScope, $state, PersonResourceService, CampaignResourceService, CarDataService, AccessoryDataService, UserEntity, LeadEntity, $translate, LocalStorageService, LeadResourceService, $timeout, DealerResource) {
 
         $rootScope.dateOfDataLoad = new Date(LocalStorageService.getDateOfData());
 
@@ -126,6 +126,7 @@
             AccessoryDataService.reloadAccessoryData();
             DealerResource.reloadDealerData();
             CampaignResourceService.getAll($scope.ui, 'campaignList');
+            PersonResourceService.getAll($scope.ui, 'personList');
         };
 
         $scope.resendLeads = function () {

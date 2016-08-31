@@ -16,6 +16,9 @@
 		3047A5121AB8059700498E2A /* build-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A50F1AB8059700498E2A /* build-debug.xcconfig */; };
 		3047A5131AB8059700498E2A /* build-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5101AB8059700498E2A /* build-release.xcconfig */; };
 		3047A5141AB8059700498E2A /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3047A5111AB8059700498E2A /* build.xcconfig */; };
+		4EFD24711D75F38800136270 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFD24701D75F38800136270 /* AssetsLibrary.framework */; };
+		4EFD24731D75F39300136270 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFD24721D75F39300136270 /* CoreGraphics.framework */; };
+		4EFD24751D75F39E00136270 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFD24741D75F39E00136270 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5111AB8059700498E2A /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = build.xcconfig; path = cordova/build.xcconfig; sourceTree = SOURCE_ROOT; };
 		32CA4F630368D1EE00C91783 /* exhibitionApp2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exhibitionApp2-Prefix.pch"; sourceTree = "<group>"; };
+		4EFD24701D75F38800136270 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		4EFD24721D75F39300136270 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4EFD24741D75F39E00136270 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* exhibitionApp2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "exhibitionApp2-Info.plist"; path = "exhibitionApp2/exhibitionApp2-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
@@ -62,6 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFD24751D75F39E00136270 /* MobileCoreServices.framework in Frameworks */,
+				4EFD24731D75F39300136270 /* CoreGraphics.framework in Frameworks */,
+				4EFD24711D75F38800136270 /* AssetsLibrary.framework in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +141,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EFD24741D75F39E00136270 /* MobileCoreServices.framework */,
+				4EFD24721D75F39300136270 /* CoreGraphics.framework */,
+				4EFD24701D75F38800136270 /* AssetsLibrary.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,10 +326,10 @@
 				INFOPLIST_FILE = "exhibitionApp2/exhibitionApp2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ionicframework.exhibitionapp2457286;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ionicframework.exhibitionapp24;
 				PRODUCT_NAME = exhibitionApp2;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -339,10 +351,10 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "exhibitionApp2/exhibitionApp2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ionicframework.exhibitionapp2457286;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ionicframework.exhibitionapp24;
 				PRODUCT_NAME = exhibitionApp2;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
